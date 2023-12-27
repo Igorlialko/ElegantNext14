@@ -1,0 +1,49 @@
+{
+  "name": "elegantnext14",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=\"--max_old_space_size=4096\" ./node_modules/env-cmd/bin/env-cmd.js -f env/.env.dev ./node_modules/.bin/next dev",
+    "build:dev": "./node_modules/.bin/env-cmd -f env/.env.dev ./node_modules/.bin/next build",
+    "build:prod": "./node_modules/.bin/env-cmd -f env/.env.prod ./node_modules/.bin/next build",
+    "start": "node_modules/.bin/next start",
+    "lint": "eslint \"src/**/*.{js,jsx,tsx,ts}\" --fix --quiet",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "stylelint": "stylelint --fix src/**/*.scss",
+    "format": "prettier --write . --ignore-path .gitignore --ignore-path .prettierignore",
+    "prettier": "prettier --write . --ignore-path .prettierignore",
+    "bundle:dev": "ANALYZE=true npm run build:dev",
+    "server:dev": "./node_modules/.bin/env-cmd -f env/.env.dev node ./server/server.js",
+    "generate:db": "./node_modules/.bin/env-cmd -f env/.env.dev node ./db/generateDB.js"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "eslint": "8.22.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "13.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-storybook": "^0.6.10",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "typescript": "^5"
+  }
+}
