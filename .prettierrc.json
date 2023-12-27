@@ -5,13 +5,7 @@
   "trailingComma": "es5",
   "printWidth": 100,
   "endOfLine": "auto",
-  "importOrder": [
-    "^react$",
-    "<THIRD_PARTY_MODULES>",
-    "^public/(.*)$",
-    "^@/app/(.*)$",
-    "^[./]"
-  ],
+  "importOrder": ["^react$", "<THIRD_PARTY_MODULES>", "^public/(.*)$", "^@/app/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }

@@ -113,7 +113,7 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
 
 // module.exports = withPlugins(
 //   [[images], [withBundleAnalyzer]], //[withClassnamesMinifier]
