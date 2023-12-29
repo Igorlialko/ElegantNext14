@@ -18,6 +18,7 @@
     "generate:db": "./node_modules/.bin/env-cmd -f env/.env.dev node ./db/generateDB.js"
   },
   "dependencies": {
+    "clsx": "^2.0.0",
     "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
     "next": "14.0.4",
@@ -29,7 +30,6 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",
-    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -48,6 +48,13 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "sass": "^1.69.6",
-    "typescript": "4.8.2"
+    "typescript": "4.8.2",
+    "stylelint": "^14.8.2",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "stylelint-prettier": "^2.0.0"
   }
 }
