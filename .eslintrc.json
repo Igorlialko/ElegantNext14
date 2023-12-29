@@ -4,6 +4,7 @@
     "es2021": true
   },
   "extends": [
+    "next",
     "airbnb",
     "prettier",
     "plugin:react/recommended",
@@ -50,7 +51,10 @@
     "no-underscore-dangle": "off",
     "no-unused-vars": [
       "warn",
-      { "argsIgnorePattern": "^_*$", "destructuredArrayIgnorePattern": "^_" }
+      {
+        "argsIgnorePattern": "^_*$",
+        "destructuredArrayIgnorePattern": "^_"
+      }
     ],
     "no-console": "off",
     "func-names": "off",

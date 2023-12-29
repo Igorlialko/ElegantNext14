@@ -1,21 +1,3 @@
-:root {
-  --fontSize: 16px;
-  --line-height: 160%;
-  --app-height: 100vh;
-  --minWidth: 375px;
-  --maxWidthContainer: 1240px;
-
-  --text-main-white: #f0f5ff;
-  --text-secondary-grey: #9ba0a7;
-  --text-tertiary-dark-grey: #696e76;
-
-  --bg-for-icons-grey: #313946;
-  --bg-hover: #4c535e;
-  --bg-main-black: #010a18;
-  --bg-success: #008756;
-  --bg-error: #d83640;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -55,8 +37,8 @@ section {
 body {
   overscroll-behavior: none;
   line-height: 1;
-  color: var(--text-main-white);
-  background: var(--bg-main-black);
+  color: var(--text-main);
+  background: var(--bg-main);
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -69,6 +51,7 @@ body {
   font-size: var(--fontSize);
   line-height: var(--line-height);
   scroll-behavior: smooth;
+  font-family: var(--fontFamily);
 }
 
 input,
@@ -77,7 +60,7 @@ textarea {
   font-family: var(--fontFamily);
   font-size: inherit;
   line-height: inherit;
-  color: var(--bg-main-black);
+  color: var(--bg-main);
 }
 
 input::-ms-clear {
@@ -85,7 +68,7 @@ input::-ms-clear {
 }
 
 button {
-  color: var(--text-main-white);
+  color: var(--text-main);
   cursor: pointer;
   background-color: inherit;
 }

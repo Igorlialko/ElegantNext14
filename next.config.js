@@ -1,6 +1,6 @@
 // const path = require("path");
-// const images = require('next-images');
-// const withPlugins = require('next-compose-plugins');
+const images = require('next-images');
+const withPlugins = require('next-compose-plugins');
 const shortid = require('shortid');
 // const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 // const optimizedImages = require('next-optimized-images');
@@ -113,9 +113,7 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
-
-// module.exports = withPlugins(
-//   [[images], [withBundleAnalyzer]], //[withClassnamesMinifier]
-//   nextConfig
-// );
+module.exports = withPlugins(
+  [[images]], //[withBundleAnalyzer]], //[withClassnamesMinifier]
+  nextConfig
+);

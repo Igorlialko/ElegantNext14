@@ -1,8 +1,9 @@
+import Header from '@/app/_components/Header/Header';
+
 export default function Home() {
-  console.log('sd', sdf);
   return (
     <main>
-      <h1>Hello world</h1>
+      <Header />
     </main>
   );
 }
