@@ -35,7 +35,7 @@ export default function Header() {
           <div className={s.logo}>
             <img src='/images/logo.webp' alt='logo elegant' width={105} height={24} />
           </div>
-          <MenuLinks links={headerLinks} pathname={pathname} footer={false} />
+          <MenuLinks links={headerLinks} pathname={pathname} />
           <div className={s.userInterface}>
             <SearchIcon />
             <UserActivity />

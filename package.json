@@ -26,7 +26,8 @@
     "next-images": "^1.8.5",
     "react": "^18",
     "react-dom": "^18",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",

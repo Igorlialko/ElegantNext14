@@ -9,7 +9,7 @@ export default function MenuLinks({
 }: {
   links: any[];
   pathname: string;
-  footer: boolean;
+  footer?: boolean;
 }) {
   return (
     <ul className={s.links}>
