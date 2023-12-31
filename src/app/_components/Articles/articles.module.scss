@@ -1,0 +1,15 @@
+.articles {
+  padding: 80px 0;
+  @media (max-width: 576px) {
+    padding: 40px 0;
+  }
+  &__block {
+    &_cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      align-items: center;
+      margin-top: 40px;
+    }
+  }
+}

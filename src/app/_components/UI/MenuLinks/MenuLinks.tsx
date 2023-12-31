@@ -13,16 +13,18 @@ export default function MenuLinks({
 }) {
   return (
     <ul className={s.links}>
-      {links.map((link) => (
-        <li key={link.title}>
-          <Link
-            href={link.href}
-            className={footer ? undefined : clsx(pathname === link.href && s.active)}
-          >
-            {link.title}
-          </Link>
-        </li>
-      ))}
+      {links.map((link) => {
+        return (
+          <li key={link.title}>
+            <Link
+              href={link.href}
+              className={footer ? undefined : clsx(pathname === link.href && s.active)}
+            >
+              {link.title}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }
