@@ -16,6 +16,21 @@ import ArrowPrev from '@/app/_icons/arrows/mainSlider/ArrowPrev';
 export default function MainSlider() {
   const buttonSlideNext = useRef(null);
   const buttonSlidePrev = useRef(null);
+
+  const images = [
+    {
+      url: '/images/mainSliderImages/sliderImage.webp',
+      alt: 'image1',
+    },
+    {
+      url: '/images/mainSliderImages/sliderImage.webp',
+      alt: 'image2',
+    },
+    {
+      url: '/images/mainSliderImages/sliderImage.webp',
+      alt: 'image3',
+    },
+  ];
   return (
     <section className={s.mainSlider}>
       <div className='_container'>
@@ -29,15 +44,13 @@ export default function MainSlider() {
             swiper.params.navigation.prevEl = buttonSlidePrev.current;
           }}
         >
-          <SwiperSlide>
-            <img src='/images/mainSliderImages/sliderImage.webp' alt='iamge' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/images/mainSliderImages/sliderImage.webp' alt='iamge' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/images/mainSliderImages/sliderImage.webp' alt='iamge' />
-          </SwiperSlide>
+          {images.map((image) => {
+            return (
+              <SwiperSlide key={image.alt}>
+                <img src={image.url} alt={image.alt} />
+              </SwiperSlide>
+            );
+          })}
           <div className={s.mainSlider__navigation}>
             <button className={s.mainSlider__navigation_arrowNext} ref={buttonSlideNext}>
               <ArrowNext />
