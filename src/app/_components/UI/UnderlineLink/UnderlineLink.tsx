@@ -7,7 +7,7 @@ export default function UnderlineLink({
 }: {
   children: string;
   url?: string;
-  link: boolean;
+  link?: boolean;
 }) {
   return (
     <>
