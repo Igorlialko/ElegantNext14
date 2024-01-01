@@ -13,8 +13,7 @@ export default function UnderlineLink({
     <>
       {link ? (
         <a className={s.underlineLink} href={url}>
-          {' '}
-          {children}{' '}
+          {children}
         </a>
       ) : (
         <p className={s.underlineLink}> {children} </p>
