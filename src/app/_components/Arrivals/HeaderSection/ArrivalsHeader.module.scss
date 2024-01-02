@@ -1,0 +1,24 @@
+.flexWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.title {
+  max-width: 149px;
+
+  color: #000;
+  font-family: var(fontFamilyPoppins);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: -0.4px;
+}
+
+@media (max-width: 451px) {
+  .title {
+    font-size: 34px;
+    line-height: 38px;
+    letter-spacing: -0.4px;
+  }
+}

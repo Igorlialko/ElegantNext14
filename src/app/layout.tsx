@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Poppins, Space_Grotesk } from 'next/font/google';
 
 import './_styles/globals.scss';
 import clsx from 'clsx';
@@ -19,6 +19,12 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--fontFamilySpaceGrotesk',
 });
 
+const spacePoppins = Poppins({
+  subsets: ['latin'],
+  weight: ['500'],
+  variable: '--fontFamilyPoppins',
+});
+
 export const metadata: Metadata = {
   title: 'Elegant shop',
   description: 'Buy for free',
@@ -27,7 +33,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
-      <body className={clsx(inter.variable, spaceGrotesk.variable)}>
+      <body className={clsx(inter.variable, spaceGrotesk.variable, spacePoppins.variable)}>
         <Header />
         {children}
       </body>
