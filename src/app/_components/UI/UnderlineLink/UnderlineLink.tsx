@@ -1,14 +1,11 @@
 import s from './underlineLink.module.scss';
 
-export default function UnderlineLink({
-  children,
-  url = '/',
-  link = true,
-}: {
+interface IUnderlineLink {
   children: string;
   url?: string;
   link?: boolean;
-}) {
+}
+export default function UnderlineLink({ children, url = '/', link = true }: IUnderlineLink) {
   return (
     <>
       {link ? (

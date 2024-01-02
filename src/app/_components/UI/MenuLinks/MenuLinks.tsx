@@ -2,15 +2,12 @@ import s from './menuLinks.module.scss';
 import Link from 'next/link';
 import clsx from 'clsx';
 
-export default function MenuLinks({
-  links,
-  pathname,
-  footer = false,
-}: {
+interface Ilinks {
   links: any[];
   pathname: string;
   footer?: boolean;
-}) {
+}
+export default function MenuLinks({ links, pathname, footer = false }: Ilinks) {
   return (
     <ul className={s.links}>
       {links.map((link) => {
