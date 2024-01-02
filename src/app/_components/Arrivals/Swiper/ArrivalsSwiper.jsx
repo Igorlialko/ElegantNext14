@@ -8,9 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import ArrivalsSlide from '../Slide/ArrivalsSlide';
 import { data } from './data.js';
 
-import 'swiper/scss';
-import 'swiper/scss/scrollbar';
-
 import './swiper.scss';
 import s from './ArrivalsSwiper.module.scss';
 

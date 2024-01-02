@@ -6,6 +6,11 @@ import MainSlider from '@/app/_components/MainSlider/MainSlider';
 import Newsletter from '@/app/_components/Newsletter/Newsletter';
 import Articles from '@/app/_components/Articles/Articles';
 
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/scrollbar';
+
 export default function Home() {
   return (
     <main>

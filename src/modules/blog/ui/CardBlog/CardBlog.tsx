@@ -1,6 +1,7 @@
 import s from './cardBlog.module.scss';
 import H7 from '@/app/_components/typography/H7/H7';
-import UnderlineLink from '@/app/_components/UI/UnderlineLink/UnderlineLink';
+import UnderLineLink from '@/commonUI/UnderLineLink/UnderLineLink';
+import Link from 'next/link';
 
 export default function CardBlog({
   imageURL,
@@ -18,20 +19,22 @@ export default function CardBlog({
   cardDate?: string;
 }) {
   return (
-    <a className={s.cardBlog} href={linkURL}>
-      <div className={s.cardBlog__image}>
+    <Link className={s.cardBlog} href={linkURL}>
+      <span className={s.image}>
         <img src={imageURL} alt={imageAlt} />
-      </div>
-      <div className={s.cardBlog__title}>
+      </span>
+      <span className={s.title}>
         <H7>{title}</H7>
-      </div>
-      <div className={s.cardBlog__rest}>
+      </span>
+      <span className={s.rest}>
         {link ? (
-          <UnderlineLink link={false}>Read more</UnderlineLink>
+          <UnderLineLink isLink={false} className={s.link}>
+            Read more
+          </UnderLineLink>
         ) : (
-          <p className={s.cardBlog__rest_date}>{cardDate}</p>
+          <span className={s.date}>{cardDate}</span>
         )}
-      </div>
-    </a>
+      </span>
+    </Link>
   );
 }

@@ -24,12 +24,6 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--fontFamilySpaceGrotesk',
 });
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--fontFamilyPoppins',
-});
-
 export const metadata: Metadata = {
   title: 'Elegant shop',
   description: 'Buy for free',

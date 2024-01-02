@@ -22,6 +22,7 @@
     }
 
     :global(.swiper-pagination-bullet) {
+      border-radius: 4px;
       display: block;
       background: var(--neutral-01100);
       opacity: 1;
@@ -40,36 +41,34 @@
   }
 }
 
-.mainSlider {
-  &__navigation {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    width: calc(100% - 66px);
-    transform: translate(-50%, -50%);
-    @media (max-width: 576px) {
-      display: none;
-    }
+.navigation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 66px);
+  transform: translate(-50%, -50%);
+  @media (max-width: 576px) {
+    display: none;
+  }
+}
 
-    &_arrowNext,
-    &_arrowPrev {
-      position: relative;
-      width: 52px;
-      height: 52px;
-      padding: 10px;
-      background: var(--elements-white);
-      border-radius: 50%;
+.arrowNext,
+.arrowPrev {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  padding: 10px;
+  background: var(--elements-white);
+  border-radius: 50%;
 
-      > svg > path {
-        transition: stroke 0.3s ease;
-      }
+  > svg > path {
+    transition: stroke 0.3s ease;
+  }
 
-      &:hover > svg > path {
-        stroke: var(--neutral-07100);
-      }
-    }
+  &:hover > svg > path {
+    stroke: var(--neutral-07100);
   }
 }

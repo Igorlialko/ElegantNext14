@@ -9,21 +9,26 @@
   color: var(--text-main);
   letter-spacing: -0.4px;
   border-bottom: 1px solid var(--neutral-07100);
+  cursor: pointer;
   @media (max-width: 576px) {
     padding-right: 20px;
   }
-  &:after {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    content: '';
-    background: url('/images/arrowLink.webp') 100% 100% / contain;
-    transform: translateY(-50%);
-    @media (max-width: 576px) {
-      width: 16px;
-      height: 16px;
-    }
+
+  &:hover .after {
+    right: -10px;
+  }
+}
+
+.after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  transition: right 0.2s;
+  @media (max-width: 576px) {
+    width: 16px;
+    height: 16px;
   }
 }
