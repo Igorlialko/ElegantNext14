@@ -5,48 +5,102 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import WishListIcon from '@/app/_icons/WishListIcon';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Dispatch, SetStateAction, useState } from 'react';
+import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 
-const userLinks = [
-  {
-    title: 'Cart',
-    href: '/cart',
-  },
-  {
-    title: 'Wishlist',
-    href: '/wishlist',
-  },
-];
-
-const UserActivity = () => {
+const UserActivity = ({
+  setIsAuthorized,
+}: {
+  setIsAuthorized: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const user = {
+    avatar: '/images/avatar_placeholder.webp',
+    firstName: 'Sofia',
+    lastName: 'Harvetz',
+  };
   const pathname = usePathname();
+
+  const basketCount = 2;
+  const wishlistCount = 1;
+
+  const userLinks = [
+    {
+      title: 'Cart',
+      href: '/cart',
+      count: basketCount,
+      icon: <BasketIcon />,
+    },
+    {
+      title: 'Wishlist',
+      href: '/wishlist',
+      count: wishlistCount,
+      icon: <WishListIcon />,
+    },
+    {
+      isDisableActive: true,
+      title: 'Log out',
+      href: '/',
+      icon: <LogoutIcon sx={{ color: '#141718' }} />,
+      onClick: () => {
+        console.log('sldfknvidf');
+        setIsAuthorized(false);
+        //===== log out
+      },
+    },
+  ];
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => setIsOpen((prev) => !prev);
+  const handleClose = () => setIsOpen(false);
+
   return (
-    <div className={s.userActivity}>
-      <button type='button'>
-        <ProfileIcon />
-      </button>
-      <div className={s.modal}>
-        <Link
-          href={userLinks[0].href}
-          className={clsx(s.link, pathname === userLinks[0].href && s.active)}
+    <ClickAwayListener onClickAway={handleClose}>
+      <div className={s.userActivity}>
+        <button
+          type='button'
+          onClick={handleOpen}
+          className={clsx(s.iconProfile, {
+            [s.activeCount]: basketCount || wishlistCount,
+          })}
         >
-          <p>{userLinks[0].title}</p>
-          <div className={s.basket}>
-            <div className={s.basketCount}>2</div>
-            <BasketIcon />
-          </div>
-        </Link>
-        <Link
-          href={userLinks[1].href}
-          className={clsx(s.link, pathname === userLinks[1].href && s.active)}
+          <ProfileIcon />
+        </button>
+
+        <div
+          className={clsx(s.modal, {
+            [s.isOpen]: isOpen,
+          })}
         >
-          <p>{userLinks[1].title}</p>
-          <div className={s.basket}>
-            <div className={s.basketCount}>2</div>
-            <WishListIcon />
+          <div className={s.profile}>
+            <img
+              src={user.avatar}
+              alt={user.firstName + user.lastName}
+              width={48}
+              height={48}
+              className={s.avatar}
+            />
+            <div className={s.name}>{`${user.firstName} ${user.lastName}`}</div>
           </div>
-        </Link>
+
+          {userLinks.map(({ href, title, count, icon, onClick, isDisableActive }) => (
+            <Link
+              key={href}
+              href={href}
+              className={clsx(s.link, !isDisableActive && pathname === href && s.active)}
+              onClick={onClick}
+            >
+              <p>{title}</p>
+              <div className={s.basket}>
+                {!!count && <div className={s.basketCount}>{count}</div>}
+                {icon}
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </ClickAwayListener>
   );
 };
 

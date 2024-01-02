@@ -1,16 +1,23 @@
 .header {
-  //position: fixed;
-  //top: 0;
-  //left: 0;
-  //width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   background: var(--bg-main);
+  transition: box-shadow 200ms;
+
+  &.shadow {
+    box-shadow: 0 0 10px var(--bg-footer);
+  }
 }
+
 .headerMenu {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 0;
 }
+
 .logo {
   display: flex;
 }
@@ -18,4 +25,36 @@
 .userInterface {
   display: flex;
   gap: 16px;
+  svg {
+    display: flex;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  height: 24px;
+  align-items: center;
+
+  & > * {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 10px 26px;
+    color: var(--text-white);
+    background: var(--neutral-07100);
+    border-radius: 6px;
+
+    &:active {
+      background: var(--neutral-04100);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background: var(--neutral-04100);
+      }
+    }
+  }
 }
