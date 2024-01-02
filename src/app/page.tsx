@@ -1,11 +1,10 @@
-import Cards from '@/app/_components/Cards/Cards';
+import Advantages from '@/app/_components/Advantages/Advantages';
 import SaleOff from '@/app/_components/SaleOff/SaleOff';
 
 export default function Home() {
-  // eslint-disable-next-line react/jsx-no-undef
   return (
     <main>
-      <Cards />
+      <Advantages />
       <SaleOff />
     </main>
   );

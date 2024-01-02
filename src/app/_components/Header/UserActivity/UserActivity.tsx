@@ -49,4 +49,5 @@ const UserActivity = () => {
     </div>
   );
 };
+
 export default UserActivity;

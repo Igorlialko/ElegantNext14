@@ -1,4 +1,4 @@
-import s from './cards.module.scss';
+import s from './advantages.module.scss';
 
 const cardMas = [
   {
@@ -27,22 +27,20 @@ const cardMas = [
   },
 ];
 
-const Cards = () => {
-  return (
+const Advantages = () => (
+  <section className='_container'>
     <div className={s.cards}>
-      {cardMas.map((card) => {
-        return (
-          <div key={card.url} className={s.cardNumber}>
-            <div className={s.cardIcons}>
-              <img src={card.url} alt={card.alt} width={48} height={48} />
-            </div>
-            <div className={s.cardTitle}>{card.title}</div>
-            <div className={s.cardText}>{card.text}</div>
+      {cardMas.map((card) => (
+        <div key={card.url} className={s.cardNumber}>
+          <div className={s.cardIcons}>
+            <img src={card.url} alt={card.alt} width={48} height={48} />
           </div>
-        );
-      })}
+          <div className={s.cardTitle}>{card.title}</div>
+          <div className={s.cardText}>{card.text}</div>
+        </div>
+      ))}
     </div>
-  );
-};
+  </section>
+);
 
-export default Cards;
+export default Advantages;
