@@ -7,6 +7,7 @@ export const data = [
     title: 'Loveseat Sofa',
     statusNew: true,
     favorite: true,
+    id: 1,
   },
   {
     discount: { isDiscount: true, procent: '50%' },
@@ -16,6 +17,7 @@ export const data = [
     title: 'Loveseat Sofa',
     statusNew: true,
     favorite: false,
+    id: 2,
   },
   {
     discount: { isDiscount: true, procent: '50%' },
@@ -25,6 +27,7 @@ export const data = [
     title: 'Loveseat Sofa',
     statusNew: true,
     favorite: false,
+    id: 1,
   },
   {
     discount: { isDiscount: true, procent: '50%' },

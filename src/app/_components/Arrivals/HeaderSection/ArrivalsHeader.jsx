@@ -1,6 +1,6 @@
-import UnderLineLink from '../../UI/UnderLineLink';
-
 import s from './ArrivalsHeader.module.scss';
+import UnderLineLink from '@/commonUI/UnderLineLink/UnderLineLink';
+// TODO: tsx component
 
 const ArrivalsHeader = () => (
   <div className={s.flexWrap}>

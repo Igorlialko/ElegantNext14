@@ -1,6 +1,6 @@
 import s from './CardMin.module.scss';
 
-import ArrowLink from './UI/ArrowLink';
+import ArrowLink from '../ArrowLink/ArrowLink';
 import clsx from 'clsx';
 
 const CardMin = ({ imgUrl, title, linkTitle }) => {

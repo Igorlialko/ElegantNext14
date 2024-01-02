@@ -2,7 +2,12 @@ import s from './ArrowLink.module.scss';
 
 import clsx from 'clsx';
 
-const ArrowLink = ({ className, linkTitle }) => {
+interface ILink {
+  className: string;
+  linkTitle: string;
+}
+
+const ArrowLink = ({ className, linkTitle }: ILink) => {
   return (
     <div className={s.linkWrap}>
       <div className={clsx(s.link, className)}>{linkTitle}</div>

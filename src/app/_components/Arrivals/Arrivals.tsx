@@ -11,4 +11,5 @@ const Arrivals = () => (
     </div>
   </div>
 );
+
 export default Arrivals;

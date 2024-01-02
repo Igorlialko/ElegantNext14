@@ -1,7 +1,13 @@
 import s from './MainCard.module.scss';
-import ArrowLink from './UI/ArrowLink';
+import ArrowLink from '../ArrowLink/ArrowLink';
 
-function MainCard({ linkTitle, title, imgUrl }) {
+interface IMainCard {
+  linkTitle: string;
+  title: string;
+  imgUrl: string;
+}
+
+export default function MainCard({ linkTitle, title, imgUrl }: IMainCard) {
   return (
     <div className={s.row1Itaem}>
       <a href='/'>
@@ -12,5 +18,3 @@ function MainCard({ linkTitle, title, imgUrl }) {
     </div>
   );
 }
-
-export default MainCard;

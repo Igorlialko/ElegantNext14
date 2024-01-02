@@ -1,9 +1,8 @@
-'use client';
-
 import { useState } from 'react';
 import s from './ArrivalsSlide.module.scss';
-
+// TODO: tsx
 function ArrivalsSlide({ title, urlProduct, urlImg, statusNew, discount, favorite, rating }) {
+  // TODO: isFavorite
   const [isfavorite, setIsFavorite] = useState(favorite);
   const styleFavorite = {
     background: isfavorite && '#ff000080',
@@ -24,6 +23,9 @@ function ArrivalsSlide({ title, urlProduct, urlImg, statusNew, discount, favorit
           style={styleFavorite}
           onClick={() => setIsFavorite(!isfavorite)}
         >
+          {
+            // TODO: tsx component
+          }
           <svg
             width='20'
             height='20'
@@ -45,6 +47,9 @@ function ArrivalsSlide({ title, urlProduct, urlImg, statusNew, discount, favorit
       </div>
       <div className={s.bodyContent}>
         <div className={s.rating}>
+          {
+            // TODO: add map array and tsx components
+          }
           <img width={16} height={16} src='/images/Arrivals/ratingIcon.svg' alt='rating' />
           <img width={16} height={16} src='/images/Arrivals/ratingIcon.svg' alt='rating' />
           <img width={16} height={16} src='/images/Arrivals/ratingIcon.svg' alt='rating' />

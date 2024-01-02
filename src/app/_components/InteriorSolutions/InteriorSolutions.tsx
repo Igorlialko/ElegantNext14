@@ -1,6 +1,6 @@
 import s from './InteriorSolutions.module.scss';
-import MainCard from './Card/MainCard';
-import CardMin from './Card/CardMin';
+import MainCard from './MainCard/MainCard';
+import CardMin from './CardMin/CardMin';
 import HeaderTitle from './Title/HeaderTitle';
 
 export default function InteriorSolutions() {
@@ -11,21 +11,21 @@ export default function InteriorSolutions() {
         <div className={s.flexContainer}>
           <div className={s.row1}>
             <MainCard
-              imgUrl={'/images/InteriorSolutions/LivingRoom.webp'}
-              title={'Living Room'}
-              linkTitle={'Shop Now'}
+              imgUrl='/images/InteriorSolutions/LivingRoom.webp'
+              title='Living Room'
+              linkTitle='Shop Now'
             />
           </div>
           <div className={s.row2}>
             <CardMin
-              imgUrl={'/images/InteriorSolutions/Bedroom.webp'}
-              title={'Bedroom'}
-              linkTitle={'Shop Now'}
+              imgUrl='/images/InteriorSolutions/Bedroom.webp'
+              title='Bedroom'
+              linkTitle='Shop Now'
             />
             <CardMin
-              imgUrl={'/images/InteriorSolutions/Kitchen.webp'}
-              title={'Kitchen'}
-              linkTitle={'Shop Now'}
+              imgUrl='/images/InteriorSolutions/Kitchen.webp'
+              title='Kitchen'
+              linkTitle='Shop Now'
             />
           </div>
         </div>

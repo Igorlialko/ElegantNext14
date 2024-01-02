@@ -9,8 +9,6 @@ import ArrivalsSlide from '../Slide/ArrivalsSlide';
 import { data } from './data.js';
 
 import 'swiper/scss';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 
 import './swiper.scss';
@@ -18,7 +16,7 @@ import s from './ArrivalsSwiper.module.scss';
 
 function ArrivalsSwiper() {
   const [slides, setSlides] = useState(4);
-
+  // TODO: refactor to breakpoints swiper
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth;
@@ -35,9 +33,11 @@ function ArrivalsSwiper() {
     };
 
     window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
     handleResize();
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
     };
   }, []);
 
@@ -52,20 +52,23 @@ function ArrivalsSwiper() {
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
     >
-      {data.map((product) => (
-        <SwiperSlide key={Math.random()}>
-          <ArrivalsSlide
-            key={Math.random()}
-            title={product.title}
-            urlProduct={product.urlProduct}
-            urlImg={product.urlImg}
-            statusNew={product.statusNew}
-            discount={product.discount}
-            favorite={product.favorite}
-            rating={product.rating}
-          />
-        </SwiperSlide>
-      ))}
+      {data.map(
+        (
+          product // TODO: add id to key
+        ) => (
+          <SwiperSlide key={Math.random()}>
+            <ArrivalsSlide
+              title={product.title}
+              urlProduct={product.urlProduct}
+              urlImg={product.urlImg}
+              statusNew={product.statusNew}
+              discount={product.discount}
+              favorite={product.favorite}
+              rating={product.rating}
+            />
+          </SwiperSlide>
+        )
+      )}
     </Swiper>
   );
 }
