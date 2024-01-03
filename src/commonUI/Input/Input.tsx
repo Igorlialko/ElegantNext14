@@ -5,6 +5,7 @@ import { ChangeEventHandler, FocusEventHandler, forwardRef, useState } from 'rea
 interface Iinput {
   type?: string;
   placeholder?: string;
+  name?: string;
   onBlur?: FocusEventHandler;
   onChange?: ChangeEventHandler;
 }
@@ -29,6 +30,7 @@ const Input = forwardRef<Ref, Iinput>((props, ref) => {
         ref={ref}
         type={type}
         className={s.input}
+        name={props.name}
         placeholder={props.placeholder}
         onBlur={props.onBlur}
         onChange={props.onChange}
