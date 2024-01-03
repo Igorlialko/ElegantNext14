@@ -1,0 +1,113 @@
+.layoutLogin {
+  display: flex;
+  height: 100vh;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.blockLeft,
+.blockRight {
+  flex: 1 1 50%;
+}
+
+.blockLeft {
+  position: relative;
+  @media (max-width: 768px) {
+    max-height: 430px;
+  }
+  a {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      min-width: 48px;
+      height: 48px;
+      content: '';
+      transform: translateY(-50%);
+    }
+    > img {
+      width: 105px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.blockRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  form {
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  padding: 40px 160px 40px 80px;
+  overflow: auto;
+  @media (max-width: 992px) {
+    padding: 40px 32px 40px 32px;
+  }
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.description {
+  margin-bottom: 32px;
+  font-family: var(--fontFamilyInter);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--neutral-04100);
+  a {
+    position: relative;
+    font-weight: 600;
+    color: var(--Green);
+    cursor: pointer;
+    &:active:after,
+    &:focus:after {
+      width: 100%;
+    }
+    @media (hover) {
+      &:hover:after {
+        width: 100%;
+      }
+    }
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      min-width: 48px;
+      height: 48px;
+      content: '';
+      transform: translateY(-50%);
+    }
+    &:after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      content: '';
+      background-color: var(--Green);
+      transition: width 0.3s ease;
+    }
+  }
+}
