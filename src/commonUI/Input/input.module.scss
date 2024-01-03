@@ -1,0 +1,60 @@
+.inputBlock {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--neutral-03100);
+}
+@-webkit-keyframes autofill {
+  to {
+    color: #000;
+    background: transparent;
+  }
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamilyInter);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--text-main);
+
+  &:autofill {
+    transition: background-color 5500s ease-in-out 0s;
+  }
+
+  &::placeholder {
+    color: var(--neutral-04100);
+  }
+
+  &:focus::placeholder {
+    font-size: 0;
+  }
+}
+
+.passwordButton {
+  width: 24px;
+  height: 24px;
+
+  svg {
+    path {
+      transition: stroke 0.3s ease;
+    }
+  }
+  &:active,
+  &:focus > svg {
+    > path {
+      stroke: var(--neutral-07100);
+    }
+  }
+
+  @media (hover) {
+    &:hover > svg {
+      > path {
+        stroke: var(--neutral-07100);
+      }
+    }
+  }
+}

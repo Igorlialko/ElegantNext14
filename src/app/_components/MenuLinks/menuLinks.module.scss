@@ -14,6 +14,7 @@
     &.active {
       color: var(--neutral-07100);
       pointer-events: none;
+
       &.footer {
         color: var(--neutral-04100);
       }
@@ -31,8 +32,14 @@
         transform: translate(-50%, -50%);
       }
 
-      &:hover {
+      &:active {
         color: var(--neutral-07100);
+      }
+
+      @media (hover) {
+        &:hover {
+          color: var(--neutral-07100);
+        }
       }
     }
   }
