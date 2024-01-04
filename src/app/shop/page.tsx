@@ -1,3 +1,9 @@
+import ShopTitle from '@/app/_components/ShopTitle/ShopTitle';
+
 export default function Shop() {
-  return <main>Shop page</main>;
+  return (
+    <main>
+      <ShopTitle />
+    </main>
+  );
 }

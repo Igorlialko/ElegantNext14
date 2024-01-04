@@ -18,7 +18,7 @@ const SaleOff = () => {
             <div className={s.saleText}>
               It’s more affordable than ever to give every room in your home a stylish makeover
             </div>
-            <Link href='' className={s.saleButton}>
+            <Link href='/shop' className={s.saleButton}>
               Shop Now
             </Link>
           </div>

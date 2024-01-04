@@ -1,0 +1,70 @@
+.contactTitle {
+  padding-top: 16px;
+}
+.titleNavigation {
+  display: flex;
+  gap: 4px;
+}
+.home {
+  position: relative;
+  font-family: var(--fontFamilyInter);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 24px;
+  color: var(--Black-600);
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    min-width: 48px;
+    height: 48px;
+    content: '';
+    transform: translate(-50%, -50%);
+  }
+  &:hover {
+    color: var(--neutral-07100);
+  }
+}
+.icon {
+  transform: translate(00%, 50%);
+}
+.page {
+  padding-left: 12px;
+  font-family: var(--fontFamilyInter);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 24px;
+  color: var(--Black-900);
+}
+.titleName {
+  max-width: 834px;
+  padding-top: 40px;
+  font-family: var(--fontFamilyPoppins);
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 500;
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 58px;
+  color: var(--neutral-07100);
+  letter-spacing: -1px;
+  @media (max-width: 576px) {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+.titleText {
+  max-width: 834px;
+  padding-top: 24px;
+  font-family: var(--fontFamilyInter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 26px;
+  color: var(--neutral-07100);
+}
