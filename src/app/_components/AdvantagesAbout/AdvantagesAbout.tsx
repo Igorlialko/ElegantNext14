@@ -1,10 +1,10 @@
-import s from './advantages.module.scss';
+import s from './advantagesAbout.module.scss';
 import FastDeliveryIcon from '@/app/_icons/FastDeliveryIcon';
 import MoneyIcon from '@/app/_icons/MoneyIcon';
 import LockIcon from '@/app/_icons/LockIcon';
 import CallIcon from '@/app/_icons/CallIcon';
 
-const cardMas = [
+const aboutMas = [
   {
     icon: <FastDeliveryIcon />,
     title: 'Free Shipping',
@@ -27,18 +27,20 @@ const cardMas = [
   },
 ];
 
-const Advantages = () => (
-  <section className='_container'>
-    <div className={s.cards}>
-      {cardMas.map((card) => (
-        <div key={card.title} className={s.cardNumber}>
-          <div className={s.cardIcons}>{card.icon}</div>
-          <div className={s.cardTitle}>{card.title}</div>
-          <div className={s.cardText}>{card.text}</div>
-        </div>
-      ))}
+const AdvantagesAbout = () => (
+  <section className={s.adv}>
+    <div className='_container'>
+      <div className={s.advAbout}>
+        {aboutMas.map((adv) => (
+          <div key={adv.title} className={s.advNumber}>
+            <div className={s.advIcons}>{adv.icon}</div>
+            <div className={s.advTitle}>{adv.title}</div>
+            <div className={s.advText}>{adv.text}</div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 );
 
-export default Advantages;
+export default AdvantagesAbout;

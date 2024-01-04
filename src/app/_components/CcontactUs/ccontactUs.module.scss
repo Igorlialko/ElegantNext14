@@ -1,0 +1,55 @@
+.contactUs {
+  padding-top: 48px;
+}
+.contactTitle {
+  align-self: stretch;
+  font-family: var(--fontFamilyPoppins);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 44px;
+  color: var(--Black-900);
+  text-align: center;
+  letter-spacing: -0.4px;
+}
+.contactInformation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  max-width: 1120px;
+  padding: 40px 0;
+  margin: 0 auto;
+}
+.contactNumber {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 16px 32px;
+  background: var(--neutral-02100);
+}
+.contTitle {
+  padding-top: 16px;
+  font-family: var(--fontFamilyInter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--neutral-04100);
+  text-transform: uppercase;
+}
+.contactText {
+  width: 273px;
+  padding-top: 8px;
+  font-family: var(--fontFamilyInter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 26px;
+  color: var(--neutral-07100);
+  text-align: center;
+}
