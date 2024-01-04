@@ -75,6 +75,7 @@
   width: 100%;
   max-width: 452px;
   padding-top: 16px;
+  padding-bottom: 24px;
   font-family: var(--fontFamilyInter);
   font-size: 16px;
   font-style: normal;
@@ -82,23 +83,4 @@
   font-feature-settings: 'clig' off, 'liga' off;
   line-height: 26px;
   color: var(--neutral-05100);
-}
-
-.aboutButton {
-  padding-top: 24px;
-  font-family: var(--fontFamilyInter);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  font-feature-settings: 'clig' off, 'liga' off;
-  line-height: 28px;
-  color: var(--neutral-07100);
-  letter-spacing: -0.4px;
-  border-bottom: 1px solid black;
-
-  &:after {
-    position: absolute;
-    content: '';
-    background: url('/images/arrow-right.png') 100% 100% no-repeat contain;
-  }
 }

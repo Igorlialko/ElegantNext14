@@ -1,5 +1,5 @@
 import s from '@/app/_components/SaleOff/saleOff.module.scss';
-import Link from 'next/link';
+import UnderLineLink from '@/commonUI/UnderLineLink/UnderLineLink';
 
 const SaleOff = () => {
   return (
@@ -18,9 +18,7 @@ const SaleOff = () => {
             <div className={s.saleText}>
               It’s more affordable than ever to give every room in your home a stylish makeover
             </div>
-            <Link href='/shop' className={s.saleButton}>
-              Shop Now
-            </Link>
+            <UnderLineLink url={'/shop'}>Shop Now</UnderLineLink>
           </div>
         </div>
       </div>
