@@ -53,6 +53,7 @@
   right: 0;
   width: 320px;
   padding: 10px;
+  pointer-events: none;
   background: var(--bg-main);
   border-radius: 10px;
   box-shadow: 0 0 5px var(--neutral-07100-shadow);
@@ -60,6 +61,7 @@
   transition: opacity 200ms;
 
   &.isOpen {
+    pointer-events: unset;
     opacity: 1;
   }
 }
