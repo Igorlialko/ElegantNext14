@@ -57,6 +57,7 @@
   border-radius: 10px;
   box-shadow: 0 0 5px var(--neutral-07100-shadow);
   opacity: 0;
+  display: none;
   transition: opacity 200ms;
 
   &.isOpen {

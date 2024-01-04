@@ -3,7 +3,12 @@ import s from './CardMin.module.scss';
 import ArrowLink from '../ArrowLink/ArrowLink';
 import clsx from 'clsx';
 
-const CardMin = ({ imgUrl, title, linkTitle }) => {
+interface CardMin {
+  imgUrl: string;
+  title: string;
+  linkTitle: string;
+}
+const CardMin = ({ imgUrl, title, linkTitle }: CardMin) => {
   return (
     <div className={clsx(s.row2Itaem1)}>
       <a href='/'>

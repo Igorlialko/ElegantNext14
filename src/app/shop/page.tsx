@@ -1,3 +1,9 @@
+import ShopMain from '@/app/_components/ShopMain/ShopMain';
+
 export default function Shop() {
-  return <main>Shop page</main>;
+  return (
+    <main>
+      <ShopMain />
+    </main>
+  );
 }
