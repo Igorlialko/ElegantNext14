@@ -1,4 +1,4 @@
-import s from '@/app/_components/CcontactUs/ccontactUs.module.scss';
+import s from '@/app/contact-us/_components/ContactUs/contactUs.module.scss';
 import StoreIcon from '@/app/_icons/StoreIcon';
 import CallingIcon from '@/app/_icons/CallingIcon';
 import MailIcon from '@/app/_icons/MailIcon';
@@ -20,7 +20,7 @@ const contactMas = [
     text: 'hello@3legant.com',
   },
 ];
-const CcontactUs = () => {
+const ContactUs = () => {
   return (
     <section className={s.contactUs}>
       <div className='_container'>
@@ -28,7 +28,7 @@ const CcontactUs = () => {
         <div className={s.contactInformation}>
           {contactMas.map((cont) => (
             <div key={cont.title} className={s.contactNumber}>
-              <div className={s.contactIcons}>{cont.icon}</div>
+              {cont.icon}
               <div className={s.contTitle}>{cont.title}</div>
               <div className={s.contactText}>{cont.text}</div>
             </div>
@@ -38,4 +38,4 @@ const CcontactUs = () => {
     </section>
   );
 };
-export default CcontactUs;
+export default ContactUs;

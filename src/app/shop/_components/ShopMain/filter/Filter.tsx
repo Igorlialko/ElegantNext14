@@ -1,7 +1,7 @@
 import s from './filter.module.scss';
 import clsx from 'clsx';
 import FilterIcon from '@/app/_icons/FilterIcon';
-import FilterPrice from '@/app/_components/ShopMain/filter/FilterPrice';
+import FilterPrice from '@/app/shop/_components/ShopMain/filter/FilterPrice';
 
 interface Filter {
   filterDataType: (type: string) => void;

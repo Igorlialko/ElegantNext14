@@ -1,4 +1,4 @@
-import s from '@/app/_components/ContactTitle/contactTitle.module.scss';
+import s from '@/app/contact-us/_components/ContactTitle/contactTitle.module.scss';
 import Link from 'next/link';
 import ChevronRightIcon from '@/app/_icons/arrows/ChevronRightIcon';
 
@@ -7,7 +7,7 @@ const ContactTitle = () => {
     <section className={s.contactTitle}>
       <div className='_container'>
         <div className={s.titleNavigation}>
-          <Link href='/' className={s.home}>
+          <Link href='/Users/abz/Portfolio/ShopHouse/ElegantNext14/public' className={s.home}>
             Home
           </Link>
           <ChevronRightIcon className={s.icon} />

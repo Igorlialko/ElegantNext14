@@ -52,21 +52,12 @@
   font-style: normal;
   font-weight: 700;
   line-height: 16px;
-  color: var(--Blue);
+  color: var(--blue);
   text-transform: uppercase;
 }
 
 .saleTitle {
-  align-self: stretch;
   padding-top: 16px;
-  font-family: var(--fontFamilyPoppins);
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 500;
-  font-feature-settings: 'clig' off, 'liga' off;
-  line-height: 44px;
-  color: var(--neutral-07100);
-  letter-spacing: -0.4px;
 }
 
 .saleText {

@@ -1,6 +1,6 @@
 import s from './newsletter.module.scss';
 import Email from '@/app/_icons/Email';
-import H4 from '@/app/_components/typography/H4/H4';
+import H4 from '@/app/_typography/H4/H4';
 
 export default function Newsletter() {
   return (

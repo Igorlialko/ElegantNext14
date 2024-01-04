@@ -1,15 +1,16 @@
-import ContactTitle from '@/app/_components/ContactTitle/ContactTitle';
-import AboutUs from '@/app/_components/AboutUs/AboutUs';
-import AdvantagesAbout from '@/app/_components/AdvantagesAbout/AdvantagesAbout';
-import CcontactUs from '@/app/_components/CcontactUs/CcontactUs';
+import ContactTitle from '@/app/contact-us/_components/ContactTitle/ContactTitle';
+import AboutUs from '@/app/contact-us/_components/AboutUs/AboutUs';
+import ContactUs from '@/app/contact-us/_components/ContactUs/ContactUs';
+import Advantages from '@/app/_components/Advantages/Advantages';
+import s from './page.module.scss';
 
-export default function ContactUs() {
+export default function ContactUsPage() {
   return (
     <main>
       <ContactTitle />
       <AboutUs />
-      <CcontactUs />
-      <AdvantagesAbout />
+      <ContactUs />
+      <Advantages className={s.advantages} />
     </main>
   );
 }

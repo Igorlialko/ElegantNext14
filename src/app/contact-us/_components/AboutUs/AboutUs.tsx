@@ -1,4 +1,4 @@
-import s from '@/app/_components/AboutUs/aboutUs.module.scss';
+import s from '@/app/contact-us/_components/AboutUs/aboutUs.module.scss';
 import UnderLineLink from '@/commonUI/UnderLineLink/UnderLineLink';
 
 const AboutUs = () => {
@@ -12,8 +12,8 @@ const AboutUs = () => {
           <div className={s.aboutPost}>
             <div className={s.aboutTitle}>About Us</div>
             <div className={s.aboutText}>
-              3legant is a gift & decorations store based in HCMC, Vietnam. Est since 2019. <br />{' '}
-              Our customer service is always prepared to support you 24/7
+              <p>3legant is a gift & decorations store based in HCMC, Vietnam. Est since 2019.</p>
+              <p> Our customer service is always prepared to support you 24/7</p>
             </div>
             <UnderLineLink url={'/shop'}>Shop Now</UnderLineLink>
           </div>

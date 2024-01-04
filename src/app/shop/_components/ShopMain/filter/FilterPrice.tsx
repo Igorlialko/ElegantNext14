@@ -1,4 +1,4 @@
-import s from '@/app/_components/ShopMain/filter/filter.module.scss';
+import s from '@/app/shop/_components/ShopMain/filter/filter.module.scss';
 import clsx from 'clsx';
 
 const FilterPrice = ({ filterDataPrice }: { filterDataPrice: (price: number[]) => void }) => {

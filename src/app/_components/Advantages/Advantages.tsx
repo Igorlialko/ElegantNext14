@@ -9,34 +9,40 @@ const cardMas = [
     icon: <FastDeliveryIcon />,
     title: 'Free Shipping',
     text: 'Order above $200',
+    id: 1,
   },
   {
     icon: <MoneyIcon />,
     title: 'Money-back',
     text: '30 days guarantee',
+    id: 2,
   },
   {
     icon: <LockIcon />,
     title: 'Secure Payments',
     text: 'Secured by Stripe',
+    id: 3,
   },
   {
     icon: <CallIcon />,
     title: '24/7 Support',
     text: 'Phone and Email support',
+    id: 4,
   },
 ];
 
-const Advantages = () => (
-  <section className='_container'>
-    <div className={s.cards}>
-      {cardMas.map((card) => (
-        <div key={card.title} className={s.cardNumber}>
-          <div className={s.cardIcons}>{card.icon}</div>
-          <div className={s.cardTitle}>{card.title}</div>
-          <div className={s.cardText}>{card.text}</div>
-        </div>
-      ))}
+const Advantages = ({ className }: { className?: string }) => (
+  <section className={className}>
+    <div className='_container'>
+      <div className={s.cards}>
+        {cardMas.map((card) => (
+          <div key={card.id} className={s.cardNumber}>
+            {card.icon}
+            <div className={s.cardTitle}>{card.title}</div>
+            <div className={s.cardText}>{card.text}</div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 );

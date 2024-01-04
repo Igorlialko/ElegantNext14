@@ -13,7 +13,7 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 32px; /* 160% */
-  color: var(--Black-900, #121212);
+  color: var(--black-900, #121212);
 }
 .filterName {
 }
@@ -22,7 +22,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 26px;
-  color: var(--Black-900, #121212);
+  color: var(--black-900, #121212);
   text-transform: uppercase;
 }
 .categoriesList {
@@ -51,8 +51,8 @@
   font-style: normal;
   font-weight: 600;
   line-height: 22px; /* 157.143% */
-  color: var(--Black-900, #121212);
-  border-bottom: 1px solid var(--Black-900, #121212);
+  color: var(--black-900, #121212);
+  border-bottom: 1px solid var(--black-900, #121212);
 }
 .categoriesListPrice {
   display: flex;

@@ -1,9 +1,9 @@
 'use client';
 
-import Filter from '@/app/_components/ShopMain/filter/Filter';
-import Goods from '@/app/_components/ShopMain/goods/Goods';
+import Filter from '@/app/shop/_components/ShopMain/filter/Filter';
+import Goods from '@/app/shop/_components/ShopMain/goods/Goods';
 import { useState } from 'react';
-import { data } from '../Arrivals/Swiper/data';
+import { data } from '../../../_components/Arrivals/Swiper/data';
 
 import s from './shopWrap.module.scss';
 

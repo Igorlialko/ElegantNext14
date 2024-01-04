@@ -1,5 +1,5 @@
 import s from './sectionTitle.module.scss';
-import H4 from '@/app/_components/typography/H4/H4';
+import H4 from '@/app/_typography/H4/H4';
 import UnderLineLink from '@/commonUI/UnderLineLink/UnderLineLink';
 
 interface ITitle {

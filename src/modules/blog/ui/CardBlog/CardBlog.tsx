@@ -1,5 +1,5 @@
 import s from './cardBlog.module.scss';
-import H7 from '@/app/_components/typography/H7/H7';
+import H7 from '@/app/_typography/H7/H7';
 import UnderLineLink from '@/commonUI/UnderLineLink/UnderLineLink';
 import Link from 'next/link';
 

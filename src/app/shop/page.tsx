@@ -1,6 +1,6 @@
-import ShopMain from '@/app/_components/ShopMain/ShopMain';
+import ShopMain from '@/app/shop/_components/ShopMain/ShopMain';
 
-import ShopTitle from '@/app/_components/ShopTitle/ShopTitle';
+import ShopTitle from '@/app/shop/_components/ShopTitle/ShopTitle';
 
 export default function Shop() {
   return (
