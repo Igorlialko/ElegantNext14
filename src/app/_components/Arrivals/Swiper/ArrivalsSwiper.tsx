@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ArrivalsSlide from '../Slide/ArrivalsSlide';
@@ -10,23 +9,16 @@ import clsx from 'clsx';
 import s from './ArrivalsSwiper.module.scss';
 
 function ArrivalsSwiper() {
-  const [slides, setSlides] = useState(4);
-
-  // TODO: refactor to breakpoints swiper
-
   return (
     <div className={clsx(s.swiper, s.swiperScroll, s.swiperSlide)}>
       <Swiper
-        // install Swiper modules
         modules={[Scrollbar]}
-        // spaceBetween={24}
         slidesPerView={4}
         breakpoints={{
           320: {
             slidesPerView: 1.4,
             spaceBetween: 20,
           },
-
           487: {
             slidesPerView: 2.3,
             spaceBetween: 30,
@@ -44,7 +36,6 @@ function ArrivalsSwiper() {
             spaceBetween: 24,
           },
         }}
-        // navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >

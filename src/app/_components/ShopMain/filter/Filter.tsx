@@ -15,6 +15,8 @@ function Filter({ filterDataType, active, filterDataPrice, setNameFilterCategori
     setNameFilterCategories(title);
   };
 
+  // TODO: create one component for filters
+
   return (
     <div className={s.filterWrap}>
       <div className={s.title}>
@@ -24,6 +26,9 @@ function Filter({ filterDataType, active, filterDataPrice, setNameFilterCategori
       <div className={s.filterName}>
         <div className={s.filterTitle}>CATEGORIES</div>
         <ul className={s.categoriesList}>
+          {
+            // TODO: create array categories and mapping
+          }
           <li className={clsx(s.filterItem, active === 'all' && s.itemActive)}>
             <div onClick={() => activeCategories('all', 'All Rooms')}>All Rooms</div>
           </li>
