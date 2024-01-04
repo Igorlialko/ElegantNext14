@@ -1,0 +1,75 @@
+.saleOff {
+  background: var(--neutral-02100);
+}
+
+.sale {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1120px + 160px;
+  margin: 0 -160px;
+  @media (max-width: 1200px) {
+    max-width: 100%;
+    margin: unset;
+  }
+}
+
+.saleImg {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 100% !important;
+    max-width: 720px;
+    height: unset !important;
+  }
+
+  @media (max-width: 1200px) {
+    width: calc(100% + 64px);
+    margin: 0 -32px;
+    img {
+      max-width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
+  }
+}
+
+.salePost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 0 0 72px;
+  @media (max-width: 1200px) {
+    padding: 58px 0;
+  }
+}
+
+.saleSale {
+  align-self: stretch;
+  font-family: var(--fontFamilyInter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.saleTitle {
+  padding-top: 16px;
+}
+
+.saleText {
+  width: 100%;
+  max-width: 452px;
+  padding-top: 16px;
+  padding-bottom: 24px;
+  font-family: var(--fontFamilyInter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 32px;
+  color: var(--neutral-07100);
+}

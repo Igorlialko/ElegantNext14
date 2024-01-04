@@ -1,0 +1,17 @@
+.passwordButton {
+  width: 24px;
+  height: 24px;
+
+  transition: opacity 200ms;
+
+  &:active,
+  &:focus-visible {
+    opacity: 0.6;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
