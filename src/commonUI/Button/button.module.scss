@@ -1,0 +1,25 @@
+.button {
+  width: 100%;
+  max-width: 230px;
+  height: 46px;
+  padding: 6px 24px;
+  font-family: var(--fontFamilyInter);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--text-white);
+  letter-spacing: -0.4px;
+  background: var(--neutral-07100);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  &:active,
+  &:focus {
+    border-color: var(--neutral-07100);
+  }
+  @media (hover) {
+    &:hover {
+      border-color: var(--neutral-07100);
+    }
+  }
+}

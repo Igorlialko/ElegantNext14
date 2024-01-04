@@ -3,9 +3,14 @@
   display: flex;
   flex: 1 1 356px;
   flex-direction: column;
-
-  &:hover .link > * {
+  &:active .link > * {
     right: -10px;
+  }
+
+  @media (hover) {
+    &:hover .link > * {
+      right: -10px;
+    }
   }
 }
 

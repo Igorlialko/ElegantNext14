@@ -10,17 +10,23 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
+import Header from '@/app/_components/Header/Header';
+import Footer from '@/app/_components/Footer/Footer';
 
 export default function Home() {
   return (
-    <main>
-      <MainSlider />
-      <InteriorSolutions />
-      <Arrivals />
-      <Advantages />
-      <SaleOff />
-      <Articles />
-      <Newsletter />
-    </main>
+    <>
+      <Header />
+      <main>
+        <MainSlider />
+        <InteriorSolutions />
+        <Arrivals />
+        <Advantages />
+        <SaleOff />
+        <Articles />
+        <Newsletter />
+      </main>
+      <Footer />
+    </>
   );
 }

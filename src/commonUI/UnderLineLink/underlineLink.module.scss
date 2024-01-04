@@ -14,8 +14,14 @@
     padding-right: 20px;
   }
 
-  &:hover .after {
+  &:active .after {
     right: -10px;
+  }
+
+  @media (hover) {
+    &:hover .after {
+      right: -10px;
+    }
   }
 }
 
