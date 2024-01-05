@@ -1,6 +1,6 @@
 import s from './LayoutLogin.module.scss';
-import H4 from '@/app/_components/typography/H4/H4';
 import Link from 'next/link';
+import H4 from '@/app/_typography/H4/H4';
 
 const LayoutLogin = ({
   pageName,

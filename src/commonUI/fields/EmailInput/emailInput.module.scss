@@ -1,0 +1,43 @@
+.inputBlock {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--neutral-03100);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  font-family: var(--fontFamilyInter);
+
+  color: var(--text-main);
+
+  &:autofill {
+    transition: background-color 5500s ease-in-out 0s;
+  }
+
+  &:disabled {
+    background: unset;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  pointer-events: none;
+
+  color: var(--neutral-04100);
+  transition: opacity 200ms;
+
+  &.isFocused {
+    opacity: 0;
+  }
+}

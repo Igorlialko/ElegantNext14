@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import s from './ArrivalsSlide.module.scss';
 import Favorites from '@/app/_icons/Favorites';
 import StarIcon from '@/app/_icons/StarIcon';
+import Button from '@/commonUI/Button/Button';
+import Link from 'next/link';
 
 interface IArrivalsSlide {
   title: string;
@@ -13,6 +15,7 @@ interface IArrivalsSlide {
   favorite: boolean;
   rating: number[];
 }
+
 function ArrivalsSlide({
   title,
   urlProduct,
@@ -34,8 +37,9 @@ function ArrivalsSlide({
     opacity: isFavorite ? 1 : undefined,
     fill: isFavorite ? 'white' : '#6C7275',
   };
+
   return (
-    <div className={s.slideWrap}>
+    <Link href={urlProduct} className={s.slideWrap}>
       <div className={s.images}>
         <img src={urlImg} alt='product' />
         <div className={s.state}>
@@ -49,9 +53,9 @@ function ArrivalsSlide({
         >
           <Favorites fill={styleFavorite.fill} />
         </div>
-        <a href={urlProduct} className={s.addCart}>
-          <p>Add to cart</p>
-        </a>
+        <Button typeButton='button' className={s.addCart}>
+          Add to cart
+        </Button>
       </div>
       <div className={s.bodyContent}>
         <div className={s.rating}>
@@ -65,7 +69,7 @@ function ArrivalsSlide({
           <div className={s.priceOld}>$400.00</div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

@@ -12,14 +12,24 @@
   background: var(--neutral-07100);
   border: 1px solid transparent;
   border-radius: 8px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
   &:active,
-  &:focus {
+  &:focus-visible {
+    color: var(--neutral-07100);
+    background-color: transparent;
     border-color: var(--neutral-07100);
   }
-  @media (hover) {
+
+  @media (hover: hover) {
     &:hover {
+      color: var(--neutral-07100);
+      background-color: transparent;
       border-color: var(--neutral-07100);
     }
   }
+}
+
+.roundedButton {
+  border-radius: 80px;
 }

@@ -1,0 +1,49 @@
+.checkBoxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+
+  & > a {
+    position: relative;
+    font-family: var(--fontFamilyInter);
+    font-size: clamp(12px, 3vw, 16px);
+    font-weight: 600;
+    line-height: clamp(20px, 3vw, 26px);
+    color: var(--neutral-07100);
+
+    &:active:after,
+    &:focus:after {
+      width: 100%;
+    }
+
+    @media (hover: hover) {
+      &:hover:after {
+        width: 100%;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      min-width: 48px;
+      height: 48px;
+      content: '';
+      transform: translateY(-50%);
+    }
+
+    &:after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      content: '';
+      background-color: var(--neutral-04100);
+      transition: width 0.3s ease;
+    }
+  }
+}
