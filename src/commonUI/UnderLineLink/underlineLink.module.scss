@@ -26,7 +26,7 @@
     right: -10px;
   }
 
-  @media (hover) {
+  @media (hover: hover) {
     &:hover .after {
       right: -10px;
     }

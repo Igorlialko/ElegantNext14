@@ -1,8 +1,9 @@
 import CardProduct from '@/commonUI/CardProduct/CardProduct';
 import s from './goods.module.scss';
-import ViewSortSelect from '@/commonUI/ViewSortSelect/ViewSortSelect';
+import ViewSortSelect from '@/app/(globalRoutes)/_components/ViewSortSelect/ViewSortSelect';
 import { useState } from 'react';
-import { views } from '@/commonUI/ViewSortSelect/views';
+import { views } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
+import Button from '@/commonUI/Button/Button';
 
 interface IGoodsTypeData {
   discount: number;
@@ -20,14 +21,12 @@ interface IGoodsTypeData {
 
 interface IGoodsProps {
   products: IGoodsTypeData[];
-  activeCategories: string;
-  activePrice?: string;
   nameCategories: string;
-  categoriesSort: string[];
-  getActiveSortCategories: (activeSort: string) => void;
+  activeSort: string;
+  setActiveSort: (activeSort: string) => void;
 }
 
-function Goods({ products, nameCategories, categoriesSort, getActiveSortCategories }: IGoodsProps) {
+function Goods({ products, nameCategories, activeSort, setActiveSort }: IGoodsProps) {
   const [activeView, setActiveView] = useState(views[0]);
 
   return (
@@ -35,10 +34,10 @@ function Goods({ products, nameCategories, categoriesSort, getActiveSortCategori
       <div className={s.flexWrap}>
         <div className={s.title}>{nameCategories}</div>
         <ViewSortSelect
-          categoriesSort={categoriesSort}
-          getActiveSortCategories={getActiveSortCategories}
           activeView={activeView}
           setActiveView={setActiveView}
+          activeSort={activeSort}
+          setActiveSort={setActiveSort}
         />
       </div>
       <div className={s.goodsWrap}>
@@ -59,9 +58,9 @@ function Goods({ products, nameCategories, categoriesSort, getActiveSortCategori
           );
         })}
       </div>
-      <div className={s.showMore}>
-        <div className={s.showMoreText}>Show more</div>
-      </div>
+      <Button className={s.showMore} roundedButton>
+        Show more
+      </Button>
     </div>
   );
 }

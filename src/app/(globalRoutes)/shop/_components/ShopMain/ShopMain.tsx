@@ -16,7 +16,6 @@ const categories: string[] = [
   'Dinning',
   'Outdoor',
 ];
-const categoriesSort: string[] = ['Name', 'Discount', 'Price', 'Popularity', "don't sort"];
 const categoriesPrice: { id: number; price: string }[] = [
   { id: 1, price: 'All Price' },
   { id: 2, price: '$0.00 - 99.99' },
@@ -25,19 +24,19 @@ const categoriesPrice: { id: number; price: string }[] = [
   { id: 5, price: '$300.00 - 399.99' },
   { id: 6, price: '$400.00+' },
 ];
+
 function ShopMain() {
   const [products, setProducts] = useState(data);
 
   const [activeCategories, setActiveCategories] = useState<string>('All Rooms');
   const [activePrice, setActivePrice] = useState<string>();
-  const [activeSortCategories, setActiveSortCategories] = useState<string>("don't sort");
+  const [activeSortCategories, setActiveSortCategories] = useState('');
 
   const [nameCategories, setNameCategories] = useState<string>('All Rooms');
 
   const filterDataType = (type: string) => setActiveCategories(type);
   const filterDataPrice = (sum: string) => setActivePrice(sum);
   const setNameFilterCategories = (title: string) => setNameCategories(title);
-  const getActiveSortCategories = (activeSort: string) => setActiveSortCategories(activeSort);
 
   return (
     <>
@@ -53,10 +52,9 @@ function ShopMain() {
           />
           <Goods
             products={products}
-            categoriesSort={categoriesSort}
-            activeCategories={activeCategories}
             nameCategories={nameCategories}
-            getActiveSortCategories={getActiveSortCategories}
+            setActiveSort={setActiveSortCategories}
+            activeSort={activeSortCategories}
           />
         </div>
       </div>

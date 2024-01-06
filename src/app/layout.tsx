@@ -1,12 +1,10 @@
-import { ReactNode } from 'react';
-
 import type { Metadata } from 'next';
 import { Inter, Poppins, Space_Grotesk } from 'next/font/google';
 
-import '../_styles/globals.scss';
+import './_styles/globals.scss';
 import clsx from 'clsx';
-import Header from '@/app/(globalRoutes)/_components/Header/Header';
-import Footer from '@/app/(globalRoutes)/_components/Footer/Footer';
+import GlobalLayout from '@/app/GlobalLayout';
+import { ReactNode } from 'react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,9 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body className={clsx(inter.variable, spaceGrotesk.variable, poppins.variable)}>
-        <Header />
-        {children}
-        <Footer />
+        <GlobalLayout>{children}</GlobalLayout>
       </body>
     </html>
   );

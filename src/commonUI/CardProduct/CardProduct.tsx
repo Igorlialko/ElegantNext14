@@ -4,7 +4,8 @@ import Favorites from '@/app/_icons/Favorites';
 import StarIcon from '@/app/_icons/StarIcon';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { TViews } from '@/commonUI/ViewSortSelect/views';
+import { TViews } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
+import Button from '@/commonUI/Button/Button';
 
 interface CardProductProps {
   title: string;
@@ -36,7 +37,8 @@ function CardProduct({
   };
 
   return (
-    <div
+    <Link
+      href={urlProduct}
       className={clsx(s.slideWrap, {
         [s.imagesViewBig]: viewShowPage === 'cardBig',
       })}
@@ -54,9 +56,7 @@ function CardProduct({
         >
           <Favorites fill={isFavorite ? 'white' : '#6C7275'} />
         </div>
-        <Link href={urlProduct} className={s.addCart}>
-          <p>Add to cart</p>
-        </Link>
+        <Button className={s.addCart}>Add to cart</Button>
       </div>
       <div className={s.bodyContent}>
         <div className={s.rating}>
@@ -70,7 +70,7 @@ function CardProduct({
           <div className={s.priceOld}>$400.00</div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

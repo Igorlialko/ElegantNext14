@@ -25,7 +25,7 @@ export default function Header() {
     >
       <div className='_container'>
         <div className={s.headerMenu}>
-          <Link href='/Users/abz/Portfolio/ShopHouse/ElegantNext14/public' className={s.logo}>
+          <Link href='/' className={s.logo}>
             <img src='/images/logo.webp' alt='logo elegant' width={105} height={24} />
           </Link>
           <MenuLinks pathname={pathname} />

@@ -8,6 +8,7 @@ import TextInput from '@/commonUI/fields/TextInput/TextInput';
 import PasswordInput from '@/commonUI/fields/PasswordInput/PasswordInput';
 import CheckBox from '@/commonUI/CheckBox/CheckBox';
 import Link from 'next/link';
+import CheckBoxContainer from '@/commonUI/CheckBoxContainer/CheckBoxContainer';
 
 type FormValuesSignIn = {
   firstNameOrEmail: string;
@@ -34,13 +35,18 @@ export default function SignIn() {
         linkName={'Sign up'}
       >
         <LoginForm onSubmit={handleSubmit(onSubmitSignIn)}>
-          <TextInput placeholder='Your username or email address' name={'firstNameOrEmail'} />
+          <TextInput
+            {...register('firstNameOrEmail')}
+            placeholder='Your username or email address'
+          />
           <PasswordInput register={register} />
-          <CheckBox {...register('checkbox')}>
-            <p>Remember me</p>
+          <CheckBoxContainer>
+            <CheckBox {...register('checkbox')}>
+              <p>Remember me</p>
+            </CheckBox>
             <Link href='/'>Forgot password?</Link>
-          </CheckBox>
-          <Button>{data[0].namePage}</Button>
+          </CheckBoxContainer>
+          <Button typeButton='submit'>{data[0].namePage}</Button>
         </LoginForm>
       </LayoutLogin>
     </main>
