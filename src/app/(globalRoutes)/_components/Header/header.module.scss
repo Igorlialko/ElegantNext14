@@ -16,6 +16,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 0;
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .logo {

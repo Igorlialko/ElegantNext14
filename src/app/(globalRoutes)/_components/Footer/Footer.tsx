@@ -2,13 +2,10 @@
 
 import s from './footer.module.scss';
 import MenuLinks from '@/app/(globalRoutes)/_components/MenuLinks/MenuLinks';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Socials from '@/app/(globalRoutes)/_components/Footer/Socials/Socials';
 
 export default function Footer() {
-  const pathname = usePathname();
-
   return (
     <footer className={s.footer}>
       <div className='_container'>
@@ -20,7 +17,7 @@ export default function Footer() {
             <p>Gift & Decoration Store</p>
           </div>
           <div className={s.menu}>
-            <MenuLinks pathname={pathname} footer />
+            <MenuLinks footer />
           </div>
         </div>
         <div className={s.bottom}>
