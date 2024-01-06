@@ -3,15 +3,18 @@
   gap: 35px;
   align-items: center;
 }
+
 .sort {
   position: relative;
 }
+
 .select {
   display: flex;
   gap: 4px;
   align-items: center;
   justify-content: space-between;
 }
+
 .selected {
   font-size: 16px;
   font-weight: 600;
@@ -19,8 +22,10 @@
   color: var(--Black-900);
   cursor: pointer;
 }
+
 .caret {
 }
+
 .menu {
   position: absolute;
   top: 105%;
@@ -58,23 +63,40 @@
     }
   }
 }
+
 .activeClick {
   pointer-events: unset;
   opacity: 1;
 }
+
 .item {
   width: 100%;
 }
+
 .viewWrap {
   display: flex;
   height: 40px;
   border: 1px solid var(--neutral-03100);
 }
+
 .view {
   padding: 8px 10px;
   cursor: pointer;
 
   &:not(:last-child) {
     border-right: 1px solid var(--neutral-03100);
+  }
+
+  path {
+    fill: var(--neutral-04100);
+    transition: fill 200ms;
+  }
+
+  &.active {
+    pointer-events: none;
+
+    path {
+      fill: var(--neutral-07100);
+    }
   }
 }

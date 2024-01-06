@@ -1,8 +1,10 @@
 import CardProduct from '@/commonUI/CardProduct/CardProduct';
 import s from './goods.module.scss';
 import ViewSortSelect from '@/commonUI/ViewSortSelect/ViewSortSelect';
+import { useState } from 'react';
+import { views } from '@/commonUI/ViewSortSelect/views';
 
-interface goodsTypeData {
+interface IGoodsTypeData {
   discount: number;
   isDiscount: boolean;
   rating: number | null;
@@ -15,25 +17,19 @@ interface goodsTypeData {
   price: number;
   id?: number;
 }
-interface GoodsProps {
-  products: goodsTypeData[];
+
+interface IGoodsProps {
+  products: IGoodsTypeData[];
   activeCategories: string;
   activePrice?: string;
   nameCategories: string;
   categoriesSort: string[];
   getActiveSortCategories: (activeSort: string) => void;
-  getActiveView: (view: string) => void;
-  viewShowPage: string;
 }
 
-function Goods({
-  products,
-  nameCategories,
-  categoriesSort,
-  getActiveSortCategories,
-  getActiveView,
-  viewShowPage,
-}: GoodsProps) {
+function Goods({ products, nameCategories, categoriesSort, getActiveSortCategories }: IGoodsProps) {
+  const [activeView, setActiveView] = useState(views[0]);
+
   return (
     <div className={s.goodsFlex}>
       <div className={s.flexWrap}>
@@ -41,7 +37,8 @@ function Goods({
         <ViewSortSelect
           categoriesSort={categoriesSort}
           getActiveSortCategories={getActiveSortCategories}
-          getActiveView={getActiveView}
+          activeView={activeView}
+          setActiveView={setActiveView}
         />
       </div>
       <div className={s.goodsWrap}>
@@ -57,7 +54,7 @@ function Goods({
               isDiscount={product.isDiscount}
               favorite={product.favorite}
               rating={[1, 2, 3, 4, 5]}
-              viewShowPage={viewShowPage}
+              viewShowPage={activeView}
             />
           );
         })}

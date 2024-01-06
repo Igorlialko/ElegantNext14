@@ -33,13 +33,11 @@ function ShopMain() {
   const [activeSortCategories, setActiveSortCategories] = useState<string>("don't sort");
 
   const [nameCategories, setNameCategories] = useState<string>('All Rooms');
-  const [viewShowPage, setViewShowPage] = useState('all');
 
   const filterDataType = (type: string) => setActiveCategories(type);
   const filterDataPrice = (sum: string) => setActivePrice(sum);
   const setNameFilterCategories = (title: string) => setNameCategories(title);
   const getActiveSortCategories = (activeSort: string) => setActiveSortCategories(activeSort);
-  const getActiveView = (view: string) => setViewShowPage(view);
 
   return (
     <>
@@ -59,8 +57,6 @@ function ShopMain() {
             activeCategories={activeCategories}
             nameCategories={nameCategories}
             getActiveSortCategories={getActiveSortCategories}
-            getActiveView={getActiveView}
-            viewShowPage={viewShowPage}
           />
         </div>
       </div>

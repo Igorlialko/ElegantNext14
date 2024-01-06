@@ -7,20 +7,25 @@ import { useState } from 'react';
 import SortArrow from '@/app/_icons/arrows/SortArrow';
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import clsx from 'clsx';
+import { TViews, views } from '@/commonUI/ViewSortSelect/views';
 
 interface ViewSortSelect {
   categoriesSort: string[];
   getActiveSortCategories: (active: string) => void;
-  getActiveView: (view: string) => void;
+  activeView: TViews;
+  setActiveView: (view: TViews) => void;
 }
+
+const viewsIcons = [View1, View2, View3, View4];
 
 const ViewSortSelect = ({
   categoriesSort,
   getActiveSortCategories,
-  getActiveView,
+  activeView,
+  setActiveView,
 }: ViewSortSelect) => {
-  const [view, setView] = useState<string>('all');
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  //TODO: replace sort by from array sorting
   const [sortActive, setSortActive] = useState<string>('Sort by');
   const handleOpen = () => setIsOpen((prev) => !prev);
   const handleClose = () => setIsOpen(false);
@@ -29,14 +34,10 @@ const ViewSortSelect = ({
     setSortActive(active);
     setIsOpen(false);
   };
-  const handleView = (view: string) => {
-    setView(view);
-    getActiveView(view);
-  };
 
   return (
-    <ClickAwayListener onClickAway={handleClose}>
-      <div className={s.wrapViewSort}>
+    <div className={s.wrapViewSort}>
+      <ClickAwayListener onClickAway={handleClose}>
         <div className={s.sort}>
           <div className={s.select} onClick={handleOpen}>
             <span className={s.selected}>{sortActive}</span>
@@ -57,22 +58,25 @@ const ViewSortSelect = ({
             ))}
           </ul>
         </div>
-        <div className={s.viewWrap}>
-          <div className={s.view} onClick={() => handleView('all')}>
-            <View1 fill={view === 'all' ? '#141718' : '#6C7275'} />
-          </div>
-          <div className={s.view} onClick={() => handleView('cardBig')}>
-            <View2 fill={view === 'cardBig' ? '#141718' : '#6C7275'} />
-          </div>
-          <div className={s.view} onClick={() => handleView('cardDescription')}>
-            <View3 fill={view === 'cardDescription' ? '#141718' : '#6C7275'} />
-          </div>
-          <div className={s.view} onClick={() => handleView('cardDescriptionHorizontalOne')}>
-            <View4 fill={view === 'cardDescriptionHorizontalOne' ? '#141718' : '#6C7275'} />
-          </div>
-        </div>
+      </ClickAwayListener>
+
+      <div className={s.viewWrap}>
+        {views.map((view, index) => {
+          const Icon = viewsIcons[index];
+          return (
+            <div
+              key={view}
+              className={clsx(s.view, {
+                [s.active]: view === activeView,
+              })}
+              onClick={() => setActiveView(view)}
+            >
+              <Icon />
+            </div>
+          );
+        })}
       </div>
-    </ClickAwayListener>
+    </div>
   );
 };
 export default ViewSortSelect;

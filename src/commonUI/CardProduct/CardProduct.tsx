@@ -4,6 +4,7 @@ import Favorites from '@/app/_icons/Favorites';
 import StarIcon from '@/app/_icons/StarIcon';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { TViews } from '@/commonUI/ViewSortSelect/views';
 
 interface CardProductProps {
   title: string;
@@ -14,7 +15,7 @@ interface CardProductProps {
   isDiscount: boolean;
   favorite: boolean;
   rating: number[];
-  viewShowPage?: string;
+  viewShowPage?: TViews;
 }
 
 function CardProduct({
