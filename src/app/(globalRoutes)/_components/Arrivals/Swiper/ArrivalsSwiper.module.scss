@@ -1,9 +1,18 @@
 .swiper :global(.swiper) {
   padding-bottom: 52px;
   overflow: visible;
+  cursor: grab;
+  @media (max-width: 425px) {
+    padding-bottom: 44px;
+  }
+
+  & :global(.swiper .swiper-initialized .swiper-horizontal) {
+    max-height: 479px;
+  }
 }
 .swiperScroll {
   & :global(.swiper-scrollbar.swiper-scrollbar-horizontal) {
+    bottom: 1px;
     left: 0;
     width: 100%;
   }

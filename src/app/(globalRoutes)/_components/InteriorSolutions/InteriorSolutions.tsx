@@ -4,7 +4,6 @@ import CardMin from './CardMin/CardMin';
 import HeaderTitle from './Title/HeaderTitle';
 
 export default function InteriorSolutions() {
-  //TODO:  create pixel perfect blocks and add <UnderLineLink/>
   return (
     <div className='_container'>
       <section className={s.wrapper}>
@@ -12,19 +11,22 @@ export default function InteriorSolutions() {
         <div className={s.flexContainer}>
           <div className={s.row1}>
             <MainCard
-              imgUrl='/images/InteriorSolutions/LivingRoom.webp'
+              imgUrl='/images/InteriorSolutions/interiorMain.webp'
+              imgUrlMobile='/images/InteriorSolutions/interiorMainMobile.webp'
               title='Living Room'
               linkTitle='Shop Now'
             />
           </div>
           <div className={s.row2}>
             <CardMin
-              imgUrl='/images/InteriorSolutions/Bedroom.webp'
+              imgUrl='/images/InteriorSolutions/interiorMin1.webp'
+              imgUrlMobile='/images/InteriorSolutions/interiorMin1Mobile.webp'
               title='Bedroom'
               linkTitle='Shop Now'
             />
             <CardMin
-              imgUrl='/images/InteriorSolutions/Kitchen.webp'
+              imgUrl='/images/InteriorSolutions/interiorMin2.webp'
+              imgUrlMobile='/images/InteriorSolutions/interiorMin2Mobile.webp'
               title='Kitchen'
               linkTitle='Shop Now'
             />

@@ -2,7 +2,7 @@
 
 import { Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ArrivalsSlide from '../Slide/ArrivalsSlide';
+import CadrProduct from '../../../../../commonUI/CardProduct/CardProduct';
 import { data } from './data';
 import clsx from 'clsx';
 
@@ -17,7 +17,7 @@ function ArrivalsSwiper() {
         breakpoints={{
           320: {
             slidesPerView: 1.4,
-            spaceBetween: 20,
+            spaceBetween: 30,
           },
           487: {
             slidesPerView: 2.3,
@@ -39,24 +39,20 @@ function ArrivalsSwiper() {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        {data.map(
-          (
-            product // TODO: add id to key
-          ) => (
-            <SwiperSlide key={Math.random()}>
-              <ArrivalsSlide
-                title={product.title}
-                urlProduct={product.urlProduct}
-                urlImg={product.urlImg}
-                statusNew={product.statusNew}
-                discount={product.discount}
-                isDiscount={product.isDiscount}
-                favorite={product.favorite}
-                rating={[1, 2, 3, 4, 5]}
-              />
-            </SwiperSlide>
-          )
-        )}
+        {data.map((product) => (
+          <SwiperSlide key={product.id}>
+            <CadrProduct
+              title={product.title}
+              urlProduct={product.urlProduct}
+              urlImg={product.urlImg}
+              statusNew={product.statusNew}
+              discount={product.discount}
+              isDiscount={product.isDiscount}
+              favorite={product.favorite}
+              rating={[1, 2, 3, 4, 5]}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
