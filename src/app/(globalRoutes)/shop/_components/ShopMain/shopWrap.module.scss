@@ -1,7 +1,8 @@
 .shopWrap {
   display: flex;
-  gap: 24px;
+  gap: 25px;
   padding-top: 60px;
+  padding-bottom: 58px;
   @media (max-width: 767px) {
     padding-top: 32px;
   }

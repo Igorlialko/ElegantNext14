@@ -1,6 +1,7 @@
 import s from './checkBox.module.scss';
 import CheckBoxChecked from '@/app/_icons/CheckBoxChecked';
 import React, { ChangeEventHandler, FocusEventHandler, forwardRef } from 'react';
+import clsx from 'clsx';
 
 interface IcheckBox {
   value?: string | number;
@@ -8,13 +9,14 @@ interface IcheckBox {
   children?: React.ReactNode;
   onBlur?: FocusEventHandler;
   onChange?: ChangeEventHandler;
+  optionClassName?: string;
 }
 
 type Ref = HTMLInputElement;
 
 const CheckBox = forwardRef<Ref, IcheckBox>((props, ref) => {
   return (
-    <label className={s.checkbox}>
+    <label className={clsx(s.checkbox, props.optionClassName)}>
       <input
         type='checkbox'
         ref={ref}

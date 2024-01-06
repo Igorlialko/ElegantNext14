@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import s from './ArrivalsSlide.module.scss';
+import s from './CardProduct.module.scss';
 import Favorites from '@/app/_icons/Favorites';
 import StarIcon from '@/app/_icons/StarIcon';
+import clsx from 'clsx';
+import Link from 'next/link';
 
-interface IArrivalsSlide {
+interface CardProductProps {
   title: string;
   urlProduct: string;
   urlImg: string;
@@ -12,8 +14,10 @@ interface IArrivalsSlide {
   isDiscount: boolean;
   favorite: boolean;
   rating: number[];
+  viewShowPage?: string;
 }
-function ArrivalsSlide({
+
+function CardProduct({
   title,
   urlProduct,
   urlImg,
@@ -22,36 +26,36 @@ function ArrivalsSlide({
   favorite,
   isDiscount,
   rating,
-}: IArrivalsSlide) {
-  const [isFavorite, setIsFavorite] = useState(favorite);
-  type StyleFavorite = {
-    background?: string;
-    opacity?: number;
-    fill: string;
+  viewShowPage,
+}: CardProductProps) {
+  const [isFavorite, setIsFavorite] = useState<boolean>(favorite);
+  const styleFavorites: { backgroundColor: string; opacity: string } = {
+    backgroundColor: isFavorite ? 'rgba(253,46,46,0.78)' : '',
+    opacity: isFavorite ? '1' : '',
   };
-  const styleFavorite: StyleFavorite = {
-    background: isFavorite ? '#ff000080' : undefined,
-    opacity: isFavorite ? 1 : undefined,
-    fill: isFavorite ? 'white' : '#6C7275',
-  };
+
   return (
-    <div className={s.slideWrap}>
-      <div className={s.images}>
-        <img src={urlImg} alt='product' />
+    <div
+      className={clsx(s.slideWrap, {
+        [s.imagesViewBig]: viewShowPage === 'cardBig',
+      })}
+    >
+      <div className={clsx(s.images)}>
+        <img src={urlImg} alt='product' width={262} height={349} />
         <div className={s.state}>
           {statusNew && <div className={s.status}>New</div>}
           {isDiscount && <div className={s.discount}>{discount}%</div>}
         </div>
         <div
-          className={s.favorites}
-          style={styleFavorite}
+          className={clsx(s.favorites)}
           onClick={() => setIsFavorite(!isFavorite)}
+          style={styleFavorites}
         >
-          <Favorites fill={styleFavorite.fill} />
+          <Favorites fill={isFavorite ? 'white' : '#6C7275'} />
         </div>
-        <a href={urlProduct} className={s.addCart}>
+        <Link href={urlProduct} className={s.addCart}>
           <p>Add to cart</p>
-        </a>
+        </Link>
       </div>
       <div className={s.bodyContent}>
         <div className={s.rating}>
@@ -69,4 +73,4 @@ function ArrivalsSlide({
   );
 }
 
-export default ArrivalsSlide;
+export default CardProduct;
