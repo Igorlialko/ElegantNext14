@@ -11,14 +11,11 @@ interface Ilinks {
 export default function MenuLinks({ footer = false }: Ilinks) {
   const pathname = usePathname();
   return (
-    <ul className={s.links}>
+    <ul className={clsx(s.links, footer && s.footerLinks)}>
       {pageLinks.map((link) => {
         return (
           <li key={link.title}>
-            <Link
-              href={link.href}
-              className={clsx(pathname === link.href && s.active, footer && s.footer)}
-            >
+            <Link href={link.href} className={clsx(pathname === link.href && s.active)}>
               {link.title}
             </Link>
           </li>

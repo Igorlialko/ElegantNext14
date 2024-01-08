@@ -5,4 +5,8 @@
   line-height: clamp(26px, 2vw, 28px);
   color: var(--neutrals-2);
   cursor: default;
+  @media (max-width: 576px) {
+    font-family: var(--fontFamilyInter);
+    font-weight: 600;
+  }
 }

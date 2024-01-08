@@ -1,7 +1,18 @@
 .links {
   display: flex;
   gap: 40px;
-
+  &.footerLinks {
+    * {
+      font-family: var(--fontFamilyInter);
+      font-weight: 400;
+      line-height: 22px;
+      color: var(--neutral-01100);
+      &.active {
+        color: var(--neutral-04100);
+        pointer-events: none;
+      }
+    }
+  }
   * {
     position: relative;
     font-family: var(--fontFamilySpaceGrotesk);
@@ -14,10 +25,6 @@
     &.active {
       color: var(--neutral-07100);
       pointer-events: none;
-
-      &.footer {
-        color: var(--neutral-04100);
-      }
     }
 
     a {

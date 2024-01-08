@@ -1,0 +1,106 @@
+{
+  "Home": {
+    "menu": {
+      "link1": "Home",
+      "link2": "Shop",
+      "link3": "All Blogs",
+      "link4": "Contact Us"
+    },
+    "interiorSolutions": {
+      "title": {
+        "text1": "Simply Unique",
+        "text2": "Simply Better",
+        "slash": "/",
+        "dot": "."
+      },
+      "titleDescription": {
+        "text": "is a gift & decorations store based in HCMC, Vietnam. Est since 2019."
+      },
+      "cards": {
+        "card1": {
+          "title": "Living Room",
+          "linkName": "Shop Now"
+        },
+        "card2": {
+          "title": "Bedroom",
+          "linkName": "Shop Now"
+        },
+        "card3": {
+          "title": "Kitchen",
+          "linkName": "Shop Now"
+        }
+      }
+    },
+    "arrivals": {
+      "title": "New Arrivals",
+      "linkName": "More Products",
+      "cards": {
+        "card1": {
+          "statusName": "New",
+          "buttonName": "Add to cart",
+          "productName": "Loveseat Sofa"
+        }
+      }
+    },
+    "advantages": {
+      "cards": {
+        "card1": {
+          "title": "Free Shipping",
+          "titleDescription": "Order above $200"
+        },
+        "card2": {
+          "title": "Money-back",
+          "titleDescription": "30 days guarantee"
+        },
+        "card3": {
+          "title": "Secure Payments",
+          "titleDescription": "Secured by Stripe"
+        },
+        "card4": {
+          "title": "24/7 Support",
+          "titleDescription": "Phone and Email support"
+        }
+      }
+    },
+    "saleOff": {
+      "sale": "SALE UP TO 35% OFF",
+      "title": " HUNDREDS of <br />New lower prices!",
+      "titleDescription": "It’s more affordable than ever to give every room in your home a stylish makeover",
+      "linkName": "Shop Now"
+    },
+    "articles": {
+      "title": "Articles",
+      "linkName": "More Articles",
+      "cards": {
+        "card1": {
+          "title": "7 ways to decor your home",
+          "linkName": "Read More"
+        },
+        "card2": {
+          "title": "Kitchen organization",
+          "linkName": "Read More"
+        },
+        "card3": {
+          "title": "Decor your bedroom",
+          "linkName": "Read More"
+        }
+      }
+    },
+    "newsletter": {
+      "title": "Join Our Newsletter",
+      "titleDescription": "Sign up for deals, new products and promotions",
+      "form": {
+        "placeholderEmail": "Email address",
+        "buttonName": "Signup"
+      }
+    },
+    "footer": {
+      "aboutText": "Gift & Decoration Store",
+      "copyrightAndLinks": {
+        "text": "Copyright © 2023 3legant. All rights reserved",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use"
+      }
+    }
+  }
+}

@@ -51,7 +51,17 @@
     gap: 32px;
     align-items: center;
   }
-
+  a {
+    @media (max-width: 576px) {
+      width: 105px;
+      height: 24px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
   p {
     position: relative;
     font-size: 14px;
@@ -91,6 +101,7 @@
     }
 
     li {
+      line-height: 22px;
       a {
         font-family: var(--fontFamilyInter);
         font-weight: 400;

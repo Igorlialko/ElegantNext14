@@ -1,0 +1,106 @@
+{
+  "Home": {
+    "menu": {
+      "link1": "Maison",
+      "link2": "Boutique",
+      "link3": "Tous les blogs",
+      "link4": "Contactez-nous"
+    },
+    "interiorSolutions": {
+      "title": {
+        "text1": "Simplement Unique",
+        "text2": "Simplement meilleur",
+        "slash": "/",
+        "dot": "."
+      },
+      "titleDescription": {
+        "text": "est un magasin de cadeaux et de décorations basé à HCMV, au Vietnam. Est depuis 2019."
+      },
+      "cards": {
+        "card1": {
+          "title": "Salon",
+          "linkName": "Magasiner maintenant"
+        },
+        "card2": {
+          "title": "Chambre",
+          "linkName": "Magasiner maintenant"
+        },
+        "card3": {
+          "title": "Cuisine",
+          "linkName": "Magasiner maintenant"
+        }
+      }
+    },
+    "arrivals": {
+      "title": "Nouvelles Arrivées",
+      "linkName": "Plus de produits",
+      "cards": {
+        "card1": {
+          "statusName": "Nouveau",
+          "buttonName": "Ajouter au panier",
+          "productName": "Canapé causeuse"
+        }
+      }
+    },
+    "advantages": {
+      "cards": {
+        "card1": {
+          "title": "Livraison gratuite",
+          "titleDescription": "Commande supérieure à $200"
+        },
+        "card2": {
+          "title": "Remboursement",
+          "titleDescription": "Garantie 30 jours"
+        },
+        "card3": {
+          "title": "Paiements sécurisés",
+          "titleDescription": "Sécurisé par Stripe"
+        },
+        "card4": {
+          "title": "Assistance 24h/24 et 7j/7",
+          "titleDescription": "Assistance par téléphone et par e-mail"
+        }
+      }
+    },
+    "saleOff": {
+      "sale": "VENTE JUSQU'À 35% DE RÉDUCTION",
+      "title": "DES CENTAINES de <br />Nouveaux prix réduits !",
+      "titleDescription": "Il est plus abordable que jamais de relooker chaque pièce de votre maison avec style.",
+      "linkName": "Achetez maintenant"
+    },
+    "articles": {
+      "title": "Des articles",
+      "linkName": "Plus d'articles",
+      "cards": {
+        "card1": {
+          "title": "7 façons de décorer votre maison",
+          "linkName": "En savoir plus"
+        },
+        "card2": {
+          "title": "Organisation de la cuisine",
+          "linkName": "En savoir plus"
+        },
+        "card3": {
+          "title": "Décorez votre chambre",
+          "linkName": "En savoir plus"
+        }
+      }
+    },
+    "newsletter": {
+      "title": "Rejoignez notre newsletter",
+      "titleDescription": "Inscrivez-vous pour des offres, de nouveaux produits et des promotions",
+      "form": {
+        "placeholderEmail": "Adresse e-mail",
+        "buttonName": "S'inscrire"
+      }
+    },
+    "footer": {
+      "aboutText": "Magasin de cadeaux et de décoration",
+      "copyrightAndLinks": {
+        "text": "Droits d'auteur © 2023 3legant. Tous droits réservés",
+        "privacyPolicy": "politique de confidentialité",
+        "termsOfUse": "Conditions d'utilisation"
+      }
+    }
+  }
+}
