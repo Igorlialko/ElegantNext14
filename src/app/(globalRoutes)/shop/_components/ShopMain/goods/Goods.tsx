@@ -1,7 +1,7 @@
 import ArrivalsSlide from '@/app/(globalRoutes)/_components/Arrivals/Slide/ArrivalsSlide';
 
 import s from './goods.module.scss';
-import HeaderView from '@/commonUI/headerView/HeaderView';
+import HeaderView from '@/commonUI/HeaderView/HeaderView';
 
 interface goodsTypeData {
   discount: number;

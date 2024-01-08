@@ -48,7 +48,7 @@ export default function CardBlog({
         <div className={s.rest}>
           {link ? (
             <UnderLineLink isLink={false} className={s.link}>
-              Read more
+              Read More
             </UnderLineLink>
           ) : (
             <span className={s.date}>{cardDate}</span>

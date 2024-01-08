@@ -2,9 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  align-items: center;
   justify-content: center;
-
+  li {
+    width: 24px;
+    height: 24px;
+    a {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+    }
+  }
   & > * {
     transition: opacity 200ms;
 

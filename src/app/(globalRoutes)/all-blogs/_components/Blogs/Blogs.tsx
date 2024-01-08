@@ -2,7 +2,7 @@
 
 import s from './blogs.module.scss';
 import CategoriesList from '@/commonUI/CategoriesList/CategoriesList';
-import HeaderView from '@/commonUI/headerView/HeaderView';
+import HeaderView from '@/commonUI/HeaderView/HeaderView';
 import Button from '@/commonUI/Button/Button';
 import CardBlog from '@/modules/blog/ui/CardBlog/CardBlog';
 import React, { useState } from 'react';
