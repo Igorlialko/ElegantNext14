@@ -47,7 +47,7 @@ export default function SignUp() {
               <Link href='/'>Terms of Use</Link>
             </p>
           </CheckBox>
-          <Button>{data[0].namePage}</Button>
+          <Button typeButton='submit'>{data[0].namePage}</Button>
         </LoginForm>
       </LayoutLogin>
     </main>

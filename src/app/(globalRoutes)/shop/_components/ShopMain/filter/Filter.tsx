@@ -1,21 +1,30 @@
 import s from './filter.module.scss';
 import clsx from 'clsx';
 import FilterIcon from '@/app/_icons/FilterIcon';
-import FilterPrice from '@/app/(globalRoutes)/shop/_components/ShopMain/filter/FilterPrice';
+import CheckBox from '@/commonUI/CheckBox/CheckBox';
+import React from 'react';
 
 interface Filter {
   filterDataType: (type: string) => void;
-  active: string;
-  filterDataPrice: (type: number[]) => void;
+  activeCategories: string;
+  filterDataPrice: (type: string) => void;
   setNameFilterCategories: (type: string) => void;
+  categories: string[];
+  categoriesPrice: { id: number; price: string }[];
 }
-function Filter({ filterDataType, active, filterDataPrice, setNameFilterCategories }: Filter) {
-  const activeCategories = (type: string, title: string) => {
+function Filter({
+  filterDataType,
+  activeCategories,
+  filterDataPrice,
+  setNameFilterCategories,
+  categories,
+  categoriesPrice,
+}: Filter) {
+  const handleActiveCategories = (type: string, title: string) => {
     filterDataType(type);
     setNameFilterCategories(title);
   };
-
-  // TODO: create one component for filters
+  const handleCheckboxChange = (price: string) => filterDataPrice(price);
 
   return (
     <div className={s.filterWrap}>
@@ -26,33 +35,32 @@ function Filter({ filterDataType, active, filterDataPrice, setNameFilterCategori
       <div className={s.filterName}>
         <div className={s.filterTitle}>CATEGORIES</div>
         <ul className={s.categoriesList}>
-          {
-            // TODO: create array categories and mapping
-          }
-          <li className={clsx(s.filterItem, active === 'all' && s.itemActive)}>
-            <div onClick={() => activeCategories('all', 'All Rooms')}>All Rooms</div>
-          </li>
-          <li className={clsx(s.filterItem, active === 'LivingRoom' && s.itemActive)}>
-            <div onClick={() => activeCategories('LivingRoom', 'Living Room')}>Living Room</div>
-          </li>
-          <li className={clsx(s.filterItem, active === 'Bedroom' && s.itemActive)}>
-            <div onClick={() => activeCategories('Bedroom', 'Bedroom')}>Bedroom</div>
-          </li>
-          <li className={clsx(s.filterItem, active === 'Kitchen' && s.itemActive)}>
-            <div onClick={() => activeCategories('Kitchen', 'Kitchen')}>Kitchen</div>
-          </li>
-          <li className={clsx(s.filterItem, active === 'Bathroom' && s.itemActive)}>
-            <div onClick={() => activeCategories('Bathroom', 'Bathroom')}>Bathroom</div>
-          </li>
-          <li className={clsx(s.filterItem, active === 'Dinning' && s.itemActive)}>
-            <div onClick={() => activeCategories('Dinning', 'Dinning')}>Dinning</div>
-          </li>
-          <li className={clsx(s.filterItem, active === 'Outdoor' && s.itemActive)}>
-            <div onClick={() => activeCategories('Outdoor', 'Outdoor')}>Outdoor</div>
-          </li>
+          {categories.map((item) => (
+            <li
+              key={item}
+              className={clsx(s.filterItem, activeCategories === item && s.itemActive)}
+            >
+              <div className={s.item} onClick={() => handleActiveCategories(item, item)}>
+                {item}
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
-      <FilterPrice filterDataPrice={filterDataPrice} />
+      <div className={s.filterName}>
+        <div className={s.filterTitle}>PRICE</div>
+        <ul className={s.categoriesListPrice}>
+          {categoriesPrice.map((item) => {
+            return (
+              <li key={item.id} className={clsx(s.filterItem)}>
+                <CheckBox optionClassName={s.labelCheckBox}>
+                  <span>{item.price}</span>
+                </CheckBox>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

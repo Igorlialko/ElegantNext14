@@ -46,7 +46,7 @@ export default function SignIn() {
             </CheckBox>
             <Link href='/'>Forgot password?</Link>
           </CheckBoxContainer>
-          <Button>{data[0].namePage}</Button>
+          <Button typeButton='submit'>{data[0].namePage}</Button>
         </LoginForm>
       </LayoutLogin>
     </main>

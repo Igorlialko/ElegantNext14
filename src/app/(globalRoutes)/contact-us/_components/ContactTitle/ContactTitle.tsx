@@ -7,7 +7,7 @@ const ContactTitle = () => {
     <section className={s.contactTitle}>
       <div className='_container'>
         <div className={s.titleNavigation}>
-          <Link href='/Users/abz/Portfolio/ShopHouse/ElegantNext14/public' className={s.home}>
+          <Link href='/' className={s.home}>
             Home
           </Link>
           <ChevronRightIcon className={s.icon} />

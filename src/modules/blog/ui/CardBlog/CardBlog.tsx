@@ -3,6 +3,7 @@ import H7 from '@/app/_typography/H7/H7';
 import UnderLineLink from '@/commonUI/UnderLineLink/UnderLineLink';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { TViews, views } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
 
 export default function CardBlog({
   view,
@@ -13,7 +14,7 @@ export default function CardBlog({
   linkURL = '',
   cardDate,
 }: {
-  view: string;
+  view: TViews;
   imageURL: string;
   imageAlt: string;
   title: string;
@@ -21,13 +22,13 @@ export default function CardBlog({
   linkURL?: string;
   cardDate?: string;
 }) {
-  const isDescription = view === 'cardDescriptionColumn' || view === 'cardDescriptionRow';
+  const isDescription = view === views[2] || view === views[3];
   return (
     <Link
       className={clsx(
         s.cardBlog,
-        view === 'cardDescriptionColumn' && s.cardDescriptionColumn,
-        view === 'cardDescriptionRow' && s.cardDescriptionRow
+        view === views[2] && s.cardDescriptionColumn,
+        view === views[3] && s.cardDescriptionRow
       )}
       href={linkURL}
     >

@@ -8,6 +8,9 @@
 .flexContainer {
   display: flex;
   gap: 24px;
+  @media (max-width: 425px) {
+    gap: 19px;
+  }
 }
 
 .row1 {
@@ -19,16 +22,17 @@
   flex-basis: 50%;
   flex-direction: column;
   gap: 24px;
+  @media (max-width: 425px) {
+    gap: 16px;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .flexContainer {
     flex-direction: column;
-    gap: 10px;
   }
   .row2 {
     flex: 0 0 auto;
-    gap: 10px;
     height: 372px;
   }
 }

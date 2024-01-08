@@ -26,6 +26,7 @@ interface IInput {
   disabled?: boolean;
 
   buttonSlot?: ReactNode;
+  className?: string;
 }
 
 const TextInput = forwardRef<HTMLInputElement, IInput>(
@@ -45,6 +46,7 @@ const TextInput = forwardRef<HTMLInputElement, IInput>(
       required,
       disabled,
       buttonSlot,
+      className,
     },
     ref
   ) => {
@@ -69,9 +71,13 @@ const TextInput = forwardRef<HTMLInputElement, IInput>(
 
     return (
       <div
-        className={clsx(s.inputBlock, {
-          [s.disabled]: disabled,
-        })}
+        className={clsx(
+          s.inputBlock,
+          {
+            [s.disabled]: disabled,
+          },
+          className
+        )}
       >
         <input
           type={type}

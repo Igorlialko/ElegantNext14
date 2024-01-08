@@ -2,9 +2,9 @@ import s from './Button.module.scss';
 import clsx from 'clsx';
 import { MouseEventHandler } from 'react';
 
-interface Ibutton {
+interface IButton {
   roundedButton?: boolean;
-  typeButton?: any;
+  typeButton?: 'submit' | 'reset' | 'button';
   children: string;
   className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -14,9 +14,9 @@ export default function Button({
   roundedButton = false,
   children,
   className,
-  typeButton = 'submit',
+  typeButton = 'button',
   onClick,
-}: Ibutton) {
+}: IButton) {
   const classes = clsx(s.button, roundedButton && s.roundedButton, className);
   return (
     <button type={typeButton} className={classes} onClick={onClick}>

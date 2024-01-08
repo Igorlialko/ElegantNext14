@@ -1,6 +1,6 @@
 .filterWrap {
   display: flex;
-  flex-basis: 254px;
+  flex-basis: 262px;
   flex-direction: column;
   row-gap: 32px;
   min-width: 254px;
@@ -18,7 +18,7 @@
 .filterName {
 }
 .filterTitle {
-  padding-bottom: 16px;
+  padding-bottom: 9px;
   font-size: 16px;
   font-weight: 600;
   line-height: 26px;
@@ -29,8 +29,6 @@
   display: inline-flex;
   flex-direction: column;
   row-gap: 12px;
-  height: 226px;
-  overflow: auto;
 }
 .filterItem {
   display: flex;
@@ -41,9 +39,9 @@
   cursor: pointer;
 
   label {
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
   }
 }
 .itemActive {
@@ -51,15 +49,27 @@
   font-style: normal;
   font-weight: 600;
   line-height: 22px; /* 157.143% */
-  color: var(--black-900, #121212);
-  border-bottom: 1px solid var(--black-900, #121212);
+  color: var(--black-900);
+
+  .item {
+    border-bottom: 1px solid var(--black-900);
+  }
 }
 .categoriesListPrice {
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
+  row-gap: 9px;
   padding-right: 8px;
 }
 .filterPrice {
+}
+.labelCheckBox {
   flex: 1 auto;
+  flex-direction: row-reverse;
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #6c7275;
+  }
 }

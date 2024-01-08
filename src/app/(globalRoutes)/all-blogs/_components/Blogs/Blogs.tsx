@@ -2,11 +2,12 @@
 
 import s from './blogs.module.scss';
 import CategoriesList from '@/commonUI/CategoriesList/CategoriesList';
-import HeaderView from '@/commonUI/HeaderView/HeaderView';
 import Button from '@/commonUI/Button/Button';
 import CardBlog from '@/modules/blog/ui/CardBlog/CardBlog';
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import { views } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
+import ViewSortSelect from '@/app/(globalRoutes)/_components/ViewSortSelect/ViewSortSelect';
 
 const categories = [
   {
@@ -94,37 +95,27 @@ const cardsBlog = [
   },
 ];
 const Blogs = () => {
-  const [view, setView] = useState<string>('all');
-
-  function classView(view: string) {
-    if (view === 'all') {
-      return undefined;
-    }
-    if (view === 'card' || view === 'cardDescriptionColumn') {
-      return s.grid2;
-    }
-    if (view === 'cardDescriptionRow') {
-      return s.gridRow2;
-    }
-  }
-
-  function changeView(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    const viewCards = e.currentTarget.value;
-    setView(viewCards);
-  }
+  const [view, setView] = useState(views[0]);
+  const [activeSort, setActiveSort] = useState('');
 
   return (
     <section className={s.blogs}>
       <div className='_container'>
         <div className={s.blogsControls}>
           <CategoriesList categories={categories} />
-          <HeaderView
-            className={s.blogsSort}
-            view={view}
-            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => changeView(e)}
+          <ViewSortSelect
+            setActiveView={setView}
+            activeView={view}
+            activeSort={activeSort}
+            setActiveSort={setActiveSort}
           />
         </div>
-        <div className={clsx(s.blogsCards, classView(view))}>
+        <div
+          className={clsx(s.blogsCards, {
+            [s.grid2]: view === views[1] || view === views[2],
+            [s.gridRow2]: view === views[3],
+          })}
+        >
           {cardsBlog.map((card) => {
             return (
               <CardBlog
@@ -140,9 +131,7 @@ const Blogs = () => {
           })}
         </div>
         <div className={s.blogsButton}>
-          <Button typeButton='button' roundedButton>
-            Show more
-          </Button>
+          <Button roundedButton>Show more</Button>
         </div>
       </div>
     </section>

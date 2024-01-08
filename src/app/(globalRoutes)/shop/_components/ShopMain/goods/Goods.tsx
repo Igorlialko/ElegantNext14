@@ -1,9 +1,11 @@
-import ArrivalsSlide from '@/app/(globalRoutes)/_components/Arrivals/Slide/ArrivalsSlide';
-
+import CardProduct from '@/commonUI/CardProduct/CardProduct';
 import s from './goods.module.scss';
-import HeaderView from '@/commonUI/HeaderView/HeaderView';
+import ViewSortSelect from '@/app/(globalRoutes)/_components/ViewSortSelect/ViewSortSelect';
+import { useState } from 'react';
+import { views } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
+import Button from '@/commonUI/Button/Button';
 
-interface goodsTypeData {
+interface IGoodsTypeData {
   discount: number;
   isDiscount: boolean;
   rating: number | null;
@@ -16,62 +18,51 @@ interface goodsTypeData {
   price: number;
   id?: number;
 }
-interface GoodsProps {
-  products: goodsTypeData[];
-  active: string;
-  price: number[];
+
+interface IGoodsProps {
+  products: IGoodsTypeData[];
   nameCategories: string;
+  activeSort: string;
+  setActiveSort: (activeSort: string) => void;
 }
 
-function Goods({ products, active, price, nameCategories }: GoodsProps) {
+function Goods({ products, nameCategories, activeSort, setActiveSort }: IGoodsProps) {
+  const [activeView, setActiveView] = useState(views[0]);
+
   return (
     <div className={s.goodsFlex}>
-      <HeaderView nameCategories={nameCategories} />
+      <div className={s.flexWrap}>
+        <div className={s.title}>{nameCategories}</div>
+        <ViewSortSelect
+          activeView={activeView}
+          setActiveView={setActiveView}
+          activeSort={activeSort}
+          setActiveSort={setActiveSort}
+        />
+      </div>
       <div className={s.goodsWrap}>
-        {active !== 'all'
-          ? products
-              .filter(
-                (product) =>
-                  product.categories === active &&
-                  product.price >= price[0] &&
-                  product.price <= price[1]
-              )
-              .map((product) => {
-                console.log(product);
-                return (
-                  <ArrivalsSlide
-                    key={product.id}
-                    title={product.title}
-                    urlProduct={product.urlProduct}
-                    urlImg={product.urlImg}
-                    statusNew={product.statusNew}
-                    discount={product.discount}
-                    isDiscount={product.isDiscount}
-                    favorite={product.favorite}
-                    rating={[1, 2, 3, 4, 5]}
-                  />
-                );
-              })
-          : products
-              .filter((product) => product.price >= price[0] && product.price <= price[1])
-              .map((product) => (
-                <ArrivalsSlide
-                  key={product.id}
-                  title={product.title}
-                  urlProduct={product.urlProduct}
-                  urlImg={product.urlImg}
-                  statusNew={product.statusNew}
-                  discount={product.discount}
-                  isDiscount={product.isDiscount}
-                  favorite={product.favorite}
-                  rating={[1, 2, 3, 4, 5]}
-                />
-              ))}
+        {products.map((product) => {
+          return (
+            <CardProduct
+              key={product.id}
+              title={product.title}
+              urlProduct={product.urlProduct}
+              urlImg={product.urlImg}
+              statusNew={product.statusNew}
+              discount={product.discount}
+              isDiscount={product.isDiscount}
+              favorite={product.favorite}
+              rating={[1, 2, 3, 4, 5]}
+              viewShowPage={activeView}
+            />
+          );
+        })}
       </div>
-      <div className={s.showMore}>
-        <div className={s.showMoreText}>Show more</div>
-      </div>
+      <Button className={s.showMore} roundedButton>
+        Show more
+      </Button>
     </div>
   );
 }
+
 export default Goods;
