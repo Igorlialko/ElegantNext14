@@ -7,12 +7,8 @@
       "link4": "Контакти"
     },
     "interiorSolutions": {
-      "title": {
-        "text1": "Просто унікальний",
-        "text2": "Просто краще",
-        "slash": "/",
-        "dot": "."
-      },
+      "title": "Просто унікально<spanPrimary>/</spanPrimary> Просто краще<spanPrimary2>.</spanPrimary2>",
+
       "titleDescription": {
         "text": "це магазин подарунків і прикрас, розташований у HCMC, В'єтнам. З 2019 року."
       },

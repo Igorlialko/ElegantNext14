@@ -7,12 +7,7 @@
       "link4": "Contactez-nous"
     },
     "interiorSolutions": {
-      "title": {
-        "text1": "Simplement Unique",
-        "text2": "Simplement meilleur",
-        "slash": "/",
-        "dot": "."
-      },
+      "title": "Tout simplement unique<spanPrimary>/</spanPrimary> Simplement meilleur<spanPrimary2>.</spanPrimary2>",
       "titleDescription": {
         "text": "est un magasin de cadeaux et de décorations basé à HCMV, au Vietnam. Est depuis 2019."
       },

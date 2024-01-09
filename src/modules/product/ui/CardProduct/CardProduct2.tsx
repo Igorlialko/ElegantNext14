@@ -4,7 +4,7 @@ import Favorites from '@/app/_icons/Favorites';
 import StarIcon from '@/app/_icons/StarIcon';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { TViews } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
+import { TViews } from '@/app/[locale]/(globalRoutes)/_components/ViewSortSelect/views';
 import Button from '@/commonUI/Button/Button';
 
 interface ICardProductProps {

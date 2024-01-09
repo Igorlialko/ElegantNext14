@@ -8,6 +8,7 @@ const shortid = require('shortid');
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
 //   enabled: process.env.ANALYZE === 'true',
 // });
+const withNextIntl = require('next-intl/plugin')();
 
 const nextConfig = {
   env: {
@@ -15,35 +16,6 @@ const nextConfig = {
   },
   swcMinify: true,
   reactStrictMode: false,
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // config.optimization.splitChunks = {
-    //   chunks: 'async',
-    //   minSize: 100000,
-    //   maxSize: 200000,
-    //   minRemainingSize: 0,
-    //   minChunks: 1,
-    //   maxAsyncRequests: 30,
-    //   maxInitialRequests: 30,
-    //   enforceSizeThreshold: 150000,
-    //   cacheGroups: {
-    //     defaultVendors: {
-    //       test: /[\\/]node_modules[\\/]/,
-    //       priority: -10,
-    //       reuseExistingChunk: true,
-    //     },
-    //     default: {
-    //       minChunks: 2,
-    //       priority: -20,
-    //       reuseExistingChunk: true,
-    //     },
-    //   },
-    // };
-    return config;
-  },
   async headers() {
     return [
       {
@@ -114,6 +86,6 @@ const nextConfig = {
 };
 
 module.exports = withPlugins(
-  [[images]], //[withBundleAnalyzer]], //[withClassnamesMinifier]
+  [[images], [withNextIntl]], //[withBundleAnalyzer]], //[withClassnamesMinifier]
   nextConfig
 );

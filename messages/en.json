@@ -7,12 +7,7 @@
       "link4": "Contact Us"
     },
     "interiorSolutions": {
-      "title": {
-        "text1": "Simply Unique",
-        "text2": "Simply Better",
-        "slash": "/",
-        "dot": "."
-      },
+      "title": "Simply Unique<spanPrimary>/</spanPrimary> Simply Better<spanPrimary2>.</spanPrimary2>",
       "titleDescription": {
         "text": "is a gift & decorations store based in HCMC, Vietnam. Est since 2019."
       },
