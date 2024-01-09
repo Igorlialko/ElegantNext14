@@ -2,7 +2,7 @@
 
 import { Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CadrProduct from '../../../../../commonUI/CardProduct/CardProduct';
+import CadrProduct from '../../../../../modules/product/ui/CardProduct/CardProduct';
 import { data } from './data';
 import clsx from 'clsx';
 

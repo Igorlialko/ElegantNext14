@@ -1,12 +1,12 @@
-import CardProduct from '@/commonUI/CardProduct/CardProduct';
+import CardProduct from '@/modules/product/ui/CardProduct/CardProduct';
 import s from './goods.module.scss';
 import ViewSortSelect from '@/app/(globalRoutes)/_components/ViewSortSelect/ViewSortSelect';
 import { views } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
 import Button from '@/commonUI/Button/Button';
-import CardProduct1 from '@/commonUI/CardProduct/CardProduct1';
+import CardProduct1 from '@/modules/product/ui/CardProduct/CardProduct1';
 import React, { useState } from 'react';
-import CardProduct2 from '@/commonUI/CardProduct/CardProduct2';
-import CardProduct3 from '@/commonUI/CardProduct/CardProduct3';
+import CardProduct2 from '@/modules/product/ui/CardProduct/CardProduct2';
+import CardProduct3 from '@/modules/product/ui/CardProduct/CardProduct3';
 
 interface IGoodsTypeData {
   discount: number;

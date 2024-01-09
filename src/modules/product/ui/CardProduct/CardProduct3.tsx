@@ -30,7 +30,7 @@ function CardProduct3({
   viewShowPage,
 }: ICardProductProps) {
   const [isFavorite, setIsFavorite] = useState<boolean>(favorite);
-  const styleFavorites: { backgroundColor: string; opacity: string } = {
+  const styleFavorites = {
     backgroundColor: isFavorite ? 'rgba(253,46,46,0.78)' : '',
     opacity: isFavorite ? '1' : '',
   };
