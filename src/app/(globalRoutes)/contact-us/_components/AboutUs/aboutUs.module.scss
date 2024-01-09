@@ -65,12 +65,9 @@
 }
 
 .aboutTitle {
-  align-self: stretch;
   font-family: var(--fontFamilyPoppins);
   font-size: 40px;
-  font-style: normal;
   font-weight: 500;
-  font-feature-settings: 'clig' off, 'liga' off;
   line-height: 44px;
   color: var(--black-900);
   letter-spacing: -0.4px;
@@ -81,11 +78,5 @@
   max-width: 452px;
   padding-top: 16px;
   padding-bottom: 24px;
-  font-family: var(--fontFamilyInter);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  font-feature-settings: 'clig' off, 'liga' off;
-  line-height: 26px;
   color: var(--neutral-05100);
 }

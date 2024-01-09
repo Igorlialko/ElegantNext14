@@ -27,6 +27,7 @@ interface IInput {
 
   buttonSlot?: ReactNode;
   className?: string;
+  classNameInput?: string;
 }
 
 const TextInput = forwardRef<HTMLInputElement, IInput>(
@@ -47,6 +48,7 @@ const TextInput = forwardRef<HTMLInputElement, IInput>(
       disabled,
       buttonSlot,
       className,
+      classNameInput,
     },
     ref
   ) => {
@@ -81,7 +83,7 @@ const TextInput = forwardRef<HTMLInputElement, IInput>(
       >
         <input
           type={type}
-          className={s.input}
+          className={clsx(s.input, classNameInput)}
           onBlur={handle.onBlur}
           onFocus={handle.onFocus}
           ref={ref}

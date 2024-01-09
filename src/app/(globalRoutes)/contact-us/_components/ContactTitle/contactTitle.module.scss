@@ -33,11 +33,8 @@
 }
 .page {
   padding-left: 12px;
-  font-family: var(--fontFamilyInter);
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  font-feature-settings: 'clig' off, 'liga' off;
   line-height: 24px;
   color: var(--black-900);
 }
@@ -46,11 +43,8 @@
   padding-top: 40px;
   font-family: var(--fontFamilyPoppins);
   font-size: 54px;
-  font-style: normal;
   font-weight: 500;
-  font-feature-settings: 'clig' off, 'liga' off;
   line-height: 58px;
-  color: var(--neutral-07100);
   letter-spacing: -1px;
   @media (max-width: 576px) {
     font-size: 28px;
@@ -60,11 +54,6 @@
 .titleText {
   max-width: 834px;
   padding-top: 24px;
-  font-family: var(--fontFamilyInter);
-  font-size: 16px;
-  font-style: normal;
   font-weight: 400;
-  font-feature-settings: 'clig' off, 'liga' off;
   line-height: 26px;
-  color: var(--neutral-07100);
 }

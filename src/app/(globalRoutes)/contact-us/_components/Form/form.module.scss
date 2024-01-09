@@ -40,6 +40,9 @@
   padding: 0 16px;
   border: 1px solid var(--black-300);
   border-radius: 6px;
+  &:autofill {
+    transition: background-color 5500s ease-in-out 0s;
+  }
 }
 .formMail {
   display: flex;
@@ -62,6 +65,7 @@
   height: 140px;
   padding: 16px;
   color: var(--black-900);
+  resize: none;
   border: 1px solid var(--black-300);
   border-radius: 6px;
 }
