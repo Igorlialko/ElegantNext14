@@ -30,6 +30,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
+      <head>
+        <link rel='icon' href='/3l.svg' sizes='any' />
+      </head>
       <body className={clsx(inter.variable, spaceGrotesk.variable, poppins.variable)}>
         <GlobalLayout>{children}</GlobalLayout>
       </body>

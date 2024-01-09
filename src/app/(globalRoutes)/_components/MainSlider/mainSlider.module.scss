@@ -25,6 +25,7 @@
     :global(.swiper-pagination-bullet) {
       display: block;
       background: var(--neutral-01100);
+      border-radius: 4px;
       opacity: 1;
       transition: width 0.3s ease;
     }
