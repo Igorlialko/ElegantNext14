@@ -14,6 +14,7 @@ interface ViewSortSelect {
   setActiveView: (view: TViews) => void;
   activeSort?: string;
   setActiveSort: (activeSort: string) => void;
+  className?: string;
 }
 
 const viewsIcons = [View1, View2, View3, View4];
@@ -25,6 +26,7 @@ const ViewSortSelect = ({
   setActiveView,
   activeSort = '',
   setActiveSort,
+  className,
 }: ViewSortSelect) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleOpen = () => setIsOpen((prev) => !prev);
@@ -56,7 +58,7 @@ const ViewSortSelect = ({
         </div>
       </ClickAwayListener>
 
-      <div className={s.viewWrap}>
+      <div className={clsx(className, s.viewWrap)}>
         {views.map((view, index) => {
           const Icon = viewsIcons[index];
           return (

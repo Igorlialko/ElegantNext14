@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import s from './CardProduct.module.scss';
+import s from './CardProduct1.module.scss';
 import Favorites from '@/app/_icons/Favorites';
 import StarIcon from '@/app/_icons/StarIcon';
 import clsx from 'clsx';
@@ -19,7 +19,7 @@ interface ICardProductProps {
   viewShowPage?: TViews;
 }
 
-function CardProduct({
+function CardProduct1({
   title,
   urlProduct,
   urlImg,
@@ -59,14 +59,16 @@ function CardProduct({
             <StarIcon key={key} />
           ))}
         </div>
-        <div className={s.title}>{title}</div>
-        <div className={s.price}>
-          <div className={s.priceNew}>$199.00</div>
-          <div className={s.priceOld}>$400.00</div>
+        <div className={s.description}>
+          <div className={s.title}>{title} card2</div>
+          <div className={s.price}>
+            <div className={s.priceNew}>$199.00</div>
+            <div className={s.priceOld}>$400.00</div>
+          </div>
         </div>
       </div>
     </Link>
   );
 }
 
-export default CardProduct;
+export default CardProduct1;

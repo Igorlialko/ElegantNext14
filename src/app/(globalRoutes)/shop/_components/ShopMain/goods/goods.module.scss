@@ -8,6 +8,11 @@
   flex-wrap: wrap;
   gap: 23px;
   padding-bottom: 80px;
+
+  @media (max-width: 426px) {
+    row-gap: 16px;
+    column-gap: 8px;
+  }
 }
 .showMore {
   align-self: center;
@@ -28,4 +33,10 @@
   font-weight: 600;
   line-height: 32px; /* 160% */
   color: var(--black-900);
+}
+
+.displayNone {
+  @media (max-width: 850px) {
+    display: none;
+  }
 }

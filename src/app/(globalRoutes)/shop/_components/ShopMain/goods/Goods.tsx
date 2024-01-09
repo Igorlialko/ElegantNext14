@@ -1,9 +1,12 @@
 import CardProduct from '@/commonUI/CardProduct/CardProduct';
 import s from './goods.module.scss';
 import ViewSortSelect from '@/app/(globalRoutes)/_components/ViewSortSelect/ViewSortSelect';
-import { useState } from 'react';
 import { views } from '@/app/(globalRoutes)/_components/ViewSortSelect/views';
 import Button from '@/commonUI/Button/Button';
+import CardProduct1 from '@/commonUI/CardProduct/CardProduct1';
+import React, { useState } from 'react';
+import CardProduct2 from '@/commonUI/CardProduct/CardProduct2';
+import CardProduct3 from '@/commonUI/CardProduct/CardProduct3';
 
 interface IGoodsTypeData {
   discount: number;
@@ -26,14 +29,30 @@ interface IGoodsProps {
   setActiveSort: (activeSort: string) => void;
 }
 
+const cards = [CardProduct, CardProduct1, CardProduct2, CardProduct3];
+
 function Goods({ products, nameCategories, activeSort, setActiveSort }: IGoodsProps) {
   const [activeView, setActiveView] = useState(views[0]);
 
+  let ActiveCard: React.ComponentType<any>;
+  if (activeView === views[0]) {
+    ActiveCard = CardProduct;
+  }
+  if (activeView === views[1]) {
+    ActiveCard = CardProduct1;
+  }
+  if (activeView === views[2]) {
+    ActiveCard = CardProduct2;
+  }
+  if (activeView === views[3]) {
+    ActiveCard = CardProduct3;
+  }
   return (
     <div className={s.goodsFlex}>
       <div className={s.flexWrap}>
         <div className={s.title}>{nameCategories}</div>
         <ViewSortSelect
+          className={s.displayNone}
           activeView={activeView}
           setActiveView={setActiveView}
           activeSort={activeSort}
@@ -43,7 +62,7 @@ function Goods({ products, nameCategories, activeSort, setActiveSort }: IGoodsPr
       <div className={s.goodsWrap}>
         {products.map((product) => {
           return (
-            <CardProduct
+            <ActiveCard
               key={product.id}
               title={product.title}
               urlProduct={product.urlProduct}

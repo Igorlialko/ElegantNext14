@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import s from './CardProduct.module.scss';
+import s from './CardProduct2.module.scss';
 import Favorites from '@/app/_icons/Favorites';
 import StarIcon from '@/app/_icons/StarIcon';
 import clsx from 'clsx';
@@ -19,7 +19,7 @@ interface ICardProductProps {
   viewShowPage?: TViews;
 }
 
-function CardProduct({
+function CardProduct2({
   title,
   urlProduct,
   urlImg,
@@ -51,7 +51,6 @@ function CardProduct({
         >
           <Favorites fill={isFavorite ? 'white' : '#6C7275'} />
         </div>
-        <Button className={s.addCart}>Add to cart</Button>
       </div>
       <div className={s.bodyContent}>
         <div className={s.rating}>
@@ -59,14 +58,21 @@ function CardProduct({
             <StarIcon key={key} />
           ))}
         </div>
-        <div className={s.title}>{title}</div>
-        <div className={s.price}>
-          <div className={s.priceNew}>$199.00</div>
-          <div className={s.priceOld}>$400.00</div>
+        <div className={s.description}>
+          <div className={s.title}>{title} card3</div>
+          <div className={s.price}>
+            <div className={s.priceNew}>$199.00</div>
+            <div className={s.priceOld}>$400.00</div>
+          </div>
         </div>
+        <p>
+          Super-soft cushion cover in off-white with a tactile pattern that enhances the different
+          tones in the pile and base.
+        </p>
+        <Button className={s.addCart}>Add to cart</Button>
       </div>
     </Link>
   );
 }
 
-export default CardProduct;
+export default CardProduct2;

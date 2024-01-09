@@ -4,6 +4,13 @@
   flex-direction: column;
   row-gap: 32px;
   min-width: 254px;
+  @media (max-width: 1024px) {
+    flex-basis: unset;
+    min-width: 184px;
+  }
+  @media (max-width: 849px) {
+    display: none;
+  }
 }
 .title {
   position: relative;
