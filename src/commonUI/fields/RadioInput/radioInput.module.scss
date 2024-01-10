@@ -1,0 +1,21 @@
+.radioInput {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 13px 16px;
+  background-color: var(--neutral-02100);
+  border: 1px solid var(--neutral-07100);
+  border-radius: 4px;
+
+  .name {
+    flex: 1;
+  }
+
+  span {
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: clamp(22px, 4vw, 26px);
+    @media (max-width: 576px) {
+      font-weight: 600;
+    }
+  }
+}
