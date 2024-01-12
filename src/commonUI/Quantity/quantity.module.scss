@@ -1,0 +1,29 @@
+.quantity {
+  position: relative;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 8px;
+  button {
+    width: 16px;
+    height: 16px;
+    line-height: normal;
+  }
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    content: '';
+    border: 1px solid var(--neutral-04100);
+    border-radius: 4px;
+  }
+  span {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--black-900);
+  }
+}

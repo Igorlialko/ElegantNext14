@@ -30,7 +30,7 @@ const delivery = [
   },
 ];
 export default function CartSummary({ title, subtotal }: ICartSummary) {
-  const [total, setTotal] = useState(0);
+  const [totalSum, setTotal] = useState(0);
 
   return (
     <form className={s.cartSummary}>
@@ -56,7 +56,7 @@ export default function CartSummary({ title, subtotal }: ICartSummary) {
         </div>
         <div className={s.summaryItem}>
           <p className={s.totalName}>Total</p>
-          <span className={s.totalPrice}>${total}</span>
+          <span className={s.totalPrice}>${totalSum}</span>
         </div>
       </div>
       <Button className={s.cartSummaryButton} typeButton='submit'>
