@@ -1,0 +1,11 @@
+.h6 {
+  font-family: var(--fontFamilyPoppins);
+  font-size: clamp(16px, 4vw, 28px);
+  font-weight: 500;
+  line-height: clamp(26px, 3vw, 34px);
+  letter-spacing: -0.6px;
+  @media (max-width: 576px) {
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+}

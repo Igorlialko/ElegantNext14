@@ -27,36 +27,6 @@ export default function ProductTable({
   increase,
   decrease,
 }: IProductTable) {
-  // const [products, setProducts] = useState(tableProducts);
-  //
-  // function Increase(id: number) {
-  //   const newArray = products.map((item) => {
-  //     if (item.id === id) {
-  //       item.quantity++;
-  //     }
-  //     return item;
-  //   });
-  //   setProducts(newArray);
-  // }
-  // function Decrease(id: number) {
-  //   const newArray = products.map((product) => {
-  //     if (product.id === id) {
-  //       if (product.quantity > 1) {
-  //         product.quantity--;
-  //       }
-  //     }
-  //     return product;
-  //   });
-  //   setProducts(newArray);
-  // }
-  // function removeElement(id: number) {
-  //   setProducts(
-  //     products.filter((product) => {
-  //       return product.id !== id;
-  //     })
-  //   );
-  // }
-
   return (
     <div className={clsx(s.productTable, className)}>
       <div className={s.tableHead}>
