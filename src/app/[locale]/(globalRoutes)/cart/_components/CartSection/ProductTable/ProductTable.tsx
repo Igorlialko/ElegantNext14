@@ -18,6 +18,7 @@ interface IProductTable {
   increase: (id: number) => void;
   decrease: (id: number) => void;
   remove: (id: number) => void;
+  onChangeQuantity: (e: React.ChangeEvent<HTMLInputElement>, id: number) => void;
 }
 
 export default function ProductTable({
@@ -26,6 +27,7 @@ export default function ProductTable({
   remove,
   increase,
   decrease,
+  onChangeQuantity,
 }: IProductTable) {
   return (
     <div className={clsx(s.productTable, className)}>
@@ -59,6 +61,7 @@ export default function ProductTable({
                   quantity={product.quantity}
                   increase={() => increase(product.id)}
                   decrease={() => decrease(product.id)}
+                  onChangeQuantity={(e) => onChangeQuantity(e, product.id)}
                 />
               </div>
             </div>
@@ -67,6 +70,7 @@ export default function ProductTable({
                 quantity={product.quantity}
                 increase={() => increase(product.id)}
                 decrease={() => decrease(product.id)}
+                onChangeQuantity={(e) => onChangeQuantity(e, product.id)}
               />
             </div>
             <div className={s.price}>

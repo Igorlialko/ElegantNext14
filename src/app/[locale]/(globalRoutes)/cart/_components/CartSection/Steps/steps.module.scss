@@ -1,5 +1,6 @@
 .steps {
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
   align-items: center;
   justify-content: center;
@@ -9,23 +10,38 @@
   li {
     position: relative;
     display: flex;
+    flex: 1 1 256px;
     gap: 17px;
     align-items: center;
-    width: 100%;
-    max-width: 256px;
     padding-bottom: 26px;
     font-weight: 600;
     line-height: 26px;
     color: var(--neutrals-5);
+
+    &.completeStep {
+      color: var(--green);
+
+      span {
+        background-color: var(--green);
+      }
+
+      &:after {
+        background-color: var(--green);
+      }
+    }
+
     &.activeStep {
       color: var(--neutral-07100);
+
       span {
         background-color: var(--neutrals-2);
       }
+
       &:after {
         background-color: var(--neutrals-2);
       }
     }
+
     span {
       display: flex;
       align-items: center;
@@ -38,6 +54,7 @@
       background-color: var(--neutrals-5);
       border-radius: 40px;
     }
+
     &:after {
       position: absolute;
       bottom: 0;
