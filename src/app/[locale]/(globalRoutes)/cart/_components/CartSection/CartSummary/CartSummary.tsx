@@ -1,6 +1,6 @@
 import s from './cartSummary.module.scss';
 import H7 from '@/app/_typography/H7/H7';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import Button from '@/commonUI/Button/Button';
 import RadioInput from '@/commonUI/fields/RadioInput/RadioInput';
 
@@ -32,57 +32,38 @@ const delivery = [
     checked: false,
   },
 ];
+
 export default function CartSummary({ title, subtotal }: ICartSummary) {
   const [deliveryArray, setDeliveryArray] = useState(delivery);
-  const [currentDeliveryValue, setCurrentDeliveryValue] = useState(defaultDeliveryValue);
-  const [totalSum, setTotal] = useState(subtotal + currentDeliveryValue);
+  const currentDeliveryValue = deliveryArray.find((item) => item.checked)?.price || 0;
+  const totalSum = subtotal + currentDeliveryValue;
 
-  function ChangeTotal() {
-    setTotal(subtotal + currentDeliveryValue);
-  }
-
-  function ChangeDelivery(e: ChangeEvent<HTMLInputElement>) {
+  function changeDelivery(e: ChangeEvent<HTMLInputElement>) {
     const value = parseFloat(e.currentTarget.value);
-    setDeliveryArray((prev) => {
-      return prev.map((item) => {
+    setDeliveryArray((prev) =>
+      prev.map((item) => {
         item.checked = item.price === value;
         return item;
-      });
-    });
-    setCurrentDeliveryValue(value);
+      })
+    );
   }
 
-  function defaultDeliveryValue() {
-    let price = 0;
-    deliveryArray.forEach((item) => {
-      if (item.checked) {
-        price = item.price;
-      }
-    });
-    return price;
-  }
-
-  useEffect(() => {
-    ChangeTotal();
-  }, [currentDeliveryValue, subtotal]);
   return (
     <form className={s.cartSummary}>
       <div className={s.title}>
         <H7>{title}</H7>
       </div>
       <div className={s.radioInputs}>
-        {deliveryArray.map((item) => {
-          return (
-            <RadioInput
-              key={item.id}
-              name={item.nameRadio}
-              nameLabel={item.name}
-              price={item.price}
-              checked={item.checked}
-              changeTotal={(e) => ChangeDelivery(e)}
-            />
-          );
-        })}
+        {deliveryArray.map((item) => (
+          <RadioInput
+            key={item.id}
+            name={item.nameRadio}
+            nameLabel={item.name}
+            price={item.price}
+            checked={item.checked}
+            changeTotal={changeDelivery}
+          />
+        ))}
       </div>
       <div className={s.summary}>
         <div className={s.summaryItem}>

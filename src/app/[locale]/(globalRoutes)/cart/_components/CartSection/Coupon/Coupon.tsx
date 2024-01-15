@@ -1,6 +1,6 @@
 import s from './coupon.module.scss';
 import H7 from '@/app/_typography/H7/H7';
-import CouponForm from '@/app/[locale]/(globalRoutes)/_components/CartSection/Coupon/CouponForm/CouponForm';
+import CouponForm from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Coupon/CouponForm/CouponForm';
 import clsx from 'clsx';
 
 interface Icoupon {

@@ -78,7 +78,6 @@
     "jsx-a11y/label-has-associated-control": "off",
     "no-use-before-define": "off",
     "no-plusplus": "off",
-    "react/jsx-no-bind": "warn",
     "react/no-danger": "off",
     "camelcase": "off",
     "import/order": "off",
@@ -93,6 +92,7 @@
     "guard-for-in": "off",
     "prefer-destructuring": "off",
     "react/jsx-curly-brace-presence": "off",
-    "jsx-a11y/control-has-associated-label": "off"
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/jsx-no-bind": "off"
   }
 }

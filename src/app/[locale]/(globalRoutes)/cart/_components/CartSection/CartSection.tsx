@@ -2,15 +2,16 @@
 
 import s from './cartSection.module.scss';
 import H3 from '@/app/_typography/H3/H3';
-import Steps from '@/app/[locale]/(globalRoutes)/_components/CartSection/Steps/Steps';
-import { useEffect, useState } from 'react';
-import Coupon from '@/app/[locale]/(globalRoutes)/_components/CartSection/Coupon/Coupon';
-import CartSummary from '@/app/[locale]/(globalRoutes)/_components/CartSection/CartSummary/CartSummary';
-import ProductTable from '@/app/[locale]/(globalRoutes)/_components/CartSection/ProductTable/ProductTable';
+import Steps from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Steps/Steps';
+import { useState } from 'react';
+import Coupon from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Coupon/Coupon';
+import CartSummary from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/CartSummary/CartSummary';
+import ProductTable from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/ProductTable/ProductTable';
 import H4 from '@/app/_typography/H4/H4';
 import H6 from '@/app/_typography/H6/H6';
 import Button from '@/commonUI/Button/Button';
 
+//todo: create steps for url pathname. example: http://localhost:3000/en/cart/thank-you
 const stepsArray = [
   {
     name: 'Shopping cart',
@@ -53,8 +54,7 @@ const tableProducts = [
   },
 ];
 export default function CartSection() {
-  const [products, setProducts] = useState(tableProducts);
-  const [subTotal, setSubTotal] = useState(sumSubTotal);
+  //todo:update to pathname
   const [step, setStep] = useState(whatStep);
 
   function whatStep() {
@@ -65,56 +65,35 @@ export default function CartSection() {
     return stepNumber;
   }
 
-  function sumSubTotal() {
-    let subTotal = 0;
-    products.forEach((item) => {
-      subTotal += item.price * item.quantity;
-    });
-    return subTotal;
-  }
+  const [products, setProducts] = useState(tableProducts);
+  const subTotal = products.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  function Increase(id: number) {
-    const newArray = products.map((item) => {
-      if (item.id === id) {
-        item.quantity++;
-      }
-      return item;
-    });
-    setProducts(newArray);
-  }
-
-  function Decrease(id: number) {
-    const newArray = products.map((product) => {
-      if (product.id === id) {
-        if (product.quantity > 1) {
-          product.quantity--;
+  const productService = {
+    increase(id: number) {
+      setProducts(
+        products.map((item) => {
+          if (item.id === id) {
+            item.quantity++;
+          }
+          return item;
+        })
+      );
+    },
+    decrease(id: number) {
+      const newArray = products.map((product) => {
+        if (product.id === id) {
+          if (product.quantity > 1) {
+            product.quantity--;
+          }
         }
-      }
-      return product;
-    });
-    setProducts(newArray);
-  }
-
-  function removeElement(id: number) {
-    setProducts(
-      products.filter((product) => {
-        return product.id !== id;
-      })
-    );
-  }
-
-  useEffect(() => {
-    sumSubTotal();
-  }, []);
-
-  useEffect(() => {
-    setSubTotal(sumSubTotal);
-  }, [products]);
-
-  useEffect(() => {
-    setProducts(tableProducts);
-    setSubTotal(sumSubTotal);
-  }, [tableProducts]);
+        return product;
+      });
+      setProducts(newArray);
+    },
+    removeElement(id: number) {
+      setProducts(products.filter((product) => product.id !== id));
+    },
+  };
 
   return (
     <section className={s.cartSection}>
@@ -130,13 +109,9 @@ export default function CartSection() {
             <ProductTable
               tableProducts={products}
               className={s.orderTable}
-              increase={(id) => Increase(id)}
-              decrease={(id) => {
-                Decrease(id);
-              }}
-              remove={(id) => {
-                removeElement(id);
-              }}
+              increase={productService.increase}
+              decrease={productService.decrease}
+              remove={productService.removeElement}
             />
             <CartSummary title='Cart summary' subtotal={subTotal} />
             <Coupon
@@ -153,14 +128,12 @@ export default function CartSection() {
               <H4>Your order has been received</H4>
             </div>
             <div className={s.products}>
-              {products.map((product) => {
-                return (
-                  <div key={product.id} className={s.product}>
-                    <img src={product.imgPath} alt={product.altImg} />
-                    <span>{product.quantity}</span>
-                  </div>
-                );
-              })}
+              {products.map((product) => (
+                <div key={product.id} className={s.product}>
+                  <img src={product.imgPath} alt={product.altImg} />
+                  <span>{product.quantity}</span>
+                </div>
+              ))}
             </div>
             <ul className={s.informations}>
               <li className={s.information}>
