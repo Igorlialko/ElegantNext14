@@ -1,4 +1,3 @@
-
 export type TLocale = 'en' | 'fr' | 'ua';
 
 export const locales: TLocale[] = ['en', 'fr', 'ua'];

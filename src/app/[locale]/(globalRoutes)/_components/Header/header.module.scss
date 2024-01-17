@@ -39,7 +39,7 @@
   height: 24px;
   align-items: center;
 
-  & > * {
+  & > *:not(:first-child) {
     display: flex;
     gap: 4px;
     align-items: center;

@@ -4,14 +4,12 @@ import ContactUs from '@/app/[locale]/(globalRoutes)/contact-us/_components/Cont
 import Advantages from '@/app/[locale]/(globalRoutes)/_components/Advantages/Advantages';
 import s from './page.module.scss';
 import Form from '@/app/[locale]/(globalRoutes)/contact-us/_components/Form/Form';
-import ButtonPlace from '@/app/[locale]/(globalRoutes)/contact-us/_components/Button/Button';
 
 export default function ContactUsPage() {
   return (
     <main>
       <ContactTitle />
       <AboutUs />
-      <ButtonPlace />
       <ContactUs />
       <Form />
       <Advantages className={s.advantages} />
