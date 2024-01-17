@@ -1,12 +1,13 @@
 import s from './cartSummary.module.scss';
 import H7 from '@/app/_typography/H7/H7';
-import { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Button from '@/commonUI/Button/Button';
 import RadioInput from '@/commonUI/fields/RadioInput/RadioInput';
 
 interface ICartSummary {
   title: string;
   subtotal: number;
+  sendOrder: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const delivery = [
@@ -33,7 +34,7 @@ const delivery = [
   },
 ];
 
-export default function CartSummary({ title, subtotal }: ICartSummary) {
+export default function CartSummary({ title, subtotal, sendOrder }: ICartSummary) {
   const [deliveryArray, setDeliveryArray] = useState(delivery);
   const currentDeliveryValue = deliveryArray.find((item) => item.checked)?.price || 0;
   const totalSum = subtotal + currentDeliveryValue;
@@ -75,7 +76,7 @@ export default function CartSummary({ title, subtotal }: ICartSummary) {
           <span className={s.totalPrice}>${totalSum}</span>
         </div>
       </div>
-      <Button className={s.cartSummaryButton} typeButton='submit'>
+      <Button className={s.cartSummaryButton} onClick={sendOrder}>
         Checkout
       </Button>
     </form>

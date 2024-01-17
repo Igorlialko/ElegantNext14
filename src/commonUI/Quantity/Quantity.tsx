@@ -24,7 +24,7 @@ export default function Quantity({
       <button className={s.plus} onClick={decrease}>
         <Minus />
       </button>
-      <input type='number' value={quantity} onChange={(e) => onChangeQuantity(e)} />
+      <input type='tel' value={quantity} onChange={(e) => onChangeQuantity(e)} />
       <button className={s.minus} onClick={increase}>
         <Plus />
       </button>

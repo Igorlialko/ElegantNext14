@@ -1,13 +1,13 @@
 import s from './Button.module.scss';
 import clsx from 'clsx';
-import { MouseEventHandler } from 'react';
+import React from 'react';
 
 interface IButton {
   roundedButton?: boolean;
   typeButton?: 'submit' | 'reset' | 'button';
   children: string;
   className?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function Button({

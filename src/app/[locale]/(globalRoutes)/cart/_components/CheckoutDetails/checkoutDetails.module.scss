@@ -1,0 +1,24 @@
+.checkoutDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+
+  div {
+    clip-path: inset(0 2rem 0 0);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    animation: l4 2s steps(4) infinite;
+
+    &:before {
+      content: 'Loading...';
+    }
+
+    @keyframes l4 {
+      to {
+        clip-path: inset(0 -0.5rem 0 0);
+      }
+    }
+  }
+}
