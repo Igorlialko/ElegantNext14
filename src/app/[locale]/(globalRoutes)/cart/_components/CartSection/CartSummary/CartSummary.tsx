@@ -1,13 +1,13 @@
 import s from './cartSummary.module.scss';
 import H7 from '@/app/_typography/H7/H7';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import Button from '@/commonUI/Button/Button';
 import RadioInput from '@/commonUI/fields/RadioInput/RadioInput';
+import { stepsArray } from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/stepsData';
+import { useRouter } from '@/navigation';
 
 interface ICartSummary {
-  title: string;
   subtotal: number;
-  sendOrder: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const delivery = [
@@ -34,7 +34,7 @@ const delivery = [
   },
 ];
 
-export default function CartSummary({ title, subtotal, sendOrder }: ICartSummary) {
+export default function CartSummary({ subtotal }: ICartSummary) {
   const [deliveryArray, setDeliveryArray] = useState(delivery);
   const currentDeliveryValue = deliveryArray.find((item) => item.checked)?.price || 0;
   const totalSum = subtotal + currentDeliveryValue;
@@ -49,10 +49,19 @@ export default function CartSummary({ title, subtotal, sendOrder }: ICartSummary
     );
   }
 
+  const router = useRouter();
+
+  const sendOrder = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push({
+      pathname: stepsArray[1].url as any,
+    });
+  };
+
   return (
-    <form className={s.cartSummary}>
+    <form className={s.cartSummary} onSubmit={sendOrder}>
       <div className={s.title}>
-        <H7>{title}</H7>
+        <H7>Cart summary</H7>
       </div>
       <div className={s.radioInputs}>
         {deliveryArray.map((item) => (
@@ -76,7 +85,7 @@ export default function CartSummary({ title, subtotal, sendOrder }: ICartSummary
           <span className={s.totalPrice}>${totalSum}</span>
         </div>
       </div>
-      <Button className={s.cartSummaryButton} onClick={sendOrder}>
+      <Button className={s.cartSummaryButton} typeButton='submit'>
         Checkout
       </Button>
     </form>

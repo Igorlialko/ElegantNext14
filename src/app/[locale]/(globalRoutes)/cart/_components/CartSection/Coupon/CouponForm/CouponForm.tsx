@@ -3,7 +3,7 @@ import CouponInput from '@/commonUI/fields/CouponInput/CouponInput';
 
 export default function CouponForm() {
   return (
-    <form action='@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Coupon/CouponForm/CouponForm'>
+    <form>
       <CouponInput placeholder='Coupon Code' buttonSlot={<button type='submit'>Apply</button>} />
     </form>
   );

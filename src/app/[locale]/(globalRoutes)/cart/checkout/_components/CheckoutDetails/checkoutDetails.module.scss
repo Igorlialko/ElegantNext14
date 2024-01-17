@@ -11,10 +11,6 @@
     line-height: 44px;
     animation: l4 2s steps(4) infinite;
 
-    &:before {
-      content: 'Loading...';
-    }
-
     @keyframes l4 {
       to {
         clip-path: inset(0 -0.5rem 0 0);
