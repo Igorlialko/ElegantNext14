@@ -3,35 +3,44 @@
 import s from './cartSection.module.scss';
 import H3 from '@/app/_typography/H3/H3';
 import Steps from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Steps/Steps';
-import React, { useState } from 'react';
 import Coupon from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Coupon/Coupon';
 import CartSummary from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/CartSummary/CartSummary';
 import ProductTable from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/ProductTable/ProductTable';
 import H4 from '@/app/_typography/H4/H4';
 import H6 from '@/app/_typography/H6/H6';
 import Button from '@/commonUI/Button/Button';
+import CheckoutDetails from '@/app/[locale]/(globalRoutes)/cart/_components/CheckoutDetails/CheckoutDetails';
+import React, { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
-//todo: create steps for url pathname. example: http://localhost:3000/en/cart/thank-you
 const stepsArray = [
   {
     name: 'Shopping cart',
-    number: 1,
+    url: '/en/cart',
     active: true,
     complete: false,
   },
   {
     name: 'Checkout details',
-    number: 2,
+    url: '/en/cart/checkout',
     active: false,
     complete: false,
   },
   {
     name: 'Order complete',
-    number: 3,
+    url: '/en/cart/thank-you',
     active: false,
     complete: false,
   },
 ];
+
+const ordersInformation = {
+  orderCode: '#0123_45678',
+  total: 'October 19, 2023',
+  date: '$1,345.00',
+  paymentMethod: 'Credit Card',
+};
+
 const tableProducts = [
   {
     name: 'Tray Table',
@@ -62,15 +71,20 @@ const tableProducts = [
   },
 ];
 export default function CartSection() {
-  //todo:update to pathname
-  const [step, setStep] = useState(whatStep);
+  const step = usePathname();
+  const router = useRouter();
 
-  function whatStep() {
-    let stepNumber = 0;
-    stepsArray.forEach((step) => {
-      stepNumber = step.active ? step.number : 1;
+  function sendOrder(url: string) {
+    stepsArray.forEach((item) => {
+      if (item.url === step) {
+        item.active = false;
+        item.complete = true;
+      }
+      if (item.url === url) {
+        item.active = true;
+      }
     });
-    return stepNumber;
+    router.push('/en/cart/checkout');
   }
 
   const [products, setProducts] = useState(tableProducts);
@@ -129,7 +143,7 @@ export default function CartSection() {
         <div className={s.steps}>
           <Steps steps={stepsArray} />
         </div>
-        {step === 1 && (
+        {step === stepsArray[0].url && (
           <div className={s.order}>
             <ProductTable
               tableProducts={products}
@@ -139,7 +153,11 @@ export default function CartSection() {
               remove={productService.removeElement}
               onChangeQuantity={productService.onChangeQuantity}
             />
-            <CartSummary title='Cart summary' subtotal={subTotal} />
+            <CartSummary
+              title='Cart summary'
+              subtotal={subTotal}
+              sendOrder={() => sendOrder('/en/cart/checkout')}
+            />
             <Coupon
               className={s.cartCoupon}
               title='Have a coupon?'
@@ -147,7 +165,8 @@ export default function CartSection() {
             />
           </div>
         )}
-        {step === 2 && (
+        {step === stepsArray[1].url && <CheckoutDetails />}
+        {step === stepsArray[2].url && (
           <div className={s.orderComplete}>
             <div className={s.titles}>
               <H6>Thank you! 🎉</H6>
@@ -164,19 +183,19 @@ export default function CartSection() {
             <ul className={s.informations}>
               <li className={s.information}>
                 <span className={s.informationName}>Order code:</span>
-                <p className={s.informationText}>#0123_45678</p>
+                <p className={s.informationText}>{ordersInformation.orderCode}</p>
               </li>
               <li className={s.information}>
                 <span className={s.informationName}>Date:</span>
-                <p className={s.informationText}>October 19, 2023</p>
+                <p className={s.informationText}>{ordersInformation.date}</p>
               </li>
               <li className={s.information}>
                 <span className={s.informationName}>Total:</span>
-                <p className={s.informationText}>$1,345.00</p>
+                <p className={s.informationText}>{ordersInformation.total}</p>
               </li>
               <li className={s.information}>
                 <span className={s.informationName}>Payment method:</span>
-                <p className={s.informationText}>Credit Card</p>
+                <p className={s.informationText}>{ordersInformation.paymentMethod}</p>
               </li>
             </ul>
             <Button roundedButton className={s.buttonHistory}>
