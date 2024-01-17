@@ -78,7 +78,7 @@
   a {
     position: relative;
     font-weight: 600;
-    color: var(--Green);
+    color: var(--green);
     cursor: pointer;
     &:active:after,
     &:focus:after {
@@ -106,7 +106,7 @@
       width: 0;
       height: 1px;
       content: '';
-      background-color: var(--Green);
+      background-color: var(--green);
       transition: width 0.3s ease;
     }
   }

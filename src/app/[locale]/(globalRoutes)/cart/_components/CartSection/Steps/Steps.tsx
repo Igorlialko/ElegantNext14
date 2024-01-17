@@ -1,7 +1,8 @@
 import s from './steps.module.scss';
+import Complete from '@/app/_icons/Complete';
 
 interface Isteps {
-  steps: { name: string; number: number; active: boolean }[];
+  steps: { name: string; number: number; active: boolean; complete: boolean }[];
 }
 
 export default function Steps({ steps }: Isteps) {
@@ -9,8 +10,11 @@ export default function Steps({ steps }: Isteps) {
     <ul className={s.steps}>
       {steps.map((step) => {
         return (
-          <li key={step.number} className={step.active ? s.activeStep : undefined}>
-            <span>{step.number}</span>
+          <li
+            key={step.number}
+            className={step.active ? s.activeStep : step.complete ? s.completeStep : undefined}
+          >
+            <span>{step.active ? step.number : step.complete ? <Complete /> : step.number}</span>
             {step.name}
           </li>
         );

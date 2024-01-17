@@ -9,16 +9,23 @@ interface IQuantity {
   increase: React.MouseEventHandler<HTMLButtonElement>;
   decrease: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
+  onChangeQuantity: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export default function Quantity({ quantity = 1, increase, decrease, className }: IQuantity) {
+export default function Quantity({
+  quantity = 1,
+  increase,
+  decrease,
+  className,
+  onChangeQuantity,
+}: IQuantity) {
   return (
     <div className={clsx(s.quantity, className)}>
-      <button onClick={decrease}>
+      <button className={s.plus} onClick={decrease}>
         <Minus />
       </button>
-      <span>{quantity}</span>
-      <button onClick={increase}>
+      <input type='number' value={quantity} onChange={(e) => onChangeQuantity(e)} />
+      <button className={s.minus} onClick={increase}>
         <Plus />
       </button>
     </div>

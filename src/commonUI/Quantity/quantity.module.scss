@@ -1,14 +1,41 @@
 .quantity {
   position: relative;
   display: inline-flex;
-  gap: 12px;
   align-items: center;
+  width: 100%;
+  min-width: 80px;
+  max-width: 80px;
   padding: 6px 8px;
+
   button {
+    position: relative;
     width: 16px;
     height: 16px;
     line-height: normal;
+
+    &:after {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      min-width: 40px;
+      height: 40px;
+      content: '';
+      transform: translateY(-50%);
+    }
   }
+
+  .minus {
+    &:after {
+      left: 0;
+    }
+  }
+
+  .plus {
+    &:after {
+      right: 0;
+    }
+  }
+
   &:after {
     position: absolute;
     top: 0;
@@ -20,10 +47,13 @@
     border: 1px solid var(--neutral-04100);
     border-radius: 4px;
   }
-  span {
+
+  input {
+    max-width: 30px;
     font-size: 12px;
     font-weight: 600;
     line-height: 20px;
     color: var(--black-900);
+    text-align: center;
   }
 }

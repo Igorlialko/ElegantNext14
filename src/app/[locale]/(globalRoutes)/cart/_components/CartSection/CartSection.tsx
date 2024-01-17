@@ -3,7 +3,7 @@
 import s from './cartSection.module.scss';
 import H3 from '@/app/_typography/H3/H3';
 import Steps from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Steps/Steps';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Coupon from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/Coupon/Coupon';
 import CartSummary from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/CartSummary/CartSummary';
 import ProductTable from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/ProductTable/ProductTable';
@@ -17,11 +17,19 @@ const stepsArray = [
     name: 'Shopping cart',
     number: 1,
     active: true,
+    complete: false,
+  },
+  {
+    name: 'Checkout details',
+    number: 2,
+    active: false,
+    complete: false,
   },
   {
     name: 'Order complete',
-    number: 2,
+    number: 3,
     active: false,
+    complete: false,
   },
 ];
 const tableProducts = [
@@ -80,18 +88,35 @@ export default function CartSection() {
       );
     },
     decrease(id: number) {
-      const newArray = products.map((product) => {
-        if (product.id === id) {
-          if (product.quantity > 1) {
-            product.quantity--;
+      setProducts(
+        products.map((product) => {
+          if (product.id === id) {
+            if (product.quantity > 1) {
+              product.quantity--;
+            }
           }
-        }
-        return product;
-      });
-      setProducts(newArray);
+          return product;
+        })
+      );
     },
     removeElement(id: number) {
       setProducts(products.filter((product) => product.id !== id));
+    },
+    onChangeQuantity(e: React.ChangeEvent<HTMLInputElement>, id: number) {
+      const value = parseFloat(e.target.value);
+      setProducts(
+        products.map((product) => {
+          if (product.id === id) {
+            if (value) {
+              product.quantity = value;
+              if (value > 100) {
+                product.quantity = 100;
+              }
+            } else product.quantity = 1;
+          }
+          return product;
+        })
+      );
     },
   };
 
@@ -112,6 +137,7 @@ export default function CartSection() {
               increase={productService.increase}
               decrease={productService.decrease}
               remove={productService.removeElement}
+              onChangeQuantity={productService.onChangeQuantity}
             />
             <CartSummary title='Cart summary' subtotal={subTotal} />
             <Coupon
