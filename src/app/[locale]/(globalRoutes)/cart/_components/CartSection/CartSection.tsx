@@ -84,7 +84,7 @@ export default function CartSection() {
         item.active = true;
       }
     });
-    router.push('/en/cart/checkout');
+    router.push(url);
   }
 
   const [products, setProducts] = useState(tableProducts);

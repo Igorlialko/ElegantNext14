@@ -1,0 +1,77 @@
+.breadCrumbs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  @media (max-width: 576px) {
+    gap: 5px;
+  }
+  li {
+    position: relative;
+
+    @media (hover: hover) {
+      &:not(.active) a:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:not(.active) a:focus {
+      &:before {
+        opacity: 1;
+      }
+    }
+
+    &:not(.active) {
+      padding-right: 16px;
+    }
+
+    &:not(.active) a:before {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      content: '';
+      background-color: var(--black-600);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    &:not(.active):after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 12px;
+      height: 12px;
+      content: '';
+      background: url('/images/chevron-right.svg') 100% 100% / contain;
+      transform: translateY(-50%);
+    }
+
+    &.active a {
+      color: var(--black-900);
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  a {
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--black-600);
+
+    &:after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      content: '';
+      transform: translateY(-50%);
+    }
+  }
+}
