@@ -1,0 +1,145 @@
+.orderComplete {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  max-width: 730px;
+  padding: 80px 95px;
+  margin: 80px auto 0 auto;
+  @media (max-width: 992px) {
+    margin: 40px auto 0 auto;
+  }
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    content: '';
+    background: var(--elements-white);
+    border-radius: 8px;
+    box-shadow: 0 32px 48px 0 rgba(18, 18, 18, 0.1);
+  }
+
+  @media (max-width: 576px) {
+    padding: 16px;
+  }
+
+  .titles {
+    text-align: center;
+    @media (max-width: 576px) {
+      text-align: left;
+    }
+
+    h6 {
+      margin-bottom: 16px;
+      color: var(--neutral-04100);
+    }
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    @media (max-width: 576px) {
+      gap: 16px;
+    }
+
+    .product {
+      position: relative;
+      width: 80px;
+      height: 96px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      span {
+        position: absolute;
+        top: -16px;
+        right: -16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 4px 6px;
+        color: var(--text-white);
+        background-color: var(--neutral-07100);
+        border-radius: 80px;
+        @media (max-width: 576px) {
+          top: -8px;
+          right: -8px;
+          min-width: 16px;
+          height: 16px;
+          padding: 3px 4.5px;
+          font-size: 10px;
+          font-weight: 600;
+          line-height: 10px;
+        }
+      }
+    }
+  }
+
+  .informations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 270px;
+    @media (max-width: 576px) {
+      gap: 16px;
+    }
+  }
+
+  .information {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 576px) {
+      position: relative;
+      flex-direction: column;
+      padding-bottom: 16px;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        content: '';
+        background-color: var(--neutral-03100);
+      }
+    }
+  }
+
+  .informationName,
+  .informationText {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+  }
+
+  .informationName {
+    color: var(--neutral-04100);
+    @media (max-width: 576px) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .buttonHistory {
+    max-width: 203px;
+    height: auto;
+    padding: 12px 24px;
+    @media (max-width: 425px) {
+      max-width: 100%;
+    }
+  }
+}

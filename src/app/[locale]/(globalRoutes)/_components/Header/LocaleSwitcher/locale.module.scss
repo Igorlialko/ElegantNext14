@@ -1,0 +1,48 @@
+.country {
+  position: relative;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  width: 48px;
+}
+
+.countryContainer {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 48px;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--bg-main);
+  border: var(--black-300) 1px solid;
+  border-radius: 4px;
+  box-shadow: 0 0 5px var(--neutral-07100-shadow);
+  opacity: 0;
+  transition: opacity 200ms;
+  transform: translateX(-50%);
+
+  &.isOpen {
+    pointer-events: unset;
+    opacity: 1;
+  }
+}
+
+.locale {
+  width: 100%;
+  padding: 8px 0;
+  user-select: none;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--neutral-02100);
+    }
+  }
+
+  &.active {
+    pointer-events: none;
+    background-color: var(--neutral-04100);
+  }
+}

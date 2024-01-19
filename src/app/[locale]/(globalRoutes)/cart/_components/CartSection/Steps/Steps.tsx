@@ -1,20 +1,30 @@
+'use client';
+
 import s from './steps.module.scss';
 import Complete from '@/app/_icons/Complete';
+import { usePathname } from '@/navigation';
+import { stepsArray } from '@/app/[locale]/(globalRoutes)/cart/_components/CartSection/stepsData';
+import clsx from 'clsx';
 
-interface Isteps {
-  steps: { name: string; url: string; active: boolean; complete: boolean }[];
-}
+export default function Steps() {
+  const pathname = usePathname();
 
-export default function Steps({ steps }: Isteps) {
+  const activeElementIndex = stepsArray.findIndex((item) => item.url === pathname);
+
   return (
     <ul className={s.steps}>
-      {steps.map((step, index) => {
+      {stepsArray.map((step, index) => {
+        const isActive = step.url === pathname;
+        const isComplete = activeElementIndex > index;
         return (
           <li
             key={step.url}
-            className={step.active ? s.activeStep : step.complete ? s.completeStep : undefined}
+            className={clsx({
+              [s.activeStep]: isActive,
+              [s.completeStep]: isComplete,
+            })}
           >
-            <span>{step.active ? index + 1 : step.complete ? <Complete /> : index + 1}</span>
+            <span>{isComplete ? <Complete /> : index + 1}</span>
             {step.name}
           </li>
         );

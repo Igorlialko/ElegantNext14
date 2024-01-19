@@ -1,9 +1,8 @@
 import React from 'react';
-import { usePathname } from '@/navigation';
+import { usePathname, Link } from '@/navigation';
 import BasketIcon from '@/app/_icons/BasketIcon';
 import WishListIcon from '@/app/_icons/WishListIcon';
 import LogoutIcon from '@mui/icons-material/Logout';
-import Link from 'next/link';
 import clsx from 'clsx';
 import s from '@/app/[locale]/(globalRoutes)/_components/Header/UserActivity/ua.module.scss';
 
@@ -48,7 +47,7 @@ const LinksAuth = ({
       {userLinks.map(({ href, title, count, icon, onClick, isDisableActive }) => (
         <Link
           key={href}
-          href={href}
+          href={href as any}
           className={clsx(s.link, !isDisableActive && pathname === href && s.active)}
           onClick={onClick}
         >
