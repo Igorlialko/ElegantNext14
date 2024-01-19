@@ -13,6 +13,7 @@ const withNextIntl = require('next-intl/plugin')();
 const nextConfig = {
   env: {
     version: shortid.generate(),
+    SERVER_URL: process.env.SERVER_URL,
   },
   swcMinify: true,
   reactStrictMode: false,

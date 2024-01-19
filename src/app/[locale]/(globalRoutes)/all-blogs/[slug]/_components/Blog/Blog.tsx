@@ -1,34 +1,33 @@
-import s from './Post.module.scss';
+import s from './blog.module.scss';
 import H3 from '@/app/_typography/H3/H3';
 import ProfileIcon from '@/app/_icons/ProfileIcon';
 import Calendar from '@/app/_icons/Calendar';
 import BreadCrumbs from '@/app/[locale]/(globalRoutes)/_components/BreadCrumbs/BreadCrumbs';
+import { TBlog } from '@/modules/blog/types';
+import { dateFormatBlog } from '@/modules/blog/utils/formatter';
 
-export default function Post() {
+export default function Blog({ blog }: { blog: TBlog }) {
   return (
     <section className={s.post}>
       <div className='_container'>
-        <BreadCrumbs className={s.crumbs} />
+        <BreadCrumbs className={s.crumbs} title={blog.title} />
         <div className={s.articleInfo}>
           <span className={s.articleName}>Article</span>
-          <H3 className={s.articleTitle}>How to make a busy bathroom a place to relax</H3>
+          <H3 className={s.articleTitle}>{blog.title}</H3>
           <ul className={s.articleList}>
             <li>
               <ProfileIcon />
-              Henrik Annemark
+              {blog.authorName}
             </li>
             <li>
               <Calendar />
-              October 16, 2023
+              {dateFormatBlog(blog.date)}
             </li>
           </ul>
         </div>
         <div className={s.postContent}>
-          <img src='/images/blogs/posts/postImg.webp' alt='img' />
-          <p>
-            Your bathroom serves a string of busy functions on a daily basis. See how you can make
-            all of them work, and still have room for comfort and relaxation.
-          </p>
+          <img src={blog.image} alt={blog.title.slice(0, 10)} />
+          <p>{blog.content}</p>
         </div>
       </div>
     </section>

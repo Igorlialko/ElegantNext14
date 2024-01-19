@@ -4,10 +4,15 @@ import s from './blogs.module.scss';
 import CategoriesList from '@/commonUI/CategoriesList/CategoriesList';
 import Button from '@/commonUI/Button/Button';
 import CardBlog from '@/modules/blog/ui/CardBlog/CardBlog';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { views } from '@/app/[locale]/(globalRoutes)/_components/ViewSortSelect/views';
 import ViewSortSelect from '@/app/[locale]/(globalRoutes)/_components/ViewSortSelect/ViewSortSelect';
+
+import CircularProgress from '@mui/material/CircularProgress';
+import { TBlog } from '@/modules/blog/types';
+import { getBlogs } from '@/modules/blog/api/fetchers';
+import { dateFormatBlog } from '@/modules/blog/utils/formatter';
 
 const categories = [
   {
@@ -20,83 +25,43 @@ const categories = [
   },
 ];
 
-const cardsBlog = [
-  {
-    imageURL: '/images/blogs/cards/img.webp',
-    imageAlt: 'image',
-    title: '7 ways to decor your home',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 0,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-1.webp',
-    imageAlt: 'image',
-    title: 'Inside a beautiful kitchen organization',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 1,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-2.webp',
-    imageAlt: 'image',
-    title: 'Decor your bedroom for your children',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 2,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-3.webp',
-    imageAlt: 'image',
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 3,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-4.webp',
-    imageAlt: 'image',
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 4,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-5.webp',
-    imageAlt: 'image',
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 5,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-6.webp',
-    imageAlt: 'image',
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 6,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-7.webp',
-    imageAlt: 'image',
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 7,
-  },
-  {
-    imageURL: '/images/blogs/cards/img-8.webp',
-    imageAlt: 'image',
-    title: 'Modern texas home is beautiful and completely kid-friendly',
-    linkURL: '/',
-    date: 'October 16, 2023',
-    id: 8,
-  },
-];
 const Blogs = () => {
   const [view, setView] = useState(views[0]);
   const [activeSort, setActiveSort] = useState('');
+
+  const [blogs, setBlogs] = useState<TBlog[]>([]);
+  const [page, setPage] = useState(1);
+  const limit = 9;
+  const [isFirstLoading, setIsFirstLoading] = useState(true);
+  const [isNextLoading, setIsNextLoading] = useState(false);
+
+  useEffect(() => {
+    getBlogs(page, limit)
+      .then((res) => {
+        setBlogs(res.data);
+      })
+      .catch(() => {
+        // todo:add snackbar to errors
+      })
+      .finally(() => {
+        setIsFirstLoading(false);
+      });
+  }, []);
+
+  const showMore = () => {
+    setIsNextLoading(true);
+    getBlogs(page + 1, limit)
+      .then((res) => {
+        setPage((prev) => prev + 1);
+        setBlogs((prevState) => [...prevState, ...res.data]);
+      })
+      .catch(() => {
+        // todo:add snackbar to errors
+      })
+      .finally(() => {
+        setIsNextLoading(false);
+      });
+  };
 
   return (
     <section className={s.blogs}>
@@ -110,29 +75,42 @@ const Blogs = () => {
             setActiveSort={setActiveSort}
           />
         </div>
+        {/*todo: create skeleton*/}
+        {isFirstLoading && <CircularProgress />}
+
         <div
           className={clsx(s.blogsCards, {
             [s.grid2]: view === views[1] || view === views[2],
             [s.gridRow2]: view === views[3],
           })}
         >
-          {cardsBlog.map((card) => {
-            return (
+          {!!blogs.length &&
+            blogs.map((blog) => (
               <CardBlog
                 view={view}
-                key={card.id}
-                imageURL={card.imageURL}
-                imageAlt={card.imageAlt}
-                title={card.title}
-                linkURL={card.linkURL}
-                cardDate={card.date}
+                key={blog.id}
+                imageURL={blog.image}
+                imageAlt={blog.title}
+                title={blog.title}
+                linkURL={`/all-blogs/${blog.slug}`}
+                cardDate={dateFormatBlog(blog.date)}
               />
-            );
-          })}
+            ))}
         </div>
-        <div className={s.blogsButton}>
-          <Button roundedButton>Show more</Button>
-        </div>
+        {isNextLoading && (
+          <div className={s.blogsButton}>
+            <CircularProgress />
+          </div>
+        )}
+
+        {/*todo: unshow button when totalCount blogs was full*/}
+        {!isFirstLoading && !!blogs.length && !isNextLoading && (
+          <div className={s.blogsButton}>
+            <Button roundedButton onClick={showMore}>
+              Show more
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
