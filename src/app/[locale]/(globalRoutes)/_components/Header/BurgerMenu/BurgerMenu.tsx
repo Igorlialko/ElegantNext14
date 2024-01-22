@@ -8,8 +8,12 @@ import { usePathname } from '@/navigation';
 import Button from '@/commonUI/Button/Button';
 import LinksAuth from '@/app/[locale]/(globalRoutes)/_components/Header/UserActivity/LinksAuth';
 import TextInput from '@/commonUI/fields/TextInput/TextInput';
+import LocaleSwitcher from '@/app/[locale]/(globalRoutes)/_components/Header/LocaleSwitcher/LocaleSwitcher';
+import { useAuthStore } from '@/store/authStore';
 
 const BurgerMenu = () => {
+  const isAuthorized = useAuthStore((state) => state.isAuthorized);
+
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     setIsOpen((prev) => {
@@ -28,7 +32,6 @@ const BurgerMenu = () => {
     };
   }, []);
   const pathname = usePathname();
-  const [isAuthorized, setIsAuthorized] = useState(true);
 
   const basketCount = 2;
   const wishlistCount = 1;
@@ -39,18 +42,22 @@ const BurgerMenu = () => {
         <span>3legant</span>
         <span>.</span>
       </Link>
-      <button
-        type='button'
-        className={clsx(s.menuButton, {
-          [s.isOpen]: isOpen,
-          [s.activeCount]: basketCount || wishlistCount,
-        })}
-        onClick={handleOpen}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
+      <div className={s.burgerBtns}>
+        <LocaleSwitcher />
+        <button
+          type='button'
+          className={clsx(s.menuButton, {
+            [s.isOpen]: isOpen,
+            [s.activeCount]: basketCount || wishlistCount,
+          })}
+          onClick={handleOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
       <div className={clsx(s.menu, isOpen && s.active)}>
         <div className={s.header}>
           <Link href='/' className={s.logo} onClick={handleOpen}>
@@ -79,11 +86,7 @@ const BurgerMenu = () => {
         </ul>
         {isAuthorized ? (
           <div onClick={handleOpen}>
-            <LinksAuth
-              setIsAuthorized={setIsAuthorized}
-              wishlistCount={wishlistCount}
-              basketCount={basketCount}
-            />
+            <LinksAuth wishlistCount={wishlistCount} basketCount={basketCount} />
           </div>
         ) : (
           <div className={s.buttons}>

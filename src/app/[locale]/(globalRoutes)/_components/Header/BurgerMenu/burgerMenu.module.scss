@@ -8,6 +8,11 @@
     padding-bottom: 17px;
   }
 }
+.burgerBtns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .logo > * {
   font-family: var(--fontFamilyPoppins);

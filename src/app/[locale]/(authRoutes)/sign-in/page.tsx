@@ -4,18 +4,23 @@ import LayoutLogin from '@/app/[locale]/(authRoutes)/_components/LayoutLogin/Lay
 import LoginForm from '@/app/[locale]/(authRoutes)/_components/LoginForm/LoginForm';
 import Button from '@/commonUI/Button/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import TextInput from '@/commonUI/fields/TextInput/TextInput';
 import PasswordInput from '@/commonUI/fields/PasswordInput/PasswordInput';
 import CheckBox from '@/commonUI/CheckBox/CheckBox';
 import Link from 'next/link';
 import CheckBoxContainer from '@/commonUI/CheckBoxContainer/CheckBoxContainer';
+import { authLogin } from '@/modules/auth/api';
+import EmailInput from '@/commonUI/fields/EmailInput/EmailInput';
+import { useRouter } from '@/navigation';
+import { useAuthStore } from '@/store/authStore';
 
 type FormValuesSignIn = {
-  firstNameOrEmail: string;
+  email: string;
   password: string;
   checkbox: boolean;
 };
 export default function SignIn() {
+  const router = useRouter();
+  const addUserData = useAuthStore((state) => state.addUserData);
   const data = [
     {
       namePage: 'Sign in',
@@ -24,7 +29,23 @@ export default function SignIn() {
   ];
 
   const { register, handleSubmit } = useForm<FormValuesSignIn>();
-  const onSubmitSignIn: SubmitHandler<FormValuesSignIn> = (data) => console.log(data);
+  const onSubmitSignIn: SubmitHandler<FormValuesSignIn> = (data) => {
+    console.log(data);
+    if (data.email && data.password) {
+      authLogin({ email: data.email, password: data.password })
+        .then((res) => {
+          addUserData(res.data);
+          router.push('/');
+        })
+        .catch((error) => {
+          console.log('error', error);
+          if (error?.response?.status === 400) {
+            //todo: update to snackbar
+            alert(error?.response?.data?.message);
+          }
+        });
+    }
+  };
 
   return (
     <main>
@@ -35,10 +56,7 @@ export default function SignIn() {
         linkName={'Sign up'}
       >
         <LoginForm onSubmit={handleSubmit(onSubmitSignIn)}>
-          <TextInput
-            {...register('firstNameOrEmail')}
-            placeholder='Your username or email address'
-          />
+          <EmailInput {...register('email')} placeholder='Email address' type='email' />
           <PasswordInput register={register} />
           <CheckBoxContainer>
             <CheckBox {...register('checkbox')}>
