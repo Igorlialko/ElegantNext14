@@ -5,16 +5,16 @@ import WishListIcon from '@/app/_icons/WishListIcon';
 import LogoutIcon from '@mui/icons-material/Logout';
 import clsx from 'clsx';
 import s from '@/app/[locale]/(globalRoutes)/_components/Header/UserActivity/ua.module.scss';
+import { useAuthStore } from '@/store/authStore';
 
 const LinksAuth = ({
-  setIsAuthorized,
   basketCount,
   wishlistCount,
 }: {
-  setIsAuthorized: (isAuth: boolean) => void;
   basketCount: number;
   wishlistCount: number;
 }) => {
+  const removeUserData = useAuthStore((state) => state.removeUserData);
   const pathname = usePathname();
 
   const userLinks = [
@@ -36,8 +36,8 @@ const LinksAuth = ({
       href: '/',
       icon: <LogoutIcon sx={{ color: '#141718' }} />,
       onClick: () => {
-        console.log('sldfknvidf');
-        setIsAuthorized(false);
+        //todo: post request to logout
+        removeUserData();
         //===== log out
       },
     },

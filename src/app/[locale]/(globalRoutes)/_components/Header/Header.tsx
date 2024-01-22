@@ -4,53 +4,23 @@ import s from './header.module.scss';
 import SearchIcon from '@/app/_icons/SearchIcon';
 import UserActivity from '@/app/[locale]/(globalRoutes)/_components/Header/UserActivity/UserActivity';
 import MenuLinks from '@/app/[locale]/(globalRoutes)/_components/MenuLinks/MenuLinks';
-import { useState } from 'react';
-// import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useHeaderShadow } from '@/app/[locale]/(globalRoutes)/_components/Header/useHeaderShadow';
 import BurgerMenu from '@/app/[locale]/(globalRoutes)/_components/Header/BurgerMenu/BurgerMenu';
 import LocaleSwitcher from '@/app/[locale]/(globalRoutes)/_components/Header/LocaleSwitcher/LocaleSwitcher';
+import { useAuthStore } from '@/store/authStore';
 
 export default function Header() {
   const isShadow = useHeaderShadow();
 
-  const [isAuthorized, setIsAuthorized] = useState(true);
-  // const [isRed, setIsRed] = useState(false);
-
-  // useEffect(() => {
-  //   const promiseTimeout = () =>
-  //     new Promise((resolve: (b: boolean) => void, reject) => {
-  //       setTimeout(() => {
-  //         resolve(true);
-  //       }, 1000);
-  //
-  //       // fetch('http://localhost:3000/en/shop')
-  //     });
-
-  // promiseTimeout()
-  //   .then((response) => {
-  //     setIsRed(response);
-  //     console.log('response', response);
-  //   })
-  //   .catch((reason) => {
-  //     console.log('reason', reason);
-  //   })
-  //   .finally(() => {
-  //     console.log('finally');
-  //   });
-  //
-  //   console.log('mount');
-  // }, []);
+  const isAuthorized = useAuthStore((state) => state.isAuthorized);
 
   return (
     <header
       className={clsx(s.header, {
         [s.shadow]: isShadow,
       })}
-      // style={{
-      //   backgroundColor: isRed ? 'red' : undefined,
-      // }}
     >
       <div className='_container'>
         <div className={s.headerMenu}>
@@ -63,7 +33,7 @@ export default function Header() {
               <div className={s.userInterface}>
                 <LocaleSwitcher />
                 <SearchIcon />
-                <UserActivity setIsAuthorized={setIsAuthorized} />
+                <UserActivity />
               </div>
             </>
           ) : (

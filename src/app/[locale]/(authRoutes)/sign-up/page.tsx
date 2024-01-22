@@ -9,6 +9,9 @@ import Link from 'next/link';
 import TextInput from '@/commonUI/fields/TextInput/TextInput';
 import PasswordInput from '@/commonUI/fields/PasswordInput/PasswordInput';
 import EmailInput from '@/commonUI/fields/EmailInput/EmailInput';
+import { authRegistration } from '@/modules/auth/api';
+import { useAuthStore } from '@/store/authStore';
+import { useRouter } from '@/navigation';
 
 type FormValuesSignUp = {
   firstName: string;
@@ -18,6 +21,8 @@ type FormValuesSignUp = {
   checkbox: boolean;
 };
 export default function SignUp() {
+  const router = useRouter();
+  const addUserData = useAuthStore((state) => state.addUserData);
   const data = [
     {
       namePage: 'Sign up',
@@ -26,7 +31,23 @@ export default function SignUp() {
   ];
 
   const { register, handleSubmit } = useForm<FormValuesSignUp>();
-  const onSubmitSignUp: SubmitHandler<FormValuesSignUp> = (data) => console.log(data);
+  const onSubmitSignUp: SubmitHandler<FormValuesSignUp> = (data) => {
+    console.log(data);
+    if (data.email && data.password) {
+      authRegistration({ email: data.email, password: data.password })
+        .then((res) => {
+          addUserData(res.data);
+          router.push('/');
+        })
+        .catch((error) => {
+          console.log('error', error);
+          if (error?.response?.status === 400) {
+            //todo: update to snackbar
+            alert(error?.response?.data?.message);
+          }
+        });
+    }
+  };
 
   return (
     <main>

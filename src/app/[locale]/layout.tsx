@@ -6,7 +6,10 @@ import clsx from 'clsx';
 import GlobalLayout from '@/app/[locale]/GlobalLayout';
 import { ReactNode } from 'react';
 import { locales } from '@/config';
-import { unstable_setRequestLocale } from 'next-intl/server';
+// import { unstable_setRequestLocale } from 'next-intl/server';
+import { AuthProvider } from '@/store/authStore';
+import { cookies } from 'next/headers';
+import { getCookie } from 'cookies-next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,14 +44,28 @@ export default function RootLayout({
   params: any;
 }) {
   // Enable static rendering
-  unstable_setRequestLocale(locale);
+  // unstable_setRequestLocale(locale);
+
+  const userData = getCookie('userData', { cookies }) as any;
+
   return (
     <html lang={locale}>
       <head>
         <link rel='icon' href='/favicon.svg' sizes='any' />
       </head>
       <body className={clsx(inter.variable, spaceGrotesk.variable, poppins.variable)}>
-        <GlobalLayout>{children}</GlobalLayout>
+        <AuthProvider
+          initialState={
+            userData
+              ? {
+                  isAuthorized: true,
+                  userData: JSON.parse(userData),
+                }
+              : {}
+          }
+        >
+          <GlobalLayout>{children}</GlobalLayout>
+        </AuthProvider>
       </body>
     </html>
   );
