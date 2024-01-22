@@ -2,7 +2,10 @@ import { TBlog } from '@/modules/blog/types';
 import { axiosInstance } from '@/api';
 import { AxiosResponse } from 'axios';
 
-export const getBlogs = async (page = 1, limit = 9): Promise<AxiosResponse<TBlog[]>> =>
+export const getBlogs = async (
+  page = 1,
+  limit = 9
+): Promise<AxiosResponse<{ total: number; limit: number; page: number; results: TBlog[] }>> =>
   await axiosInstance.get(`/blogs`, {
     params: {
       page,

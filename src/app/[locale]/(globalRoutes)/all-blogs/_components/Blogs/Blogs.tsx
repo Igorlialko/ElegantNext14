@@ -38,7 +38,7 @@ const Blogs = () => {
   useEffect(() => {
     getBlogs(page, limit)
       .then((res) => {
-        setBlogs(res.data);
+        setBlogs(res.data.results);
       })
       .catch(() => {
         // todo:add snackbar to errors
@@ -53,7 +53,7 @@ const Blogs = () => {
     getBlogs(page + 1, limit)
       .then((res) => {
         setPage((prev) => prev + 1);
-        setBlogs((prevState) => [...prevState, ...res.data]);
+        setBlogs((prevState) => [...prevState, ...res.data.results]);
       })
       .catch(() => {
         // todo:add snackbar to errors
