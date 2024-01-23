@@ -1,0 +1,25 @@
+.skeletBlogCard {
+  display: flex;
+  flex: 1 1 356px;
+  flex-direction: column;
+  .skeletImage {
+    width: 100%;
+    height: 325px;
+    @media (max-width: 576px) {
+      height: 283px;
+    }
+  }
+  .skeletContent {
+    padding-top: 24px;
+    @media (max-width: 576px) {
+      padding-top: 16px;
+    }
+    .skeletTitle {
+      height: clamp(16px, 4vw, 20px);
+      margin-bottom: 8px;
+    }
+    .skeletDate {
+      height: 12px;
+    }
+  }
+}
