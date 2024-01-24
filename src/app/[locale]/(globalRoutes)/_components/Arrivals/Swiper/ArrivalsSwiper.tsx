@@ -1,6 +1,6 @@
 'use client';
 
-import { Scrollbar } from 'swiper/modules';
+import { Scrollbar, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CadrProduct from '../../../../../../modules/product/ui/CardProduct/CardProduct';
 import { data } from './data';
@@ -12,7 +12,7 @@ function ArrivalsSwiper() {
   return (
     <div className={clsx(s.swiper, s.swiperScroll, s.swiperSlide)}>
       <Swiper
-        modules={[Scrollbar]}
+        modules={[Scrollbar, Mousewheel]}
         slidesPerView={4}
         breakpoints={{
           320: {
@@ -38,6 +38,9 @@ function ArrivalsSwiper() {
         }}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
+        direction={'horizontal'}
+        mousewheel
+        speed={400}
       >
         {data.map((product) => (
           <SwiperSlide key={product.id}>
