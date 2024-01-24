@@ -38,15 +38,7 @@ const Blogs = () => {
 
   const [isFirstLoading, setIsFirstLoading] = useState(true);
   const [isNextLoading, setIsNextLoading] = useState(false);
-  const [isShowMore, setIsShowMore] = useState(true);
-
-  const [skeletonsArray, setSkeletonsArray] = useState(() => {
-    const newArray = [];
-    for (let i = 0; i < limit; i++) {
-      newArray.push(i);
-    }
-    return newArray;
-  });
+  const isShowMore = !(counterTotalCards === totalCards && totalCards !== 0);
 
   useEffect(() => {
     getBlogs(page, limit)
@@ -64,12 +56,6 @@ const Blogs = () => {
         setIsFirstLoading(false);
       });
   }, []);
-
-  useEffect(() => {
-    if (counterTotalCards === totalCards && totalCards !== 0) {
-      setIsShowMore(false);
-    }
-  }, [counterTotalCards]);
 
   const showMore = () => {
     setIsNextLoading(true);
@@ -109,8 +95,8 @@ const Blogs = () => {
           })}
         >
           {isFirstLoading &&
-            skeletonsArray.map((item) => {
-              return <SkeletBlogCard key={item} />;
+            Array.from({ length: limit }, (item, index) => {
+              return <SkeletBlogCard key={index} />;
             })}
           {!!blogs.length &&
             blogs.map((blog) => (
