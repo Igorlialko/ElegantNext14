@@ -1,0 +1,25 @@
+.formDetails {
+  .block + .block {
+    margin-top: 40px;
+  }
+
+  .block {
+    .blockTitle {
+      margin-bottom: 24px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 32px;
+      color: var(--black-000);
+    }
+
+    & + button {
+      margin-top: 24px;
+    }
+  }
+
+  .button {
+    max-width: 183px;
+    height: auto;
+    padding: 12px 24px;
+  }
+}
