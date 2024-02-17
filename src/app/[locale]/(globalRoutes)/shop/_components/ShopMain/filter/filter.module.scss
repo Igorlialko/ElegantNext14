@@ -50,6 +50,20 @@
     justify-content: space-between;
     cursor: pointer;
   }
+
+  .item {
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0px;
+      height: 1px;
+      background-color: var(--black-900);
+      transition: width 200ms;
+    }
+  }
 }
 .itemActive {
   font-size: 14px;
@@ -59,7 +73,9 @@
   color: var(--black-900);
 
   .item {
-    border-bottom: 1px solid var(--black-900);
+    &:before{
+      width: 100%;
+    }
   }
 }
 .categoriesListPrice {
