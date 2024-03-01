@@ -1,0 +1,17 @@
+.address {
+  .title {
+    margin-bottom: 19px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--black-000);
+  }
+  .groupAddress {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+  }
+}
+.addressButton {
+  min-height: 140px;
+}

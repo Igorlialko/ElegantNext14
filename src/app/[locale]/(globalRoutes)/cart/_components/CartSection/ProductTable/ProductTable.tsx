@@ -55,7 +55,7 @@ export default function ProductTable({
               <div className={s.productInfo}>
                 <p>{product.name}</p>
                 <span>Color: {product.color}</span>
-                <ButtonRemove remove={() => remove(product.id)} />
+                <ButtonRemove isShowText remove={() => remove(product.id)} />
                 <Quantity
                   className={s.productInfoQuantity}
                   quantity={product.quantity}
@@ -75,7 +75,7 @@ export default function ProductTable({
             </div>
             <div className={s.price}>
               ${product.price}
-              <ButtonRemove remove={() => remove(product.id)} />
+              <ButtonRemove isShowText remove={() => remove(product.id)} />
             </div>
             <div className={s.subtotal}>${product.price * product.quantity}</div>
           </div>

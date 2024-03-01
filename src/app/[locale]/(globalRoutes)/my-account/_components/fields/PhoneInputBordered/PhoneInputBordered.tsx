@@ -1,26 +1,13 @@
-import s from '../detailsInput.module.scss';
+import s from '../borderedInput.module.scss';
 import { ChangeEvent, FocusEvent, forwardRef, useState } from 'react';
 import clsx from 'clsx';
+import IInput from '../types';
 
-interface IInput {
-  placeholder?: string;
-  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  name?: string;
-
-  min?: string | number;
-  max?: string | number;
-  maxLength?: number;
-  minLength?: number;
-  pattern?: string;
-  required?: boolean;
-
-  className?: string;
-  classNameInput?: string;
+interface IInputBordered extends IInput {
+  value?: string;
 }
 
-const DetailsEmailInput = forwardRef<HTMLInputElement, IInput>(
+const PhoneInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
   (
     {
       placeholder,
@@ -36,6 +23,8 @@ const DetailsEmailInput = forwardRef<HTMLInputElement, IInput>(
       required,
       className,
       classNameInput,
+      prompt,
+      value,
     },
     ref
   ) => {
@@ -60,15 +49,16 @@ const DetailsEmailInput = forwardRef<HTMLInputElement, IInput>(
 
     return (
       <div className={clsx(s.detailsInput, className)}>
-        {placeholder && <label>{`${placeholder}${required ? ' *' : ''}`}</label>}
+        {placeholder && <label htmlFor={name}>{`${placeholder}${required ? ' *' : ''}`}</label>}
         <div className={s.blockInput}>
           <input
-            type='email'
+            type='tel'
             className={clsx(s.input, classNameInput)}
             onBlur={handle.onBlur}
             onFocus={handle.onFocus}
             ref={ref}
             name={name}
+            id={name}
             onChange={handle.onChange}
             min={min}
             max={max}
@@ -76,6 +66,7 @@ const DetailsEmailInput = forwardRef<HTMLInputElement, IInput>(
             minLength={minLength}
             pattern={pattern}
             required={required}
+            value={value}
           />
           {!!placeholder && (
             <p
@@ -87,9 +78,10 @@ const DetailsEmailInput = forwardRef<HTMLInputElement, IInput>(
             </p>
           )}
         </div>
+        {prompt && <p className={s.prompt}>{prompt}</p>}
       </div>
     );
   }
 );
 
-export default DetailsEmailInput;
+export default PhoneInputBordered;
