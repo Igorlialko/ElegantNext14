@@ -14,7 +14,7 @@ type FormValues = {
 };
 
 interface IFormAddress {
-  idUser?: number;
+  id?: number;
   nameAddress?: string;
   nameUser?: string;
   addressUser?: string;
@@ -23,7 +23,7 @@ interface IFormAddress {
 }
 
 export default function FormAddress({
-  idUser,
+  id,
   nameAddress,
   nameUser,
   addressUser,
@@ -32,9 +32,22 @@ export default function FormAddress({
 }: IFormAddress) {
   const { register, handleSubmit } = useForm<FormValues>();
   const onSubmitForm: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
-    const newAddres = [...dataAddress];
-    setIsShowForm(false);
+    if (id) {
+      dataAddress.forEach((address) => {
+        if (address.id === id) {
+          address.addressUser = data.addressUser;
+          address.nameUser = data.nameUser;
+          address.phoneUser = data.phoneUser;
+          address.nameAddress = data.nameAddress;
+        }
+        setIsShowForm(false);
+      });
+    } else {
+      const date = Date.now();
+      const newAddress = { ...data, id: date.valueOf() };
+      setIsShowForm(false);
+      dataAddress.push(newAddress);
+    }
   };
   return (
     <form className={s.addressForm} name='Addres form' onSubmit={handleSubmit(onSubmitForm)}>
@@ -63,7 +76,7 @@ export default function FormAddress({
         value={addressUser}
       />
       <Button className={s.button} typeButton='submit'>
-        {idUser ? 'Save changes' : 'Create Address'}
+        {id ? 'Save changes' : 'Create Address'}
       </Button>
     </form>
   );

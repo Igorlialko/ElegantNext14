@@ -30,7 +30,7 @@ const TextInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
     ref
   ) => {
     const [isFocused, setIsFocused] = useState(false);
-    const [valueInput, setValueInput] = useState(value);
+    const [valueInput, setValueInput] = useState(value || '');
 
     const handle = {
       onFocus(e: FocusEvent<HTMLInputElement>) {
