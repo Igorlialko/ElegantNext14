@@ -4,6 +4,7 @@ import TextInputBordered from '@/app/[locale]/(globalRoutes)/my-account/_compone
 import PhoneInputBordered from '@/app/[locale]/(globalRoutes)/my-account/_components/fields/PhoneInputBordered/PhoneInputBordered';
 import Button from '@/commonUI/Button/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { dataAddress } from '../../mockData';
 
 type FormValues = {
   nameAddress: string;
@@ -32,6 +33,7 @@ export default function FormAddress({
   const { register, handleSubmit } = useForm<FormValues>();
   const onSubmitForm: SubmitHandler<FormValues> = (data) => {
     console.log(data);
+    const newAddres = [...dataAddress];
     setIsShowForm(false);
   };
   return (
@@ -40,13 +42,25 @@ export default function FormAddress({
         {...register('nameAddress')}
         name='nameAddress'
         placeholder='Address name'
+        value={nameAddress}
       />
-      <TextInputBordered {...register('nameUser')} name='nameUser' placeholder='Your name' />
-      <PhoneInputBordered {...register('phoneUser')} name='phoneUser' placeholder='Your phone' />
+      <TextInputBordered
+        {...register('nameUser')}
+        name='nameUser'
+        placeholder='Your name'
+        value={nameUser}
+      />
+      <PhoneInputBordered
+        {...register('phoneUser')}
+        name='phoneUser'
+        placeholder='Your phone'
+        value={phoneUser}
+      />
       <TextInputBordered
         {...register('addressUser')}
         name='addressUser'
         placeholder='Your address'
+        value={addressUser}
       />
       <Button className={s.button} typeButton='submit'>
         {idUser ? 'Save changes' : 'Create Address'}

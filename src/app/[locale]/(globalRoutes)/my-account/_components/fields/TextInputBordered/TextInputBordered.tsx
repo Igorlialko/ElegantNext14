@@ -30,7 +30,7 @@ const TextInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
     ref
   ) => {
     const [isFocused, setIsFocused] = useState(false);
-    const [isHaveValue, setIsHaveValue] = useState(false);
+    const [valueInput, setValueInput] = useState(value);
 
     const handle = {
       onFocus(e: FocusEvent<HTMLInputElement>) {
@@ -40,11 +40,11 @@ const TextInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
       onBlur(e: FocusEvent<HTMLInputElement>) {
         onBlur?.(e);
         setIsFocused(false);
-        setIsHaveValue(!!e.target.value);
+        setValueInput(e.target.value);
       },
       onChange(e: ChangeEvent<HTMLInputElement>) {
         onChange?.(e);
-        setIsHaveValue(!!e.target.value);
+        setValueInput(e.target.value);
       },
     };
 
@@ -67,12 +67,12 @@ const TextInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
             minLength={minLength}
             pattern={pattern}
             required={required}
-            value={value}
+            value={valueInput}
           />
           {!!placeholder && (
             <p
               className={clsx(s.placeholder, {
-                [s.isFocused]: isHaveValue || isFocused,
+                [s.isFocused]: valueInput || isFocused,
               })}
             >
               {placeholder}

@@ -1,11 +1,5 @@
 'use client';
 
-// import ContactTitle from '@/app/[locale]/(globalRoutes)/contact-us/_components/ContactTitle/ContactTitle';
-// import AboutUs from '@/app/[locale]/(globalRoutes)/contact-us/_components/AboutUs/AboutUs';
-// import ContactUs from '@/app/[locale]/(globalRoutes)/contact-us/_components/ContactUs/ContactUs';
-// import Advantages from '@/app/[locale]/(globalRoutes)/_components/Advantages/Advantages';
-// import s from './page.module.scss';
-// import Form from '@/app/[locale]/(globalRoutes)/contact-us/_components/Form/Form';
 import { FormEvent, useEffect, useState } from 'react';
 import TextInput from '@/commonUI/fields/TextInput/TextInput';
 import Button from '@/commonUI/Button/Button';

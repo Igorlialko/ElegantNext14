@@ -7,8 +7,7 @@ interface ICardAddress {
   nameUser: string;
   phoneUser: string;
   addressUser: string;
-  addressId: number;
-  onClick: (id: number) => void;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function CardAddress({
@@ -16,19 +15,12 @@ export default function CardAddress({
   nameUser,
   phoneUser,
   addressUser,
-  addressId,
   onClick,
 }: ICardAddress) {
   return (
     <div className={s.cardAddress}>
       <p className={s.addressName}>{nameAddress}</p>
-      <button
-        className={s.buttonEdit}
-        type='button'
-        onClick={() => {
-          onClick(addressId);
-        }}
-      >
+      <button className={s.buttonEdit} type='button' onClick={onClick}>
         <EditIcon />
         Edit
       </button>
