@@ -22,10 +22,10 @@ export const getBlogFromSlug = async (slug: string): Promise<AxiosResponse<TBlog
 //     if (res.ok) {
 //       return await res.json();
 //     }
-//     console.log('Some Error in  get blogs');
+//     console.log('Some SimpleSnackbar in  get blogs');
 //     return [];
 //   } catch (e) {
-//     console.log('Some Error in  get blogs');
+//     console.log('Some SimpleSnackbar in  get blogs');
 //     return [];
 //   }
 // };
@@ -36,10 +36,10 @@ export const getBlogFromSlug = async (slug: string): Promise<AxiosResponse<TBlog
 //     if (res.ok) {
 //       return await res.json();
 //     }
-//     console.log('Some Error in  get blogs');
+//     console.log('Some SimpleSnackbar in  get blogs');
 //     return null;
 //   } catch (e) {
-//     console.log('Some Error in  get blogs');
+//     console.log('Some SimpleSnackbar in  get blogs');
 //     return null;
 //   }
 // };
