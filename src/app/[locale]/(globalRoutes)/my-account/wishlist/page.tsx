@@ -1,11 +1,11 @@
 'use client';
 
-import s from './page.module.scss';
+import s from '../page.module.scss';
 import H3 from '@/app/_typography/H3/H3';
 import AccountMenu from '@/app/[locale]/(globalRoutes)/my-account/_components/AccountMenu/AccountMenu';
-import FormDetails from '@/app/[locale]/(globalRoutes)/my-account/_components/FormDetails/FormDetails';
+import WishlistContent from '@/app/[locale]/(globalRoutes)/my-account/wishlist/_components/WishlistContent/WishlistContent';
 
-export default function myAccount() {
+export default function Wishlist() {
   return (
     <main>
       <section className={s.account}>
@@ -16,7 +16,7 @@ export default function myAccount() {
           <div className={s.content}>
             <AccountMenu />
             <div className={s.contentBlock}>
-              <FormDetails />
+              <WishlistContent />
             </div>
           </div>
         </div>

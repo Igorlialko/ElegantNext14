@@ -1,6 +1,7 @@
 import s from './accountMenu.module.scss';
 import SelectMenu from '@/app/[locale]/(globalRoutes)/my-account/_components/AccountMenu/components/SelectMenu/SelectMenu';
 import InputDownload from '@/app/[locale]/(globalRoutes)/my-account/_components/AccountMenu/components/InputDownload/InputDownload';
+import Menu from '@/app/[locale]/(globalRoutes)/my-account/_components/AccountMenu/components/Menu/Menu';
 
 export default function AccountMenu() {
   return (
@@ -16,7 +17,8 @@ export default function AccountMenu() {
           </div>
         </div>
       </div>
-      <SelectMenu className={s.menu} />
+      <SelectMenu className={s.selectIsShow} />
+      <Menu className={s.menuIsShow} />
     </div>
   );
 }

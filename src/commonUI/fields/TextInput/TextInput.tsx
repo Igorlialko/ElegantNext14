@@ -1,11 +1,11 @@
 import s from './textInput.module.scss';
 import {
-  HTMLInputTypeAttribute,
-  useState,
+  ChangeEvent,
   FocusEvent,
   forwardRef,
-  ChangeEvent,
+  HTMLInputTypeAttribute,
   ReactNode,
+  useState,
 } from 'react';
 import clsx from 'clsx';
 
@@ -16,6 +16,7 @@ interface IInput {
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   name?: string;
+  value?: any;
 
   min?: string | number;
   max?: string | number;
@@ -39,6 +40,7 @@ const TextInput = forwardRef<HTMLInputElement, IInput>(
       onBlur,
       onChange,
       name,
+      value,
       maxLength,
       min,
       max,
@@ -91,6 +93,7 @@ const TextInput = forwardRef<HTMLInputElement, IInput>(
           onChange={handle.onChange}
           min={min}
           max={max}
+          value={value}
           maxLength={maxLength}
           minLength={minLength}
           pattern={pattern}

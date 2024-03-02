@@ -1,31 +1,15 @@
-import s from '../detailsInput.module.scss';
-import { ChangeEvent, FocusEvent, forwardRef, HTMLInputTypeAttribute, useState } from 'react';
+import s from '../borderedInput.module.scss';
+import { ChangeEvent, FocusEvent, forwardRef, useState } from 'react';
 import clsx from 'clsx';
+import IInput from '../types';
 
-interface IInput {
-  type?: HTMLInputTypeAttribute;
-  placeholder?: string;
-  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  name?: string;
-
-  min?: string | number;
-  max?: string | number;
-  maxLength?: number;
-  minLength?: number;
-  pattern?: string;
-  required?: boolean;
-
-  className?: string;
-  classNameInput?: string;
-  prompt?: string;
+interface IInputBordered extends IInput {
+  value?: string;
 }
 
-const DetailsTextInput = forwardRef<HTMLInputElement, IInput>(
+const EmailInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
   (
     {
-      type = 'text',
       placeholder,
       onFocus,
       onBlur,
@@ -39,12 +23,12 @@ const DetailsTextInput = forwardRef<HTMLInputElement, IInput>(
       required,
       className,
       classNameInput,
-      prompt,
+      value,
     },
     ref
   ) => {
     const [isFocused, setIsFocused] = useState(false);
-    const [isHaveValue, setIsHaveValue] = useState(false);
+    const [valueInput, setValueInput] = useState(value);
 
     const handle = {
       onFocus(e: FocusEvent<HTMLInputElement>) {
@@ -54,20 +38,20 @@ const DetailsTextInput = forwardRef<HTMLInputElement, IInput>(
       onBlur(e: FocusEvent<HTMLInputElement>) {
         onBlur?.(e);
         setIsFocused(false);
-        setIsHaveValue(!!e.target.value);
+        setValueInput(e.target.value);
       },
       onChange(e: ChangeEvent<HTMLInputElement>) {
         onChange?.(e);
-        setIsHaveValue(!!e.target.value);
+        setValueInput(e.target.value);
       },
     };
 
     return (
       <div className={clsx(s.detailsInput, className)}>
-        {placeholder && <label>{`${placeholder}${required ? ' *' : ''}`}</label>}
+        {placeholder && <label htmlFor={name}>{`${placeholder}${required ? ' *' : ''}`}</label>}
         <div className={s.blockInput}>
           <input
-            type={type}
+            type='email'
             className={clsx(s.input, classNameInput)}
             onBlur={handle.onBlur}
             onFocus={handle.onFocus}
@@ -76,25 +60,27 @@ const DetailsTextInput = forwardRef<HTMLInputElement, IInput>(
             onChange={handle.onChange}
             min={min}
             max={max}
+            id={name}
             maxLength={maxLength}
             minLength={minLength}
             pattern={pattern}
             required={required}
+            autoComplete='email'
+            value={valueInput}
           />
           {!!placeholder && (
             <p
               className={clsx(s.placeholder, {
-                [s.isFocused]: isHaveValue || isFocused,
+                [s.isFocused]: valueInput || isFocused,
               })}
             >
               {placeholder}
             </p>
           )}
         </div>
-        {prompt && <p className={s.prompt}>{prompt}</p>}
       </div>
     );
   }
 );
 
-export default DetailsTextInput;
+export default EmailInputBordered;

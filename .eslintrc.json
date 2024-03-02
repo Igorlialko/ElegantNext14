@@ -20,6 +20,7 @@
   },
   "plugins": ["react", "prettier", "unused-imports", "@typescript-eslint"],
   "rules": {
+    "no-control-regex": 0,
     "unused-imports/no-unused-imports": "error",
     "no-restricted-syntax": "warn",
     "react/function-component-definition": "off",

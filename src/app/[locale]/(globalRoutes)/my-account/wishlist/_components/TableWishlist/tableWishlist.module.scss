@@ -1,0 +1,130 @@
+.tableWishlist {
+  width: 100%;
+  max-width: 707px;
+  border-spacing: unset;
+
+  .head {
+    margin-bottom: 8px;
+  }
+
+  .head,
+  .body {
+    .row {
+      display: grid;
+      grid-template-columns: minmax(200px, 1fr) minmax(auto, 231px) 136px;
+      gap: 20px;
+      align-items: center;
+      text-align: left;
+      @media (max-width: 576px) {
+        grid-template-columns: minmax(200px, 1fr) minmax(130px, 1fr);
+      }
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      th {
+        color: var(--neutral-04100);
+
+        &:nth-child(1) {
+          padding-left: 34px;
+          @media (max-width: 480px) {
+            padding-left: 40px;
+          }
+        }
+
+        &:nth-child(3) {
+          @media (max-width: 480px) {
+            display: none;
+          }
+        }
+      }
+
+      td,
+      th {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+
+        &:nth-child(2) {
+          @media (max-width: 576px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .body {
+    .row {
+      padding: 24px 0;
+      @media (max-width: 480px) {
+        padding: 16px 0;
+      }
+      td {
+        color: var(--text-main);
+      }
+    }
+  }
+
+  .button {
+    width: auto;
+    min-width: 130px;
+    max-width: unset;
+    height: auto;
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+  }
+}
+
+.product {
+  display: flex;
+  align-items: center;
+
+  .removeButton {
+    margin-right: 10px;
+  }
+
+  .productImage {
+    width: 100%;
+    min-width: 60px;
+    max-width: 60px;
+    height: 100%;
+    min-height: 72px;
+    max-height: 72px;
+    margin-right: 16px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+
+  .productName {
+    font-weight: 600;
+  }
+
+  .productPrice {
+    display: block;
+    margin-top: 8px;
+    @media (min-width: 576.99px) {
+      display: none;
+    }
+  }
+
+  > span {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--neutral-04100);
+  }
+}

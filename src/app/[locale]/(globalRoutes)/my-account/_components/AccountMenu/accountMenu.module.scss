@@ -1,12 +1,14 @@
 .accountMenu {
-  position: sticky;
-  top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 40px 16px;
   background: var(--neutral-02100);
   border-radius: 8px;
-
   .user {
     margin-bottom: 40px;
+
     .avatar {
       margin-bottom: 8px;
 
@@ -37,6 +39,18 @@
         right: 0;
         bottom: 0;
       }
+    }
+  }
+  .selectIsShow {
+    display: none;
+    @media (max-width: 992px) {
+      display: block;
+    }
+  }
+  .menuIsShow {
+    display: none;
+    @media (min-width: 993px) {
+      display: block;
     }
   }
 }
