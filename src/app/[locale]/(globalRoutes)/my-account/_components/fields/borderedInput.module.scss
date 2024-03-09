@@ -57,11 +57,19 @@
     }
   }
 
-  .prompt {
+  .prompt,
+  .error {
     margin-top: 12px;
     font-size: 12px;
     font-style: italic;
     line-height: 20px;
+  }
+
+  .prompt {
     color: var(--neutral-04100);
+  }
+
+  .error {
+    color: red;
   }
 }

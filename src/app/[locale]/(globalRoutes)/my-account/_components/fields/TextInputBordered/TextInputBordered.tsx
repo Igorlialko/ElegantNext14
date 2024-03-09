@@ -26,6 +26,7 @@ const TextInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
       classNameInput,
       prompt,
       value,
+      error,
     },
     ref
   ) => {
@@ -66,7 +67,6 @@ const TextInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
             maxLength={maxLength}
             minLength={minLength}
             pattern={pattern}
-            required={required}
             value={valueInput}
           />
           {!!placeholder && (
@@ -79,7 +79,9 @@ const TextInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
             </p>
           )}
         </div>
-        {prompt && <p className={s.prompt}>{prompt}</p>}
+        {}
+        {!error && prompt && <p className={s.prompt}>{prompt}</p>}
+        {error && <p className={s.error}>{error}</p>}
       </div>
     );
   }

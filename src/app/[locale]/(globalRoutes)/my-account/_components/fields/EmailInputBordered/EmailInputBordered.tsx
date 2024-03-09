@@ -24,6 +24,7 @@ const EmailInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
       className,
       classNameInput,
       value,
+      error,
     },
     ref
   ) => {
@@ -64,7 +65,6 @@ const EmailInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
             maxLength={maxLength}
             minLength={minLength}
             pattern={pattern}
-            required={required}
             autoComplete='email'
             value={valueInput}
           />
@@ -78,6 +78,7 @@ const EmailInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
             </p>
           )}
         </div>
+        {error && <p className={s.error}>{error}</p>}
       </div>
     );
   }

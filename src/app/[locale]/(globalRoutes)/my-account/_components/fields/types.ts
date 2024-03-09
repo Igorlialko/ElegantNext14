@@ -18,4 +18,5 @@ export default interface IInput {
   className?: string;
   classNameInput?: string;
   prompt?: string;
+  error?: string;
 }

@@ -25,6 +25,7 @@ const PhoneInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
       classNameInput,
       prompt,
       value,
+      error,
     },
     ref
   ) => {
@@ -65,7 +66,6 @@ const PhoneInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
             maxLength={maxLength}
             minLength={minLength}
             pattern={pattern}
-            required={required}
             value={valueInput}
           />
           {!!placeholder && (
@@ -78,7 +78,8 @@ const PhoneInputBordered = forwardRef<HTMLInputElement, IInputBordered>(
             </p>
           )}
         </div>
-        {prompt && <p className={s.prompt}>{prompt}</p>}
+        {!error && prompt && <p className={s.prompt}>{prompt}</p>}
+        {error && <p className={s.error}>{error}</p>}
       </div>
     );
   }
